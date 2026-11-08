@@ -2,7 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import MayaHeroSection from "@/components/MayaHeroSection";
-import FathimaTopLinks from "@/components/FathimaTopLinks";
+import MayaQuickActions from "@/components/MayaQuickActions";
+import MayaStatsStrip from "@/components/MayaStatsStrip";
+import MayaDoctorFinder from "@/components/MayaDoctorFinder";
+import MayaMobileActionBar from "@/components/MayaMobileActionBar";
 import MayaAboutSection from "@/components/MayaAboutSection";
 import MayaFounderSection from "@/components/MayaFounderSection";
 import MayaDepartmentsGrid from "@/components/MayaDepartmentsGrid";
@@ -17,11 +20,23 @@ import SchemaMarkup from "@/components/SchemaMarkup";
 import SuchiChatbot from "@/components/SuchiChatbot";
 import MayaPageLoader from "@/components/MayaPageLoader";
 import EnquiryModal from "@/components/EnquiryModal";
-import { HOSPITAL_INFO } from "@/data/hospitalData";
+import { HOSPITAL_INFO, DOCTORS, DEPARTMENTS, MAPS_DIRECTIONS_URL } from "@/data/hospitalData";
+
+// Resolve a doctor or department name (from any "Book" button) to the appointment form's fields
+function resolveAppointmentTarget(name?: string): { doctor: string; department: string } {
+  if (!name) return { doctor: "", department: "" };
+  const doctor = DOCTORS.find((d) => d.name === name);
+  if (doctor) return { doctor: doctor.name, department: doctor.department };
+  const key = name.split(/[&(,]/)[0].trim().toLowerCase();
+  const dept = DEPARTMENTS.find((d) => d.name === name || (key && d.name.toLowerCase().includes(key)));
+  return { doctor: "", department: dept ? dept.name : "" };
+}
 
 export default function Home() {
   const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
-  const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [appointmentTarget, setAppointmentTarget] = useState({ doctor: "", department: "" });
+  // Bumped on every open so the modal remounts and picks up the new doctor/department
+  const [appointmentKey, setAppointmentKey] = useState(0);
   const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
   const [questionModalOpen, setQuestionModalOpen] = useState(false);
   const [reportModalOpen, setReportModalOpen] = useState(false);
@@ -63,11 +78,8 @@ export default function Home() {
   }, []);
 
   const handleOpenAppointment = (docOrDeptName?: string) => {
-    if (docOrDeptName) {
-      setSelectedDoctor(docOrDeptName);
-    } else {
-      setSelectedDoctor("");
-    }
+    setAppointmentTarget(resolveAppointmentTarget(docOrDeptName));
+    setAppointmentKey((k) => k + 1);
     setAppointmentModalOpen(true);
   };
 
@@ -86,13 +98,18 @@ export default function Home() {
           onOpenEnquiryModal={() => setEnquiryModalOpen(true)}
         />
 
-        {/* Top 5 Service Links */}
+        {/* Quick-action tiles: one tap to the most common patient tasks */}
         <div className="reveal-on-scroll">
-          <FathimaTopLinks
+          <MayaQuickActions
             onOpenAppointmentModal={() => handleOpenAppointment()}
             onOpenQuestionModal={() => setQuestionModalOpen(true)}
             onOpenReportModal={() => setReportModalOpen(true)}
           />
+        </div>
+
+        {/* At-a-glance trust stats */}
+        <div className="reveal-on-scroll">
+          <MayaStatsStrip />
         </div>
 
         {/* About Maya Hospital */}
@@ -108,6 +125,11 @@ export default function Home() {
         {/* Specialized Clinical Departments */}
         <div className="reveal-on-scroll">
           <MayaDepartmentsGrid onOpenAppointmentModal={handleOpenAppointment} />
+        </div>
+
+        {/* Find a Doctor: department + search filters with direct booking */}
+        <div className="reveal-on-scroll">
+          <MayaDoctorFinder onOpenAppointmentModal={handleOpenAppointment} />
         </div>
 
         {/* Dedicated Doctors Carousel */}
@@ -288,7 +310,19 @@ export default function Home() {
                       e.currentTarget.style.backgroundColor = "transparent";
                     }}
                   >
-                    Contact Us
+                    <i className="fa-solid fa-phone" aria-hidden="true" style={{ marginRight: "8px" }}></i>
+                    Call Hospital
+                  </a>
+
+                  {/* Turn-by-turn directions (Call + Get Directions pairing) */}
+                  <a
+                    href={MAPS_DIRECTIONS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="maya-ghost-pill"
+                  >
+                    <i className="fa-solid fa-diamond-turn-right" aria-hidden="true"></i>
+                    Get Directions
                   </a>
                 </div>
               </div>
@@ -328,10 +362,15 @@ export default function Home() {
 
       {/* Interactive Appointment Modal */}
       <AppointmentModal
+        key={appointmentKey}
         isOpen={appointmentModalOpen}
         onClose={() => setAppointmentModalOpen(false)}
-        initialDoctor={selectedDoctor}
+        initialDoctor={appointmentTarget.doctor}
+        initialDepartment={appointmentTarget.department}
       />
+
+      {/* Phones only: sticky Emergency / Helpline / Book / Directions bar */}
+      <MayaMobileActionBar onOpenAppointmentModal={() => handleOpenAppointment()} />
 
       {/* Dedicated Hospital Enquiry Modal */}
       <EnquiryModal

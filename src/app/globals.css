@@ -2037,3 +2037,547 @@ ul.footerlinks li a:hover {
     height: 52px !important;
   }
 }
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ==========================================================================
+   QUICK-ACTION TILES (one-tap patient tasks)
+   ========================================================================== */
+.maya-quick-actions {
+  background-color: var(--fadeblue);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.12);
+  padding: 34px 0;
+}
+
+.maya-quick-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.maya-quick-tile {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 18px 18px;
+  background-color: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(36, 11, 59, 0.05);
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.maya-quick-tile:hover,
+.maya-quick-tile:focus-visible {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.14);
+  transform: translateY(-3px);
+}
+
+.maya-quick-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+  font-size: 21px;
+}
+
+.maya-quick-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-right: 30px;
+}
+
+.maya-quick-title {
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.25;
+}
+
+.maya-quick-sub {
+  font-size: 12.5px;
+  color: #6b5e7a;
+  line-height: 1.35;
+}
+
+.maya-quick-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #7c3aed;
+  border: 1.5px solid rgba(124, 58, 237, 0.3);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.maya-quick-tile:hover .maya-quick-arrow,
+.maya-quick-tile:focus-visible .maya-quick-arrow {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .maya-quick-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .maya-quick-actions { padding: 24px 0; }
+  .maya-quick-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .maya-quick-tile { padding: 16px 14px 46px; gap: 10px; }
+  .maya-quick-icon { width: 42px; height: 42px; font-size: 18px; }
+  .maya-quick-text { padding-right: 0; }
+  .maya-quick-title { font-size: 14px; }
+  .maya-quick-arrow { right: auto; left: 14px; bottom: 12px; width: 26px; height: 26px; font-size: 11px; }
+}
+
+/* ==========================================================================
+   STATS STRIP (real figures, count-up on first view)
+   ========================================================================== */
+.maya-stats-strip {
+  background-color: var(--primary-color);
+  background-image: linear-gradient(135deg, #240b3b 0%, #3b0764 100%);
+  padding: 34px 0;
+}
+
+.maya-stats-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.maya-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 4px;
+}
+
+.maya-stat + .maya-stat {
+  border-left: 1px solid rgba(192, 132, 252, 0.22);
+  padding-left: 24px;
+}
+
+.maya-stat-icon {
+  width: 50px;
+  height: 50px;
+  flex: 0 0 50px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(192, 132, 252, 0.16);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  color: #c084fc;
+  font-size: 19px;
+}
+
+.maya-stat-value {
+  display: block;
+  font-family: var(--heading-font);
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.maya-stat-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(237, 233, 254, 0.85);
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 1023px) {
+  .maya-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
+  .maya-stat:nth-child(3) { border-left: none; padding-left: 4px; }
+}
+
+@media (max-width: 480px) {
+  .maya-stats-grid { grid-template-columns: 1fr; row-gap: 16px; }
+  .maya-stat + .maya-stat { border-left: none; padding-left: 4px; }
+  .maya-stat-value { font-size: 26px; }
+}
+
+/* ==========================================================================
+   FIND A DOCTOR (department + search filters, booking cards)
+   ========================================================================== */
+.maya-finder-section {
+  padding: 90px 0 30px;
+  background-color: #ffffff;
+}
+
+.maya-finder-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 22px;
+  margin: 0 auto 18px;
+  max-width: 980px;
+  background-color: var(--fadeblue);
+  border: 1px solid rgba(124, 58, 237, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 14px 40px rgba(36, 11, 59, 0.06);
+}
+
+.maya-finder-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.maya-finder-field-grow { flex: 2 1 320px; }
+
+.maya-finder-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.maya-finder-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  height: 50px;
+  background-color: #ffffff;
+  border: 1.5px solid rgba(124, 58, 237, 0.2);
+  border-radius: 9999px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.maya-finder-control:focus-within {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+}
+
+.maya-finder-control i { color: #7c3aed; font-size: 15px; }
+
+.maya-finder-control select,
+.maya-finder-control input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none !important;
+  outline: none !important;
+  background: transparent;
+  font-family: var(--body-font);
+  font-size: 14.5px;
+  color: #261633;
+  box-shadow: none !important;
+}
+
+.maya-finder-control select { cursor: pointer; }
+
+.maya-finder-control select:focus-visible,
+.maya-finder-control input:focus-visible { outline: none !important; }
+
+.maya-finder-clear {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(124, 58, 237, 0.3);
+  background-color: #ffffff;
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.maya-finder-clear:hover { background-color: #7c3aed; color: #ffffff; border-color: #7c3aed; }
+
+.maya-finder-count {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b5e7a;
+  margin: 0 0 26px;
+}
+
+.maya-finder-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 24px;
+}
+
+.maya-doctor-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid rgba(124, 58, 237, 0.13);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(36, 11, 59, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.maya-doctor-card:hover,
+.maya-doctor-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(124, 58, 237, 0.35);
+  box-shadow: 0 18px 42px rgba(124, 58, 237, 0.14);
+}
+
+.maya-doctor-photo {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+  background-color: #240b3b;
+  overflow: hidden;
+}
+
+.maya-doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.maya-doctor-exp {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background-color: rgba(36, 11, 59, 0.85);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.maya-doctor-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 20px 22px;
+}
+
+.maya-doctor-dept {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 6px;
+}
+
+.maya-doctor-name {
+  font-size: 19px !important;
+  line-height: 1.25;
+  color: var(--primary-color);
+  margin: 0 0 4px !important;
+}
+
+.maya-doctor-degrees {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+  margin: 0 0 6px;
+}
+
+.maya-doctor-designation {
+  font-size: 13px;
+  color: #6b5e7a;
+  line-height: 1.45;
+  margin: 0 0 14px;
+}
+
+.maya-doctor-opd {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #3b284c;
+  background-color: var(--fadeblue);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: auto 0 16px;
+  line-height: 1.4;
+}
+
+.maya-doctor-opd i { color: #7c3aed; margin-top: 2px; }
+
+.maya-doctor-book {
+  align-self: flex-start;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  background-color: #7c3aed;
+  color: #ffffff;
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.maya-doctor-book:hover { background-color: #6d28d9; }
+
+.maya-finder-empty {
+  text-align: center;
+  padding: 40px 20px;
+  border: 1.5px dashed rgba(124, 58, 237, 0.25);
+  border-radius: 24px;
+  background-color: var(--fadeblue);
+}
+
+.maya-finder-empty > i { font-size: 34px; color: #c084fc; }
+.maya-finder-empty p { margin: 12px 0 18px; color: #3b284c; font-weight: 600; }
+
+.maya-finder-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  color: #7c3aed;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .maya-finder-section { padding-top: 70px; }
+  .maya-finder-bar { padding: 16px; border-radius: 20px; }
+  .maya-finder-clear { width: 100%; justify-content: center; }
+}
+
+/* ==========================================================================
+   LOCATION CARD: ghost pill for Get Directions (CSS hover, keyboard-friendly)
+   ========================================================================== */
+.maya-ghost-pill {
+  margin: 0;
+  text-decoration: none;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.maya-ghost-pill:hover,
+.maya-ghost-pill:focus-visible {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+/* ==========================================================================
+   MOBILE ACTION BAR (phones only): emergency / helpline / book / directions
+   ========================================================================== */
+.maya-mobile-bar { display: none; }
+
+@media (max-width: 768px) {
+  .maya-mobile-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+    gap: 6px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background-color: rgba(23, 5, 38, 0.97);
+    border-top: 1px solid rgba(192, 132, 252, 0.25);
+    box-shadow: 0 -10px 30px rgba(16, 3, 28, 0.35);
+  }
+
+  .maya-mobile-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 52px;
+    padding: 6px 4px;
+    border-radius: 14px;
+    border: none;
+    background: transparent;
+    color: #ede9fe !important;
+    font-family: var(--body-font);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .maya-mobile-bar-item i { font-size: 17px; color: #c084fc; }
+
+  .maya-mobile-bar-item.is-emergency { background-color: #dc2626; color: #ffffff !important; }
+  .maya-mobile-bar-item.is-emergency i { color: #ffffff; }
+
+  .maya-mobile-bar-item.is-primary { background-color: #7c3aed; color: #ffffff !important; }
+  .maya-mobile-bar-item.is-primary i { color: #ffffff; }
+
+  /* Keep page end + chatbot clear of the bar */
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)) !important; }
+  .suchi-launcher { bottom: calc(84px + env(safe-area-inset-bottom)) !important; }
+}

@@ -67,6 +67,12 @@ export const HOSPITAL_INFO = {
   paymentMethods: ["Cash", "UPI / QR Code", "Debit & Credit Cards", "Net Banking", "Cheque / DD", "Ayushman Bharat / Insurance"],
 };
 
+/** `tel:` link for a display-formatted phone number ("+91 91611 03325" -> "tel:+919161103325") */
+export const telHref = (phone: string) => `tel:${phone.replace(/\s+/g, "")}`;
+
+/** Google Maps turn-by-turn directions to the hospital */
+export const MAPS_DIRECTIONS_URL = `https://www.google.com/maps/dir/?api=1&destination=${HOSPITAL_INFO.mapCoordinates.lat},${HOSPITAL_INFO.mapCoordinates.lng}`;
+
 export const DEPARTMENTS: Department[] = [
   {
     id: "gen-medicine",
@@ -236,7 +242,7 @@ export const DOCTORS: Doctor[] = [
     designation: "Chief Consultant Gynecologist & Laparoscopic Surgeon",
     department: "Obstetrics & Gynaecology",
     experience: "16+ Years Experience",
-    image: "https://images.unsplash.com/photo-1594824813583-094183d2999e?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=600",
     availability: "Mon - Sat: 10:00 AM - 04:00 PM",
     specialties: ["High-Risk Pregnancy", "Laparoscopic Hysterectomy", "Infertility Management", "Painless Delivery"]
   },
@@ -247,7 +253,7 @@ export const DOCTORS: Doctor[] = [
     designation: "Senior Consultant Physician & Critical Care Specialist",
     department: "General Medicine & Critical Care",
     experience: "18+ Years Experience",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1576669801775-ff43c5ab079d?auto=format&fit=crop&q=80&w=600",
     availability: "Mon - Sun: 09:30 AM - 02:30 PM & 05:00 PM - 08:00 PM",
     specialties: ["Critical Care ICU", "Diabetes & Hypertension", "Infectious Fevers", "Cardio-Respiratory Care"]
   },
@@ -258,7 +264,7 @@ export const DOCTORS: Doctor[] = [
     designation: "Senior Consultant Orthopedic & Joint Replacement Surgeon",
     department: "Orthopedics & Joint Replacement",
     experience: "15+ Years Experience",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1645066928295-2506defde470?auto=format&fit=crop&q=80&w=600",
     availability: "Mon - Sat: 11:00 AM - 05:00 PM",
     specialties: ["Joint Replacement (Knee/Hip)", "Trauma & Fracture Surgery", "Arthroscopy", "Spine Disorders"]
   },
@@ -269,7 +275,7 @@ export const DOCTORS: Doctor[] = [
     designation: "Consultant General & Minimal Access Laparoscopic Surgeon",
     department: "General & Laparoscopic Surgery",
     experience: "14+ Years Experience",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1618498082410-b4aa22193b38?auto=format&fit=crop&q=80&w=600",
     availability: "Mon - Sat: 10:30 AM - 04:30 PM",
     specialties: ["Gallbladder Stone Surgery", "Laparoscopic Hernia Repair", "Laser Piles Clinic", "Appendectomy"]
   },
@@ -280,7 +286,7 @@ export const DOCTORS: Doctor[] = [
     designation: "Senior Pediatrician & Neonatal Specialist",
     department: "Paediatrics & Neonatology (NICU)",
     experience: "12+ Years Experience",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600",
+    image: "https://images.unsplash.com/photo-1612276529731-4b21494e6d71?auto=format&fit=crop&q=80&w=600",
     availability: "Mon - Sun: 10:00 AM - 03:00 PM & 06:00 PM - 08:30 PM",
     specialties: ["Neonatal ICU Care", "Pediatric Asthma & Allergies", "Newborn Resuscitation", "Child Vaccination"]
   },
