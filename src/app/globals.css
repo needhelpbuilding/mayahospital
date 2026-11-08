@@ -1312,6 +1312,12 @@ ul.footerlinks li a:hover {
 /* ==========================================================================
    HONEYCOMB GRID: DOCTOR HEXAGONS + LIGHTER SHADE FILLER HEXAGONS
    ========================================================================== */
+/* ==========================================================================
+   HONEYCOMB DOCTOR SECTION: 2 HEXAGONS PER ROW (SPACIOUS LUXURY LAYOUT)
+   ========================================================================== */
+/* ==========================================================================
+   HONEYCOMB DOCTOR SECTION: ORIGINAL HORIZONTAL INTERLOCKING (BORDERLESS)
+   ========================================================================== */
 .honeycomb-scroll-wrapper {
   width: 100% !important;
   overflow-x: auto !important;
@@ -1339,8 +1345,8 @@ ul.footerlinks li a:hover {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 16px !important;
-  margin-top: -46px !important;
+  gap: 18px !important;
+  margin-top: -55px !important;
   position: relative !important;
 }
 
@@ -1348,10 +1354,18 @@ ul.footerlinks li a:hover {
   margin-top: 0 !important;
 }
 
-/* Hexagon Card Dimensions & Geometry */
+.honeycomb-row-stagger-1 {
+  transform: translateX(-71px) !important;
+}
+
+.honeycomb-row-stagger-2 {
+  transform: translateX(71px) !important;
+}
+
+/* Hexagon Card Dimensions & Geometry - Larger Size, Strictly Borderless */
 .hex-card {
-  width: 220px !important;
-  height: 250px !important;
+  width: 265px !important;
+  height: 300px !important;
   position: relative !important;
   clip-path: polygon(
     50% 1.5%,
@@ -1372,6 +1386,7 @@ ul.footerlinks li a:hover {
 
 .hex-card:hover,
 .hex-card.is-active-mobile {
+  transform: translateY(-6px) scale(1.02) !important;
   z-index: 50 !important;
 }
 
@@ -1386,7 +1401,7 @@ ul.footerlinks li a:hover {
   justify-content: center !important;
 }
 
-/* Doctor Image Inside Hexagon - Properly Aligned & Framed */
+/* Doctor Image Inside Hexagon - Fully Filling Borderless Hexagon */
 .hex-image-holder {
   position: absolute !important;
   inset: 0 !important;
@@ -1396,6 +1411,7 @@ ul.footerlinks li a:hover {
   background-color: #240b3b !important;
   transition: opacity 0.25s ease !important;
   overflow: hidden !important;
+  border: none !important;
 }
 
 .hex-img {
@@ -1404,71 +1420,10 @@ ul.footerlinks li a:hover {
   object-fit: cover !important;
   object-position: center top !important;
   display: block !important;
+  border: none !important;
 }
 
-/* ==========================================================================
-   LIGHTER SHADE FILLER HEXAGONS
-   ========================================================================== */
-.hex-filler-card {
-  background: linear-gradient(145deg, #4c1d95 0%, #6d28d9 100%) !important;
-  box-shadow: 0 8px 20px rgba(76, 29, 149, 0.25) !important;
-  transition: all 0.3s ease !important;
-}
-
-.hex-filler-card:hover {
-  background: linear-gradient(145deg, #5b21b6 0%, #7c3aed 100%) !important;
-  transform: translateY(-4px) scale(1.02) !important;
-}
-
-.hex-filler-content {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-direction: column !important;
-  text-align: center !important;
-}
-
-.hex-filler-inner {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  color: rgba(255, 255, 255, 0.75) !important;
-  padding: 15px !important;
-  transition: transform 0.25s ease !important;
-}
-
-.hex-filler-card:hover .hex-filler-inner {
-  transform: scale(1.08) !important;
-  color: #ffffff !important;
-}
-
-.hex-filler-icon {
-  font-size: 32px !important;
-  color: #e9d5ff !important;
-  opacity: 0.85 !important;
-  transition: opacity 0.25s ease, transform 0.25s ease !important;
-}
-
-.hex-filler-card:hover .hex-filler-icon {
-  opacity: 1 !important;
-  color: #ffffff !important;
-}
-
-.hex-filler-label {
-  font-size: 11px !important;
-  font-weight: 700 !important;
-  letter-spacing: 1.5px !important;
-  text-transform: uppercase !important;
-  color: #ede9fe !important;
-  font-family: var(--heading-font), sans-serif !important;
-  text-align: center !important;
-}
-
-/* ==========================================================================
-   HOVER STATE: PERFECT HORIZONTAL & VERTICAL CENTERING
-   ========================================================================== */
+/* Hover State Panel (Pure White Card with Centered Doctor Details) */
 .hex-hover-panel {
   position: absolute !important;
   inset: 0 !important;
@@ -1484,7 +1439,7 @@ ul.footerlinks li a:hover {
   border-radius: 18px !important;
   border: none !important;
   z-index: 20 !important;
-  padding: 16px !important;
+  padding: 18px !important;
   box-sizing: border-box !important;
 }
 
@@ -1496,7 +1451,7 @@ ul.footerlinks li a:hover {
 
 .hex-text-inner {
   width: 100% !important;
-  max-width: 180px !important;
+  max-width: 200px !important;
   margin: 0 auto !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1511,11 +1466,10 @@ ul.footerlinks li a:hover {
   font-size: 15.5px !important;
   font-weight: 700 !important;
   color: #240b3b !important;
-  margin: 0 auto 6px auto !important;
+  margin: 0 auto 5px auto !important;
   line-height: 1.25 !important;
   text-align: center !important;
   width: 100% !important;
-  display: block !important;
 }
 
 .hex-doc-edu {
@@ -1523,40 +1477,79 @@ ul.footerlinks li a:hover {
   font-size: 11.5px !important;
   font-weight: 600 !important;
   color: #7c3aed !important;
-  margin: 0 auto 8px auto !important;
-  line-height: 1.35 !important;
+  margin: 0 auto 5px auto !important;
+  line-height: 1.3 !important;
   text-align: center !important;
   width: 100% !important;
-  display: block !important;
 }
 
 .hex-doc-spec {
   font-family: var(--body-font), sans-serif !important;
-  font-size: 12px !important;
+  font-size: 11.5px !important;
   font-weight: 500 !important;
   color: #4b5563 !important;
-  margin: 0 auto 10px auto !important;
-  line-height: 1.4 !important;
+  margin: 0 auto 8px auto !important;
+  line-height: 1.35 !important;
   text-align: center !important;
   width: 100% !important;
-  display: block !important;
 }
 
-.hex-book-badge {
+.hex-doc-timing {
   font-size: 10px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.8px !important;
-  color: #ffffff !important;
-  background-color: #7c3aed !important;
-  padding: 4px 12px !important;
+  font-weight: 600 !important;
+  color: #4c1d95 !important;
+  background: #f5f3ff !important;
+  border: 1px solid #ddd6fe !important;
+  padding: 3px 9px !important;
   border-radius: 9999px !important;
-  text-transform: uppercase !important;
-  display: inline-block !important;
-  transition: background-color 0.2s ease !important;
+  margin: 0 auto 10px auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  max-width: 95% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
-.hex-book-badge:hover {
+.hex-actions {
+  display: flex !important;
+  gap: 6px !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.hex-btn-profile {
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 5px 12px !important;
+  border-radius: 9999px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.hex-btn-profile:hover {
   background-color: #6d28d9 !important;
+}
+
+.hex-btn-book {
+  background-color: #ffffff !important;
+  color: #7c3aed !important;
+  border: 1.5px solid #7c3aed !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 4px 11px !important;
+  border-radius: 9999px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.hex-btn-book:hover {
+  background-color: #f5f3ff !important;
 }
 
 .mobile-swipe-hint {
@@ -1576,43 +1569,9 @@ ul.footerlinks li a:hover {
   margin-right: auto;
 }
 
-/* ==========================================================================
-   RESPONSIVENESS & BREAKPOINTS (TABLETS & MOBILE)
-   ========================================================================== */
+/* Navigation Responsive Breakpoints */
 .maya-mobile-nav-toggle {
   display: none;
-}
-
-@media (max-width: 1440px) {
-  .hex-filler-ultrawide {
-    display: none !important;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hex-card {
-    width: 180px !important;
-    height: 205px !important;
-  }
-  .honeycomb-row {
-    margin-top: -38px !important;
-    gap: 12px !important;
-  }
-  .hex-doc-name {
-    font-size: 14px !important;
-  }
-  .hex-doc-edu {
-    font-size: 11px !important;
-  }
-  .hex-doc-spec {
-    font-size: 11.5px !important;
-  }
-  .hex-filler-icon {
-    font-size: 26px !important;
-  }
-  .hex-filler-label {
-    font-size: 10px !important;
-  }
 }
 
 @media (max-width: 1280px) {
@@ -1633,6 +1592,32 @@ ul.footerlinks li a:hover {
   }
 }
 
+@media (max-width: 1200px) {
+  .hex-card {
+    width: 215px !important;
+    height: 245px !important;
+  }
+  .honeycomb-row {
+    margin-top: -44px !important;
+    gap: 14px !important;
+  }
+  .honeycomb-row-stagger-1 {
+    transform: translateX(-57px) !important;
+  }
+  .honeycomb-row-stagger-2 {
+    transform: translateX(57px) !important;
+  }
+  .hex-doc-name {
+    font-size: 14px !important;
+  }
+  .hex-doc-edu {
+    font-size: 11px !important;
+  }
+  .hex-doc-spec {
+    font-size: 11px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .mobile-swipe-hint {
     display: inline-flex !important;
@@ -1645,17 +1630,27 @@ ul.footerlinks li a:hover {
     margin-top: -32px !important;
     gap: 10px !important;
   }
+  .honeycomb-row-stagger-1 {
+    transform: translateX(-41px) !important;
+  }
+  .honeycomb-row-stagger-2 {
+    transform: translateX(41px) !important;
+  }
   .hex-doc-name {
-    font-size: 13px !important;
+    font-size: 12.5px !important;
   }
   .hex-doc-edu {
-    font-size: 10.5px !important;
+    font-size: 10px !important;
   }
   .hex-doc-spec {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
-  .hex-book-badge {
-    font-size: 9px !important;
+  .hex-doc-timing {
+    display: none !important;
+  }
+  .hex-btn-profile,
+  .hex-btn-book {
+    font-size: 9.5px !important;
     padding: 3px 8px !important;
   }
 

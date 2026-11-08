@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { HOSPITAL_INFO } from "@/data/hospitalData";
+import { HOSPITAL_INFO, DEPARTMENTS, DOCTORS } from "@/data/hospitalData";
 
 interface HeaderHeroProps {
   onOpenAppointmentModal: () => void;
@@ -11,9 +11,9 @@ interface HeaderHeroProps {
 
 export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryModal }: HeaderHeroProps) {
   const [scrolled, setScrolled] = useState(false);
-  const [openMenu, setOpenMenu] = useState<"about" | "departments" | "services" | null>(null);
+  const [openMenu, setOpenMenu] = useState<"about" | "departments" | "doctors" | "services" | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileSubmenu, setMobileSubmenu] = useState<"about" | "departments" | "services" | null>(null);
+  const [mobileSubmenu, setMobileSubmenu] = useState<"about" | "departments" | "doctors" | "services" | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -247,63 +247,201 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       position: "absolute",
                       top: "100%",
                       left: "-120px",
-                      width: "560px",
+                      width: "600px",
                       backgroundColor: "#160526",
-                      borderRadius: "0px",
+                      borderRadius: "16px",
                       boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
-                      border: "none",
-                      padding: "24px 28px",
+                      border: "1px solid rgba(124, 58, 237, 0.3)",
+                      padding: "20px 24px",
                       display: "grid",
                       gridTemplateColumns: "1fr 1fr",
-                      gap: "0px",
+                      gap: "8px",
                       zIndex: 2000,
                       backdropFilter: "blur(20px)"
                     }}
                   >
-                    {[
-                      { name: "Obstetrics & Gynaecology", desc: "Maternity, normal & C-section deliveries", icon: "fa-person-breastfeeding", href: "#departments" },
-                      { name: "General & Laparoscopic Surgery", desc: "Minimally invasive keyhole procedures", icon: "fa-hand-holding-medical", href: "#departments" },
-                      { name: "Orthopaedics & Joint Care", desc: "Fractures, trauma, total joint surgery", icon: "fa-bone", href: "#departments" },
-                      { name: "General Medicine & Diabetology", desc: "Fever, hypertension, metabolic care", icon: "fa-stethoscope", href: "#departments" },
-                      { name: "Paediatrics & Neonatology", desc: "Well-baby clinic, vaccination & NICU", icon: "fa-baby", href: "#departments" },
-                      { name: "Pathology & Diagnostic Lab", desc: "Automated blood, urine, biochemistry", icon: "fa-microscope", href: "#departments" }
-                    ].map((dept, i) => (
+                    {DEPARTMENTS.map((dept, i) => (
                       <Link
                         key={i}
-                        href={dept.href}
+                        href={`/departments/${dept.slug}`}
                         onClick={() => setOpenMenu(null)}
                         style={{
                           display: "flex",
                           alignItems: "flex-start",
                           gap: "12px",
-                          padding: "16px 14px",
-                          borderRadius: "0px",
-                          backgroundColor: "transparent",
+                          padding: "12px 14px",
+                          borderRadius: "10px",
+                          backgroundColor: "rgba(255, 255, 255, 0.03)",
                           textDecoration: "none",
-                          borderBottom: i < 4 ? "1px solid rgba(255, 255, 255, 0.12)" : "none",
-                          borderRight: i % 2 === 0 ? "1px solid rgba(255, 255, 255, 0.12)" : "none",
-                          transition: "background-color 0.2s ease"
+                          transition: "all 0.2s ease"
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = "rgba(168, 85, 247, 0.14)";
+                          e.currentTarget.style.backgroundColor = "rgba(168, 85, 247, 0.16)";
+                          e.currentTarget.style.transform = "translateX(3px)";
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = "transparent";
+                          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.03)";
+                          e.currentTarget.style.transform = "translateX(0px)";
                         }}
                       >
-                        <div style={{ color: "#ffffff", fontSize: "17px", marginTop: "2px" }}>
-                          <i className={`fa-solid ${dept.icon}`}></i>
+                        <div style={{ color: "#c084fc", fontSize: "16px", marginTop: "2px" }}>
+                          <i className={dept.iconClass}></i>
                         </div>
                         <div>
-                          <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 600, marginBottom: "3px" }}>
+                          <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 700, marginBottom: "3px" }}>
                             {dept.name}
                           </div>
                           <div style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "11px", lineHeight: "1.35" }}>
-                            {dept.desc}
+                            {dept.shortDesc.slice(0, 50)}...
                           </div>
                         </div>
                       </Link>
                     ))}
+
+                    <div style={{ gridColumn: "1 / -1", paddingTop: "8px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                      <Link
+                        href="/departments"
+                        onClick={() => setOpenMenu(null)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          padding: "10px",
+                          borderRadius: "8px",
+                          backgroundColor: "#7c3aed",
+                          color: "#ffffff",
+                          textDecoration: "none",
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "1px"
+                        }}
+                      >
+                        <span>Browse All Departments Directory</span>
+                        <i className="fa-solid fa-arrow-right" style={{ fontSize: "10px" }}></i>
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* DOCTORS MEGA DROPDOWN */}
+              <div
+                className="maya-dropdown-wrap"
+                style={{ position: "relative", display: "inline-flex", alignItems: "center" }}
+                onMouseEnter={() => setOpenMenu("doctors")}
+                onMouseLeave={() => setOpenMenu(null)}
+              >
+                <button
+                  className="maya-nav-link"
+                  onClick={() => setOpenMenu(openMenu === "doctors" ? null : "doctors")}
+                >
+                  <span>DOCTORS</span>
+                  <i
+                    className="fa-solid fa-chevron-down"
+                    style={{
+                      fontSize: "9px",
+                      marginLeft: "6px",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      transform: openMenu === "doctors" ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.3s ease"
+                    }}
+                  />
+                </button>
+
+                {openMenu === "doctors" && (
+                  <div
+                    className="dropdown-slow-fade"
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "-120px",
+                      width: "620px",
+                      backgroundColor: "#160526",
+                      borderRadius: "16px",
+                      boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
+                      border: "1px solid rgba(124, 58, 237, 0.3)",
+                      padding: "20px 24px",
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: "8px",
+                      zIndex: 2000,
+                      backdropFilter: "blur(20px)"
+                    }}
+                  >
+                    {DOCTORS.map((doc, i) => (
+                      <Link
+                        key={i}
+                        href={`/doctors/${doc.slug}`}
+                        onClick={() => setOpenMenu(null)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
+                          padding: "10px 12px",
+                          borderRadius: "10px",
+                          backgroundColor: "rgba(255, 255, 255, 0.03)",
+                          textDecoration: "none",
+                          transition: "all 0.2s ease"
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = "rgba(168, 85, 247, 0.16)";
+                          e.currentTarget.style.transform = "translateX(3px)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.03)";
+                          e.currentTarget.style.transform = "translateX(0px)";
+                        }}
+                      >
+                        <img
+                          src={doc.image}
+                          alt={doc.name}
+                          style={{
+                            width: "44px",
+                            height: "44px",
+                            borderRadius: "50%",
+                            objectFit: "cover",
+                            border: "1.5px solid #7c3aed",
+                            flexShrink: 0
+                          }}
+                        />
+                        <div style={{ overflow: "hidden" }}>
+                          <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                            {doc.name}
+                          </div>
+                          <div style={{ color: "#c084fc", fontSize: "11px", fontWeight: 600 }}>
+                            {doc.department}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+
+                    <div style={{ gridColumn: "1 / -1", paddingTop: "8px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                      <Link
+                        href="/doctors"
+                        onClick={() => setOpenMenu(null)}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          padding: "10px",
+                          borderRadius: "8px",
+                          backgroundColor: "#7c3aed",
+                          color: "#ffffff",
+                          textDecoration: "none",
+                          fontSize: "12px",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          letterSpacing: "1px"
+                        }}
+                      >
+                        <span>Meet All Specialist Doctors &amp; Surgeons</span>
+                        <i className="fa-solid fa-arrow-right" style={{ fontSize: "10px" }}></i>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -579,27 +717,87 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 </button>
                 {mobileSubmenu === "departments" && (
                   <div style={{ padding: "0 0 12px 14px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                    {[
-                      "Gynaecology & Maternity",
-                      "General Medicine & Diabetology",
-                      "Orthopaedics & Joint Surgery",
-                      "General & Laparoscopic Surgery",
-                      "Paediatrics & Neonatology",
-                      "24x7 Emergency & Critical Care"
-                    ].map((name, i) => (
+                    <Link
+                      href="/departments"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        color: "#c084fc",
+                        fontSize: "13px",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        padding: "4px 0",
+                        display: "block"
+                      }}
+                    >
+                      • All Departments Directory →
+                    </Link>
+                    {DEPARTMENTS.map((dept, i) => (
                       <Link
                         key={i}
-                        href="#departments"
+                        href={`/departments/${dept.slug}`}
                         onClick={() => setMobileMenuOpen(false)}
                         style={{
                           color: "rgba(255, 255, 255, 0.75)",
                           fontSize: "13px",
                           textDecoration: "none",
-                          padding: "6px 0",
+                          padding: "4px 0",
                           display: "block"
                         }}
                       >
-                        • {name}
+                        • {dept.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* Doctors Mobile Accordion */}
+              <div style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}>
+                <button
+                  onClick={() => setMobileSubmenu(mobileSubmenu === "doctors" ? null : "doctors")}
+                  className="mobile-nav-item"
+                  style={{ width: "100%", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
+                >
+                  <span>DOCTORS</span>
+                  <i
+                    className="fa-solid fa-chevron-down"
+                    style={{
+                      fontSize: "11px",
+                      transform: mobileSubmenu === "doctors" ? "rotate(180deg)" : "rotate(0deg)",
+                      transition: "transform 0.25s ease"
+                    }}
+                  ></i>
+                </button>
+                {mobileSubmenu === "doctors" && (
+                  <div style={{ padding: "0 0 12px 14px", display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <Link
+                      href="/doctors"
+                      onClick={() => setMobileMenuOpen(false)}
+                      style={{
+                        color: "#c084fc",
+                        fontSize: "13px",
+                        fontWeight: 700,
+                        textDecoration: "none",
+                        padding: "4px 0",
+                        display: "block"
+                      }}
+                    >
+                      • All Specialist Doctors Directory →
+                    </Link>
+                    {DOCTORS.map((doc, i) => (
+                      <Link
+                        key={i}
+                        href={`/doctors/${doc.slug}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        style={{
+                          color: "rgba(255, 255, 255, 0.75)",
+                          fontSize: "13px",
+                          textDecoration: "none",
+                          padding: "4px 0",
+                          display: "block"
+                        }}
+                      >
+                        • {doc.name} ({doc.department})
                       </Link>
                     ))}
                   </div>
@@ -666,7 +864,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
             {/* Drawer Bottom Actions */}
             <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px", flexShrink: 0 }}>
               <a
-                href="tel:+919935123456"
+                href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -864,7 +1062,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
 
             {/* Ghost 24x7 Emergency Button (pure ghost: transparent background, clean border, no glass blur) */}
             <a
-              href="tel:+919935123456"
+              href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
               style={{
                 backgroundColor: "transparent",
                 color: "#ffffff",

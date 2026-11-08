@@ -171,10 +171,16 @@ export default function Home() {
                   <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
                     <i className="fa-solid fa-phone" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
                     <div>
-                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>Emergency 24x7:</strong>
-                      <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700 }}>
+                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>24x7 Emergency (अस्पताल हेल्पलाइन):</strong>
+                      <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700, fontSize: "16px" }}>
                         {HOSPITAL_INFO.emergencyPhone}
                       </a>
+                      <div style={{ marginTop: "4px", fontSize: "13px", color: "rgba(255,255,255,0.85)" }}>
+                        <span>OPD / Reception: </span>
+                        <a href="tel:+919161103325" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 9161103325</a>
+                        <span style={{ margin: "0 6px" }}>•</span>
+                        <a href="tel:+917897576583" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 7897576583</a>
+                      </div>
                     </div>
                   </div>
                 </div>

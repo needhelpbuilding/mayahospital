@@ -67,21 +67,33 @@ export default function FathimaFooter() {
               Near Children&apos;s Academy School, Aira Road, Meerpur, Lakhimpur Kheri, UP 262701
             </div>
 
-            <div style={{ fontSize: "13px", lineHeight: "20px", color: "rgba(255, 255, 255, 0.8)" }}>
-              <span style={{ color: "#ffffff", fontWeight: 600, display: "block", marginBottom: "2px" }}>24x7 Helpline</span>
-              <a
-                href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
-                style={{ color: "#c084fc", fontWeight: 600, textDecoration: "none" }}
-              >
-                {HOSPITAL_INFO.emergencyPhone}
-              </a>
-              <span style={{ margin: "0 6px", opacity: 0.4 }}>•</span>
-              <a
-                href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`}
-                style={{ color: "rgba(255, 255, 255, 0.85)", textDecoration: "none" }}
-              >
-                {HOSPITAL_INFO.bookingPhone}
-              </a>
+            <div style={{ fontSize: "13px", lineHeight: "22px", color: "rgba(255, 255, 255, 0.85)" }}>
+              <span style={{ color: "#ffffff", fontWeight: 700, display: "block", marginBottom: "4px" }}>Contact &amp; Helplines</span>
+              <div>
+                <span style={{ color: "#f87171", fontWeight: 700 }}>24x7 Emergency: </span>
+                <a
+                  href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
+                  style={{ color: "#ffffff", fontWeight: 700, textDecoration: "none" }}
+                >
+                  {HOSPITAL_INFO.emergencyPhone}
+                </a>
+              </div>
+              <div>
+                <span style={{ color: "#c084fc", fontWeight: 600 }}>OPD / Reception: </span>
+                <a
+                  href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`}
+                  style={{ color: "rgba(255, 255, 255, 0.85)", textDecoration: "none" }}
+                >
+                  {HOSPITAL_INFO.bookingPhone}
+                </a>
+                <span style={{ margin: "0 6px", opacity: 0.4 }}>•</span>
+                <a
+                  href="tel:+917897576583"
+                  style={{ color: "rgba(255, 255, 255, 0.85)", textDecoration: "none" }}
+                >
+                  +91 7897576583
+                </a>
+              </div>
             </div>
           </div>
 
@@ -104,15 +116,15 @@ export default function FathimaFooter() {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {[
-                { name: "About Maya Hospital", href: "#about" },
-                { name: "Specialist Doctors", href: "#doctors" },
-                { name: "Clinical Departments", href: "#departments" },
-                { name: "24x7 Emergency & ICU", href: "#services-facilities" },
-                { name: "Cashless Mediclaim", href: "#insurance" },
-                { name: "Hospital Directions", href: "#location" }
+                { name: "About Maya Hospital", href: "/#about" },
+                { name: "Specialist Doctors", href: "/doctors" },
+                { name: "Clinical Departments", href: "/departments" },
+                { name: "Online Consultancy", href: "/consultancy" },
+                { name: "24x7 Emergency & ICU", href: "/#services-facilities" },
+                { name: "Cashless Mediclaim", href: "/#insurance" }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <a
+                  <Link
                     href={link.href}
                     style={{
                       color: "rgba(255, 255, 255, 0.72)",
@@ -128,7 +140,7 @@ export default function FathimaFooter() {
                     }}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -153,16 +165,16 @@ export default function FathimaFooter() {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {[
-                "Obstetrics & Gynaecology",
-                "Orthopaedics & Joint Surgery",
-                "General & Laparoscopic Surgery",
-                "General Medicine & Critical Care",
-                "Paediatrics & Neonatology (NICU)",
-                "Diagnostic Pathology & X-Ray"
+                { name: "Urology Department", href: "/departments/urology" },
+                { name: "Neurosurgery Department", href: "/departments/neurosurgery" },
+                { name: "Gynecology & Obstetrics", href: "/departments/gynecology-obstetrics" },
+                { name: "Anorectal Surgery (Piles)", href: "/departments/anorectal-surgery" },
+                { name: "General Surgery & Trauma", href: "/departments/general-surgery" },
+                { name: "All Departments Overview", href: "/departments" }
               ].map((spec, idx) => (
                 <li key={idx}>
-                  <a
-                    href="#departments"
+                  <Link
+                    href={spec.href}
                     style={{
                       color: "rgba(255, 255, 255, 0.72)",
                       fontSize: "13.5px",
@@ -176,8 +188,8 @@ export default function FathimaFooter() {
                       e.currentTarget.style.color = "rgba(255, 255, 255, 0.72)";
                     }}
                   >
-                    {spec}
-                  </a>
+                    {spec.name}
+                  </Link>
                 </li>
               ))}
             </ul>

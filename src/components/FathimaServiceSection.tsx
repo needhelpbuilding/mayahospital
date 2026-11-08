@@ -21,7 +21,7 @@ export default function FathimaServiceSection() {
               <img
                 src="/female-mayahospital.jpeg"
                 className="ladydoc"
-                alt="Dr. Maya Verma - Chief Consultant Gynecologist & Laparoscopic Surgeon"
+                alt="Dr. Apoorva Shrivastava & Dr. Surbhi Mishra - Gynecology and Obstetrics Specialists, Maya Hospital"
                 style={{
                   width: "100%",
                   maxWidth: "460px",

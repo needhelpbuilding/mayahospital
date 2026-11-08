@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mayahospitalmeerpur.com"),
   title: "Home - Maya Hospital And Multi-speciality Centre",
   description: "Maya Hospital & Multi-speciality Centre in Meerpur, Lakhimpur Kheri. 24x7 Emergency, Gynaecology, Pediatrics, General Medicine, Orthopedics, Joint Replacement, Modern Operation Theatres.",
   icons: {

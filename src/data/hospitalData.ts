@@ -1,25 +1,39 @@
 export interface Doctor {
   id: string;
+  slug: string;
   name: string;
   degrees: string;
+  shortDegrees?: string;
   designation: string;
   department: string;
+  departmentSlug: string;
   experience: string;
   image: string;
   availability: string;
+  opdTimings: string;
   specialties: string[];
+  about: string;
+  services: string[];
+  phone?: string;
+  consultationFee?: string;
 }
 
 export interface Department {
   id: string;
   name: string;
+  shortName: string;
   slug: string;
   shortDesc: string;
   fullDesc: string;
   iconName: string;
+  iconClass: string;
   image: string;
   services: string[];
   headDoctor?: string;
+  doctorIds: string[];
+  timing: string;
+  emergencySupport: boolean;
+  badges: string[];
 }
 
 export interface Review {
@@ -44,7 +58,7 @@ export interface HealthPackage {
 }
 
 export const HOSPITAL_INFO = {
-  name: "Maya Hospital And Multi-speciality Centre",
+  name: "Maya Hospital & Multi Speciality Centre",
   shortName: "Maya Hospital",
   tagline: "Dedicated to Excellence in Patient-Centred Healthcare",
   subtagline: "Comprehensive 24x7 Multi-Speciality Care, Advanced Surgery, and Emergency Diagnostics in Meerpur, Lakhimpur Kheri",
@@ -52,9 +66,18 @@ export const HOSPITAL_INFO = {
   rating: "5.0",
   reviewCount: "51+",
   hours: "Open 24 Hours / 7 Days a Week",
-  emergencyPhone: "+91 9935123456",
-  bookingPhone: "+91 8840123456",
-  landlinePhone: "05872 250105",
+  emergencyPhone: "+91 9839752108",
+  bookingPhone: "+91 9161103325",
+  secondaryPhone: "+91 7897576583",
+  landlinePhone: "+91 7897576583",
+  ambulancePhone: "+91 9839752108",
+  allPhones: [
+    { label: "24x7 Emergency Helpline", number: "+91 9839752108", raw: "9839752108", isEmergency: true },
+    { label: "OPD Booking & Reception", number: "+91 9161103325", raw: "9161103325", isEmergency: false },
+    { label: "Patient Care & Enquiry", number: "+91 7897576583", raw: "7897576583", isEmergency: false }
+  ],
+  phoneDisplayList: "+91 9839752108 (Emergency) • +91 9161103325 • +91 7897576583",
+  freeAmbulance: "Free Ambulance Service (फ्री एम्बुलेंस सुविधा)",
   email: "contact@mayahospitalmeerpur.com",
   appointmentEmail: "appointments@mayahospitalmeerpur.com",
   fullAddress: "556, Maya HOSPITAL & Multispeciality Center, Near Children's Academy School, Aira Road Near Children's Academy Meerpur, Meerpur, Lakhimpur Kheri-262701, Uttar Pradesh",
@@ -67,233 +90,350 @@ export const HOSPITAL_INFO = {
   paymentMethods: ["Cash", "UPI / QR Code", "Debit & Credit Cards", "Net Banking", "Cheque / DD", "Ayushman Bharat / Insurance"],
 };
 
-export const DEPARTMENTS: Department[] = [
+export const DOCTORS: Doctor[] = [
   {
-    id: "gen-medicine",
-    name: "General Medicine & Critical Care",
-    slug: "general-medicine",
-    shortDesc: "Comprehensive diagnosis and clinical management of acute and chronic illnesses with dedicated ICU backup.",
-    fullDesc: "Our General Medicine & Critical Care Department provides evidence-based therapies for diabetes, cardiovascular disorders, infectious ailments, hypertension, respiratory complications, and geriatric medicine.",
-    iconName: "Stethoscope",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
-    services: [
-      "24x7 Critical Care & Emergency Stabilization",
-      "Comprehensive Diabetes & Metabolic Care Unit",
-      "Hypertension, Cardiac & Stroke Risk Management",
-      "Infectious Diseases, Dengue & Viral Fever Treatment",
-      "Respiratory and Chronic Asthma Therapies",
-      "Geriatric Comprehensive Health Assessments"
+    id: "dr-krishna-kumar-bhandari",
+    slug: "dr-krishna-kumar-bhandari",
+    name: "Dr. Krishna Kumar Bhandari",
+    degrees: "M.B.B.S. (Grant Medical College Mumbai), M.S., M.Ch (Gold Medal) Urology, KGMU Lucknow",
+    shortDegrees: "MBBS (Grant MC Mumbai), MS, M.Ch Urology (KGMU)",
+    designation: "Chief Consultant Urologist & Andrologist",
+    department: "Urology",
+    departmentSlug: "urology",
+    experience: "15+ Years Experience",
+    image: "/hospital-assets/doctors/krishnakumarbhandari.jpeg",
+    availability: "Every Sunday from 10:00 AM to 04:00 PM",
+    opdTimings: "Every Sunday: 10:00 AM - 04:00 PM",
+    specialties: [
+      "PCNL & URSL Endoscopic Stone Surgery",
+      "TURP Prostate Enlargement (गदूद) Surgery",
+      "Male Reproductive Issues & Andrology",
+      "Urinary Tract Infections (UTIs)",
+      "Kidney & Bladder Calculi Laser Care"
     ],
-    headDoctor: "Dr. R. K. Sharma (MD Physician)"
-  },
-  {
-    id: "gynaecology-obstetrics",
-    name: "Obstetrics & Gynaecology",
-    slug: "obstetrics-gynaecology",
-    shortDesc: "Complete maternity, painless delivery, high-risk pregnancy management, and advanced laparoscopic gynecology.",
-    fullDesc: "Providing compassionate, state-of-the-art care for mothers and newborns, our Gynaecology & Obstetrics department features modern labor suites, fetal monitoring, prenatal care, and minimally invasive surgeries.",
-    iconName: "HeartPulse",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=800",
+    about: "Dr. Krishna Kumar Bhandari is a nationally acclaimed Urologist and Andrologist with advanced surgical training from Grant Medical College, Mumbai, and an M.Ch Gold Medal in Urology from King George's Medical University (KGMU), Lucknow. He brings super-specialized urological treatments to Lakhimpur Kheri, conducting advanced endoscopic operations for kidney and urinary stones (PCNL, URSL, TURP) without incisions, alongside management of enlarged prostate and male infertility.",
     services: [
-      "Safe Normal & Painless Epidural Deliveries",
-      "Advanced Caesarean Section (C-Section) Theatres",
-      "High-Risk Pregnancy & Recurrent Loss Management",
-      "Laparoscopic Hysterectomy & Fibroid Surgeries",
-      "Adolescent & Menopausal Healthcare Clinics",
-      "Infertility Workup and Follicular Monitoring"
+      "Successful treatment and endoscopic operations for kidney and urinary tract stones using PCNL, URSL, and TURP methods",
+      "Treatment and endoscopic surgery for prostate enlargement (गदूद)",
+      "Management of male reproductive issues and andrology disorders",
+      "Comprehensive treatment for recurrent urinary tract infections (UTIs)"
     ],
-    headDoctor: "Dr. Maya Verma (MS, DGO)"
+    phone: HOSPITAL_INFO.bookingPhone,
+    consultationFee: "₹500"
   },
   {
-    id: "paediatrics-neonatology",
-    name: "Paediatrics & Neonatology (NICU)",
-    slug: "paediatrics-neonatology",
-    shortDesc: "Dedicated Level-2 NICU facilities, pediatric intensive care, growth clinics, and comprehensive immunization.",
-    fullDesc: "Our child health center offers nurturing pediatric and newborn care equipped with warmers, phototherapy, advanced neonatal monitors, and round-the-clock pediatric emergency support.",
-    iconName: "Baby",
-    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
-    services: [
-      "Level II Neonatal Intensive Care Unit (NICU)",
-      "Pediatric Emergency & Fever Clinic",
-      "WHO-standard Routine & Optional Immunization",
-      "Growth, Developmental Milestone & Nutrition Clinics",
-      "Pediatric Asthma & Allergy Management",
-      "Neonatal Jaundice & Premature Infant Care"
+    id: "dr-shiv-narayan-pandey",
+    slug: "dr-shiv-narayan-pandey",
+    name: "Dr. Shiv Narayan Pandey",
+    degrees: "MBBS, DrNB Neurosurgery, Neuro Endoscopy (Brain and Spine), FMISS (Minimal Invasive Spine), Global Spine Diploma (AO Spine), Consultant Brain and Spine Surgeon",
+    shortDegrees: "MBBS, DrNB Neurosurgery, FMISS, AO Spine",
+    designation: "Consultant Brain and Spine Surgeon, Neurosurgeon",
+    department: "Neurosurgery",
+    departmentSlug: "neurosurgery",
+    experience: "14+ Years Experience",
+    image: "/hospital-assets/doctors/shivnarayanpandey.jpeg",
+    availability: "Second and fourth Sunday of every month from 10:00 AM to 04:00 PM",
+    opdTimings: "2nd & 4th Sunday: 10:00 AM - 04:00 PM",
+    specialties: [
+      "Advanced Brain & Spine Surgeries",
+      "Neuro Endoscopy (Brain & Spine)",
+      "Minimally Invasive Spine Surgery (FMISS)",
+      "Global Spine Diploma (AO Spine) Care",
+      "Head Injury & Neuro-Trauma Care"
     ],
-    headDoctor: "Dr. Alok Srivastava (MD Paediatrics)"
-  },
-  {
-    id: "orthopedics",
-    name: "Orthopedics & Joint Replacement",
-    slug: "orthopedics",
-    shortDesc: "Advanced trauma surgery, fracture management, arthroscopy, spine care, and total joint replacement.",
-    fullDesc: "Specializing in restorative bone, joint, and spine interventions, from complex road accident trauma repairs to computer-assisted hip and knee replacements and sports injury arthroscopies.",
-    iconName: "Bone",
-    image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=800",
+    about: "Dr. Shiv Narayan Pandey is a premier Consultant Brain and Spine Surgeon holding DrNB in Neurosurgery, fellowship in Minimal Invasive Spine Surgery (FMISS), and the globally prestigious AO Spine Diploma. He specializes in neuro-endoscopy and keyhole spinal interventions, offering modern surgical care for spinal disc slips, spondylitis, spinal cord compression, brain tumors, and acute head trauma.",
     services: [
-      "Complex Fracture & Accidental Trauma Care 24x7",
-      "Total Knee Replacement (TKR) & Hip Replacement (THR)",
-      "Arthroscopic Meniscal & ACL Reconstruction Surgeries",
-      "Spine Decompression, Slip Disc & Sciatica Solutions",
-      "Osteoarthritis, Gout & Rheumatoid Joint Clinics",
-      "Post-operative Physiotherapy & Rehabilitation"
+      "Brain and spine surgeries with advanced micro-surgical instrumentation",
+      "Neuro endoscopy for minimally invasive brain and spinal decompression",
+      "Minimally invasive spine surgery (FMISS) for faster rehabilitation",
+      "Advanced neurological care for trauma, tumor excisions, and spinal disorders"
     ],
-    headDoctor: "Dr. S. K. Singh (MS Ortho, FIJR)"
+    phone: HOSPITAL_INFO.bookingPhone,
+    consultationFee: "₹600"
   },
   {
-    id: "general-lap-surgery",
-    name: "General & Laparoscopic Surgery",
-    slug: "general-surgery",
-    shortDesc: "Painless keyhole surgeries, laser gallbladder removal, hernia repairs, appendix, and gastrointestinal procedures.",
-    fullDesc: "Featuring modular laminar airflow operation theatres equipped with HD laparoscopic towers for minimal pain, faster recovery, and minimal scarring across general surgical specialties.",
-    iconName: "Activity",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-    services: [
-      "Laparoscopic Cholecystectomy (Gallbladder Stone)",
-      "Laparoscopic Appendectomy & Hernia Repair",
-      "Laser Proctology (Piles, Fissure, Fistula Procedures)",
-      "Thyroid, Breast & Soft Tissue Lump Excision",
-      "Emergency Abdominal Trauma & Bowel Perforation Surgery",
-      "Day Care Minor Surgeries and Wound Care"
+    id: "dr-apoorva-shrivastava",
+    slug: "dr-apoorva-shrivastava",
+    name: "Dr. Apoorva Shrivastava",
+    degrees: "M.B.B.S.",
+    shortDegrees: "M.B.B.S.",
+    designation: "Consultant Obstetrician & Gynecologist",
+    department: "Gynecology and Obstetrics",
+    departmentSlug: "gynecology-obstetrics",
+    experience: "10+ Years Experience",
+    image: "/hospital-assets/doctors/apoorvasrivastava.jpeg",
+    availability: "Every day",
+    opdTimings: "Monday to Sunday: 09:30 AM - 05:00 PM (Emergency 24x7)",
+    specialties: [
+      "Antenatal Care & High-Risk Pregnancy",
+      "Normal & Cesarean (C-Section) Deliveries",
+      "Infertility Evaluation & Couple Counseling",
+      "Hysterectomy (Complete Uterus Removal)",
+      "Uterine Fibroids, Cysts & Pelvic Tumors"
     ],
-    headDoctor: "Dr. A. P. Mishra (MS General Surgery)"
+    about: "Dr. Apoorva Shrivastava is a compassionate and seasoned Obstetrician and Gynecologist dedicated to women's complete reproductive and maternal well-being at Maya Hospital. Available daily, she leads the maternity wing with modern birthing facilities, ensuring gentle antenatal guidance, painless normal deliveries, safe cesarean procedures, and management of recurrent miscarriages and fibroids.",
+    services: [
+      "Comprehensive care and treatment for pregnant women across all trimesters",
+      "Normal deliveries and emergency / elective Cesarean deliveries (C-Section)",
+      "Infertility treatments and ovulation workups for couples struggling to conceive",
+      "Comprehensive management of recurrent miscarriages and high-risk pregnancies",
+      "Hysterectomy (complete surgical removal of the uterus) with minimal recovery time",
+      "Examination and treatment of cervical wounds, erosion, and ulcers",
+      "Treatment for uterine fibroids, ovarian cysts, and benign tumors",
+      "Clinical treatment for irregular menstrual cycles and hormonal imbalances",
+      "Specialized therapy for leucorrhea (chronic white discharge) and vaginal infections"
+    ],
+    phone: HOSPITAL_INFO.bookingPhone,
+    consultationFee: "₹400"
   },
   {
-    id: "cardiology",
-    name: "Cardiology & Vascular Medicine",
-    slug: "cardiology",
-    shortDesc: "Non-invasive cardiac investigations, ECG, 2D Echocardiography, TMT, Holter, and intensive cardiac monitoring.",
-    fullDesc: "Prompt diagnosis and emergency medical treatment of myocardial infarction, cardiac arrhythmias, heart failure, and lifestyle-related coronary artery diseases.",
-    iconName: "ActivitySquare",
-    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=800",
+    id: "dr-surbhi-mishra",
+    slug: "dr-surbhi-mishra",
+    name: "Dr. Surbhi Mishra",
+    degrees: "B.A.M.S.",
+    shortDegrees: "B.A.M.S.",
+    designation: "Consultant Women's Health & Gynaecological Care",
+    department: "Gynecology and Obstetrics",
+    departmentSlug: "gynecology-obstetrics",
+    experience: "8+ Years Experience",
+    image: "/hospital-assets/doctors/surbhimishra.jpeg",
+    availability: "Every day",
+    opdTimings: "Monday to Sunday: 10:00 AM - 04:30 PM",
+    specialties: [
+      "Comprehensive Maternal & Prenatal Counseling",
+      "Holistic Infertility & Conception Support",
+      "Irregular Menstrual Cycles & PCOD/PCOS",
+      "Chronic Leucorrhea (White Discharge) Care",
+      "Cervical Wounds & Ulcer Treatments"
+    ],
+    about: "Dr. Surbhi Mishra is a devoted practitioner in women's health and gynecological wellness at Maya Hospital. Available every day, Dr. Mishra specializes in maternal counseling, post-partum recovery, menstrual regulation, leucorrhea management, and holistic support for couples facing conception delays.",
     services: [
-      "24x7 Emergency Cardiac Resuscitation & ICU",
-      "Digital 12-Lead ECG & 2D Color Doppler Echo",
-      "TMT (Treadmill Stress Test) & Holter Monitoring",
-      "Post-Heart Attack Care & Secondary Prevention",
-      "Hypertensive Heart Disease & Heart Failure Management",
-      "Peripheral Vascular Doppler Assessment"
-    ]
+      "Comprehensive maternal care and nutritional counseling for pregnant women",
+      "Holistic support for normal delivery preparation and post-natal mother care",
+      "Infertility counseling and natural cycle optimization for couples struggling to conceive",
+      "Management of recurrent miscarriages and hormonal irregularities",
+      "Treatment for irregular, painful, or prolonged menstrual cycles",
+      "Examination and conservative treatment of cervical wounds and ulcers",
+      "Management and relief from leucorrhea (white discharge) and chronic pelvic inflammation",
+      "Collaborative care for women requiring uterine fibroid and cyst evaluations"
+    ],
+    phone: HOSPITAL_INFO.bookingPhone,
+    consultationFee: "₹350"
   },
   {
-    id: "nephrology-urology",
-    name: "Nephrology & Urology",
-    slug: "nephrology-urology",
-    shortDesc: "Kidney disease management, prostate disorder treatments, urinary tract solutions, and kidney stone management.",
-    fullDesc: "Comprehensive renal and urological services catering to acute kidney injury, chronic renal disorders, urinary tract calculi (stone), prostate enlargement, and reconstructive urology.",
-    iconName: "ShieldAlert",
-    image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?auto=format&fit=crop&q=80&w=800",
+    id: "dr-raviraj-singh",
+    slug: "dr-raviraj-singh",
+    name: "Dr. Raviraj Singh",
+    degrees: "M.S., Anorectal Surgeon",
+    shortDegrees: "M.S. (Anorectal Surgery)",
+    designation: "Senior Consultant Anorectal Surgeon & Proctologist",
+    department: "Anorectal Surgery",
+    departmentSlug: "anorectal-surgery",
+    experience: "12+ Years Experience",
+    image: "/hospital-assets/doctors/rajivsingh.jpeg",
+    availability: "Every day",
+    opdTimings: "Monday to Sunday: 10:00 AM - 05:00 PM",
+    specialties: [
+      "Painless & Incisionless Piles Treatment",
+      "Laser Hemorrhoids & Anorectal Warts Therapy",
+      "Fistula (भगन्दर) Cure & Ksharasutra / Laser",
+      "Fissurectomy & Lateral Internal Sphincterotomy",
+      "Pilonidal Sinus & Varicose Veins Laser Therapy"
+    ],
+    about: "Dr. Raviraj Singh (Dr. Rajiv Singh) is an esteemed Anorectal Surgeon and Proctologist who provides advanced, painless, and incisionless interventions for anorectal conditions. Available daily at Maya Hospital, Dr. Singh utilizes modernized proctological techniques that guarantee rapid recovery, negligible blood loss, and swift resumption of normal daily life for patients with piles, fistula (भगन्दर), fissures, and varicose veins.",
     services: [
-      "Kidney Stone Evaluation and Endoscopic Solutions (URSL/PCNL)",
-      "Prostate (BPH) Diagnostic Profiling & Medical/Surgical Care",
-      "Chronic Kidney Disease (CKD) Management & Dialysis Support",
-      "Recurrent UTI & Bladder Infection Protocols",
-      "Renal Function Monitoring & Diabetic Nephropathy Care",
-      "Men's Urological Health & Andrology Services"
-    ]
+      "Painless and incisionless treatment for piles, hemorrhoids, and warts",
+      "Advanced treatment for complex fistula-in-ano (भगन्दर) and anal fissures",
+      "Specialized fissurectomy and sphincterotomy procedures for instant pain relief",
+      "Minimally invasive treatment for recurrent pilonidal sinus",
+      "Successful non-surgical and surgical treatments for painful varicose veins"
+    ],
+    phone: HOSPITAL_INFO.bookingPhone,
+    consultationFee: "₹450"
   },
   {
-    id: "ent-head-neck",
-    name: "ENT, Head & Neck Care",
-    slug: "ent-head-neck",
-    shortDesc: "Ear, nose, throat diagnostics, endoscopic sinus checkups, hearing tests, and voice disorder treatments.",
-    fullDesc: "Equipped with diagnostic nasal endoscopes and specialized ENT examination units for treatment of chronic sinusitis, tonsillitis, tympanic membrane perforations, and hearing deficits.",
-    iconName: "Headphones",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800",
+    id: "dr-brijendra-verma",
+    slug: "dr-brijendra-verma",
+    name: "Dr. Brijendra Kumar Verma",
+    degrees: "M.S. (General Surgeon)",
+    shortDegrees: "M.S. (General Surgery)",
+    designation: "Founder, Managing Director & Senior Consultant General Surgeon",
+    department: "General Surgery",
+    departmentSlug: "general-surgery",
+    experience: "20+ Years Experience",
+    image: "/hospital-assets/doctors/brijendraverma.jpeg",
+    availability: "Every day",
+    opdTimings: "Monday to Sunday: 09:00 AM - 06:00 PM (24x7 Emergency On-Call)",
+    specialties: [
+      "Abdominal & Stomach Disorders",
+      "Gallbladder Stone Operations (Cholecystectomy)",
+      "Operations for All Types of Stones (Kidney, Bladder, Bile)",
+      "Tumors, Lumps, Hernias & Appendicitis Surgery",
+      "Head Injury & Poly-Trauma Emergency Management",
+      "Uterine Surgeries & Complex General Surgical Procedures"
+    ],
+    about: "Dr. Brijendra Kumar Verma is the visionary Founder and Managing Director of Maya Hospital & Multi Speciality Centre. With over two decades of distinguished surgical experience, Dr. Verma has performed thousands of successful general and emergency trauma operations. He is available daily to provide comprehensive surgical care for abdominal disorders, stone ailments, head trauma, hernia repairs, appendicitis, and uterine surgeries.",
     services: [
-      "Microscopic Ear Examination & Ear Drum Repair (Tympanoplasty)",
-      "Endoscopic Sinus Procedures (FESS) & DNS Correction",
-      "Coblation Tonsillectomy & Adenoidectomy",
-      "Pure Tone Audiometry (PTA) & Hearing Loss Assessment",
-      "Vertigo, Tinnitus & Dizziness Clinical Evaluation",
-      "Foreign Body Removal from Ear, Nose, & Throat"
-    ]
-  },
-  {
-    id: "radiology-diagnostics",
-    name: "Radiology, Pathology & 24x7 Pharmacy",
-    slug: "radiology-diagnostics",
-    shortDesc: "Digital X-Ray, High-Resolution Ultrasound, Color Doppler, Fully Automated Biochemistry Lab, and 24x7 Pharmacy.",
-    fullDesc: "Quick and dependable diagnostics under one roof. Our pathology analyzer provides rapid turnaround times for blood, urine, liver, and kidney markers, complemented by advanced ultrasound imaging.",
-    iconName: "Scan",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
-    services: [
-      "High-Frequency Digital X-Ray (All Skeletal & Chest Studies)",
-      "Advanced 3D/4D Abdominal & Pelvic Ultrasound (USG)",
-      "Obstetric Anomaly Scans & Fetal Well-being Doppler",
-      "Fully Automated Hematology, Biochemistry & Electrolyte Lab",
-      "24-Hour In-House Emergency Pharmacy with Genuine Meds",
-      "Thyroid, Hormone, HbA1c & Vitamin Profiling"
-    ]
+      "Clinical diagnosis and surgery for complex abdominal and stomach disorders",
+      "24x7 emergency resuscitation, management, and treatment of head injuries",
+      "Comprehensive operations for all types of stone conditions across the urinary and biliary systems",
+      "Surgical removal and definitive treatment of tumors, lumps, hernias, and appendicitis",
+      "Uterine surgeries and treatments",
+      "Gallbladder stone operations"
+    ],
+    phone: HOSPITAL_INFO.emergencyPhone,
+    consultationFee: "₹500"
   }
 ];
 
-export const DOCTORS: Doctor[] = [
+export const DEPARTMENTS: Department[] = [
   {
-    id: "dr-maya-verma",
-    name: "Dr. Maya Verma",
-    degrees: "MBBS, MS (Obs & Gynae), FMAS",
-    designation: "Chief Consultant Gynecologist & Laparoscopic Surgeon",
-    department: "Obstetrics & Gynaecology",
-    experience: "16+ Years Experience",
-    image: "https://images.unsplash.com/photo-1594824813583-094183d2999e?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sat: 10:00 AM - 04:00 PM",
-    specialties: ["High-Risk Pregnancy", "Laparoscopic Hysterectomy", "Infertility Management", "Painless Delivery"]
+    id: "urology",
+    name: "Urology Department",
+    shortName: "Urology & Kidney Care",
+    slug: "urology",
+    shortDesc: "Endoscopic kidney stone surgery (PCNL, URSL, TURP), enlarged prostate care (गदूद), and male reproductive health.",
+    fullDesc: "The Urology Department at Maya Hospital provides comprehensive, state-of-the-art diagnostic and surgical care for diseases of the urinary tract and male reproductive system. Spearheaded by Dr. Krishna Kumar Bhandari (Gold Medalist, KGMU), the department features advanced endoscopic towers for painless stone breakdown and prostate surgery.",
+    iconName: "ShieldAlert",
+    iconClass: "fa-solid fa-water",
+    image: "/hospital-assets/doctors/krishnakumarbhandari.jpeg",
+    services: [
+      "Successful treatment and endoscopic operations for kidney and urinary tract stones using PCNL, URSL, and TURP methods",
+      "Treatment and endoscopic surgery for prostate enlargement (गदूद)",
+      "Management of male reproductive issues",
+      "Treatment for urinary tract infections (UTIs)"
+    ],
+    headDoctor: "Dr. Krishna Kumar Bhandari (MBBS, MS, M.Ch Urology Gold Medalist)",
+    doctorIds: ["dr-krishna-kumar-bhandari"],
+    timing: "Every Sunday: 10:00 AM - 04:00 PM (Emergency 24x7)",
+    emergencySupport: true,
+    badges: ["PCNL / URSL", "TURP Prostate", "Kidney Stones", "Andrology"]
   },
   {
-    id: "dr-rk-sharma",
-    name: "Dr. R. K. Sharma",
-    degrees: "MBBS, MD (Medicine), FCCP",
-    designation: "Senior Consultant Physician & Critical Care Specialist",
-    department: "General Medicine & Critical Care",
-    experience: "18+ Years Experience",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sun: 09:30 AM - 02:30 PM & 05:00 PM - 08:00 PM",
-    specialties: ["Critical Care ICU", "Diabetes & Hypertension", "Infectious Fevers", "Cardio-Respiratory Care"]
+    id: "neurosurgery",
+    name: "Neurosurgery Department",
+    shortName: "Neurosurgery & Spine Care",
+    slug: "neurosurgery",
+    shortDesc: "Advanced brain and spine surgery, neuro-endoscopy, minimally invasive spine surgery (FMISS), and trauma care.",
+    fullDesc: "The Neurosurgery Department at Maya Hospital offers cutting-edge surgical interventions for neurological trauma, brain tumors, spinal deformities, and chronic back pain. Led by Dr. Shiv Narayan Pandey (DrNB Neurosurgery, AO Spine Fellow), the center utilizes high-definition neuro-endoscopic instrumentation for minimal tissue trauma and fast rehabilitation.",
+    iconName: "ActivitySquare",
+    iconClass: "fa-solid fa-brain",
+    image: "/hospital-assets/doctors/shivnarayanpandey.jpeg",
+    services: [
+      "Brain and spine surgeries",
+      "Neuro endoscopy",
+      "Minimally invasive spine surgery",
+      "Advanced neurological and spinal care"
+    ],
+    headDoctor: "Dr. Shiv Narayan Pandey (MBBS, DrNB Neurosurgery, FMISS, AO Spine)",
+    doctorIds: ["dr-shiv-narayan-pandey"],
+    timing: "2nd & 4th Sunday: 10:00 AM - 04:00 PM (Emergency 24x7)",
+    emergencySupport: true,
+    badges: ["Brain Surgery", "AO Spine", "Neuro Endoscopy", "Slip Disc"]
   },
   {
-    id: "dr-sk-singh",
-    name: "Dr. S. K. Singh",
-    degrees: "MBBS, MS (Orthopedics), FIJR (Fellow Joint Replacement)",
-    designation: "Senior Consultant Orthopedic & Joint Replacement Surgeon",
-    department: "Orthopedics & Joint Replacement",
-    experience: "15+ Years Experience",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sat: 11:00 AM - 05:00 PM",
-    specialties: ["Joint Replacement (Knee/Hip)", "Trauma & Fracture Surgery", "Arthroscopy", "Spine Disorders"]
+    id: "gynecology-obstetrics",
+    name: "Gynecology and Obstetrics Department",
+    shortName: "Gynecology & Maternity",
+    slug: "gynecology-obstetrics",
+    shortDesc: "Complete maternal wellness, normal & Cesarean deliveries, infertility treatments, hysterectomy, and fibroid care.",
+    fullDesc: "Our Department of Gynecology and Obstetrics is dedicated to women's healthcare across every phase of life. Staffed daily by Dr. Apoorva Shrivastava (M.B.B.S.) and Dr. Surbhi Mishra (B.A.M.S.), the department houses modern labor suites, fetal monitors, and neonatal resuscitation units for peaceful and safe maternity experiences.",
+    iconName: "HeartPulse",
+    iconClass: "fa-solid fa-person-breastfeeding",
+    image: "/hospital-assets/doctors/apoorvasrivastava.jpeg",
+    services: [
+      "Comprehensive care and treatment for pregnant women",
+      "Normal and Cesarean deliveries",
+      "Infertility treatments for couples struggling to conceive",
+      "Comprehensive management of recurrent miscarriages",
+      "Treatment for irregular menstrual cycles",
+      "Hysterectomy (complete removal of the uterus)",
+      "Examination and treatment of cervical wounds/ulcers",
+      "Treatment for uterine fibroids, cysts, and tumors",
+      "Treatment for leucorrhea (white discharge)"
+    ],
+    headDoctor: "Dr. Apoorva Shrivastava (M.B.B.S.) & Dr. Surbhi Mishra (B.A.M.S.)",
+    doctorIds: ["dr-apoorva-shrivastava", "dr-surbhi-mishra"],
+    timing: "Open Daily: 09:30 AM - 05:00 PM (Labor & Delivery 24x7)",
+    emergencySupport: true,
+    badges: ["Normal Delivery", "C-Section OT", "Infertility Clinic", "Hysterectomy", "Fibroid Care"]
   },
   {
-    id: "dr-ap-mishra",
-    name: "Dr. A. P. Mishra",
-    degrees: "MBBS, MS (General Surgery), FIAGES",
-    designation: "Consultant General & Minimal Access Laparoscopic Surgeon",
-    department: "General & Laparoscopic Surgery",
-    experience: "14+ Years Experience",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sat: 10:30 AM - 04:30 PM",
-    specialties: ["Gallbladder Stone Surgery", "Laparoscopic Hernia Repair", "Laser Piles Clinic", "Appendectomy"]
+    id: "anorectal-surgery",
+    name: "Anorectal Surgery Department",
+    shortName: "Anorectal & Proctology",
+    slug: "anorectal-surgery",
+    shortDesc: "Painless and incisionless treatment for piles, hemorrhoids, fistula (भगन्दर), anal fissures, and varicose veins.",
+    fullDesc: "The Anorectal Surgery Department at Maya Hospital is a specialized proctology center led by Dr. Raviraj Singh (M.S., Anorectal Surgeon). We employ painless, incisionless, and laser surgical techniques to treat piles, anal fissures, fistula-in-ano (भगन्दर), and varicose veins with same-day discharge and zero surgical trauma.",
+    iconName: "Activity",
+    iconClass: "fa-solid fa-hand-holding-medical",
+    image: "/hospital-assets/doctors/rajivsingh.jpeg",
+    services: [
+      "Painless and incisionless treatment for piles, hemorrhoids, and warts",
+      "Treatment for fistula (भगन्दर) and anal fissures",
+      "Fissurectomy and sphincterotomy procedures",
+      "Treatment for pilonidal sinus",
+      "Successful treatment for varicose veins"
+    ],
+    headDoctor: "Dr. Raviraj Singh (M.S., Anorectal Surgeon)",
+    doctorIds: ["dr-raviraj-singh"],
+    timing: "Open Daily: 10:00 AM - 05:00 PM",
+    emergencySupport: true,
+    badges: ["Painless Piles", "Fistula (भगन्दर)", "Fissure", "Varicose Veins"]
   },
   {
-    id: "dr-alok-srivastava",
-    name: "Dr. Alok Srivastava",
-    degrees: "MBBS, MD (Paediatrics), Fellowship Neonatology",
-    designation: "Senior Pediatrician & Neonatal Specialist",
-    department: "Paediatrics & Neonatology (NICU)",
-    experience: "12+ Years Experience",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sun: 10:00 AM - 03:00 PM & 06:00 PM - 08:30 PM",
-    specialties: ["Neonatal ICU Care", "Pediatric Asthma & Allergies", "Newborn Resuscitation", "Child Vaccination"]
+    id: "general-surgery",
+    name: "General Surgery Department",
+    shortName: "General & Laparoscopic Surgery",
+    slug: "general-surgery",
+    shortDesc: "Abdominal & stomach surgeries, head injury trauma, stone operations, appendicitis, hernias, and gallbladder stone removal.",
+    fullDesc: "Led by Maya Hospital's Founder and Senior Consultant Surgeon Dr. Brijendra Kumar Verma (M.S. General Surgery), this department offers emergency trauma interventions and elective surgical care in ultra-clean laminar airflow operation theatres.",
+    iconName: "Stethoscope",
+    iconClass: "fa-solid fa-stethoscope",
+    image: "/hospital-assets/doctors/brijendraverma.jpeg",
+    services: [
+      "Abdominal and stomach disorders",
+      "Management and treatment of head injuries",
+      "Operations for all types of stone conditions",
+      "Surgical removal and treatment of tumors, lumps, hernias, and appendicitis",
+      "Uterine surgeries and treatments",
+      "Gallbladder stone operations"
+    ],
+    headDoctor: "Dr. Brijendra Kumar Verma (M.S. General Surgeon)",
+    doctorIds: ["dr-brijendra-verma"],
+    timing: "Open Daily: 09:00 AM - 06:00 PM (Emergency 24x7)",
+    emergencySupport: true,
+    badges: ["Gallbladder Stone", "Hernia & Appendix", "Head Injuries", "All Stone Surgeries"]
+  }
+];
+
+export const HOSPITAL_FACILITIES = [
+  {
+    id: "emergency-24x7",
+    title: "24 Hours Emergency Services",
+    subtitle: "24-Hour Trauma & Casualty",
+    desc: "Immediate clinical triage, acute resuscitation, accident trauma, and critical injury stabilization round the clock.",
+    iconClass: "fa-solid fa-truck-medical",
+    badge: "24 Hours Always Open",
+    phone: HOSPITAL_INFO.emergencyPhone
   },
   {
-    id: "dr-priya-pandey",
-    name: "Dr. Priya Pandey",
-    degrees: "MBBS, DMRD (Radiology)",
-    designation: "Consultant Radiologist & Sonologist",
-    department: "Radiology, Pathology & 24x7 Pharmacy",
-    experience: "10+ Years Experience",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600",
-    availability: "Mon - Sat: 09:00 AM - 03:00 PM",
-    specialties: ["Anomaly Sonography", "Color Doppler Studies", "Abdominal Diagnostics", "Digital Radiography"]
+    id: "icu-nicu",
+    title: "ICU / NICU Facilities",
+    subtitle: "Intensive Critical Care Units",
+    desc: "Equipped with advanced ventilators, multipara monitors, infant warmers, phototherapy, and dedicated intensive care teams.",
+    iconClass: "fa-solid fa-bed-pulse",
+    badge: "Level-2 NICU & Adult ICU",
+    phone: HOSPITAL_INFO.emergencyPhone
+  },
+  {
+    id: "free-ambulance",
+    title: "Free Ambulance Service",
+    subtitle: "फ्री एम्बुलेंस सुविधा",
+    desc: "Rapid emergency ambulance dispatch equipped with oxygen support and emergency paramedic assistance across Lakhimpur Kheri.",
+    iconClass: "fa-solid fa-ambulance",
+    badge: "100% Free Ambulance",
+    phone: HOSPITAL_INFO.ambulancePhone
   }
 ];
 
@@ -314,7 +454,7 @@ export const REVIEWS: Review[] = [
     date: "September 2026",
     location: "Lakhimpur Kheri",
     source: "Justdial Verified Patient",
-    comment: "Maya Hospital and Multi-speciality Centre is the best hospital on Aira Road Meerpur. Dr. Verma and Dr. Sharma provided excellent counseling and treatment. Very reasonable fees and genuinely transparent billing."
+    comment: "Maya Hospital and Multi-speciality Centre is the best hospital on Aira Road Meerpur. Dr. Verma and the surgical team provided excellent counseling and treatment. Very reasonable fees and genuinely transparent billing."
   },
   {
     id: "rev-3",
@@ -323,7 +463,7 @@ export const REVIEWS: Review[] = [
     date: "December 2025",
     location: "Kheri District",
     source: "Justdial Verified Patient",
-    comment: "Best multi-speciality hospital in the Lakhimpur Kheri rural & semi-urban belt. The surgery team and nursing care took care of my uncle's fracture surgery smoothly. Grateful for their 24 hours round the clock support."
+    comment: "Best multi-speciality hospital in the Lakhimpur Kheri rural & semi-urban belt. The surgery team and nursing care took care of my uncle's surgery smoothly. Grateful for their 24 hours round the clock support."
   },
   {
     id: "rev-4",
@@ -351,7 +491,7 @@ export const HEALTH_PACKAGES: HealthPackage[] = [
       "Liver Screening (SGOT, SGPT, Bilirubin)",
       "Urine Routine & Microscopic",
       "Digital Chest X-Ray & ECG",
-      "Consultation with Senior Physician"
+      "Consultation with Senior Surgeon"
     ],
     recommendedFor: "Men & Women aged 18+"
   },
@@ -368,7 +508,7 @@ export const HEALTH_PACKAGES: HealthPackage[] = [
       "Complete Lipid Profile (Cholesterol, Triglycerides, HDL, LDL)",
       "Serum Electrolytes (Sodium, Potassium)",
       "Resting 12-Lead Digital ECG",
-      "Consultation with Cardiologist / MD Physician",
+      "Consultation with Senior Physician / Surgeon",
       "Personalized Diet & Lifestyle Prescription"
     ],
     recommendedFor: "Adults with diabetes, BP or sedentary lifestyle"
@@ -403,7 +543,7 @@ export const HEALTH_PACKAGES: HealthPackage[] = [
       "Bone Mineral Density & Uric Acid Screening",
       "Digital Chest X-Ray & ECG",
       "Urine Microalbumin & Stool Screen",
-      "Orthopedic & Physician Dual Consultation",
+      "Consultation with Senior Surgeon & Specialist",
       "Free Home Sample Collection Assistance"
     ],
     recommendedFor: "Seniors aged 55+"
@@ -442,3 +582,39 @@ export const EMERGENCY_FACILITIES = [
     icon: "Pill"
   }
 ];
+
+// Helper Functions
+export function getDoctorBySlug(slug: string): Doctor | undefined {
+  const normalized = slug.toLowerCase().trim();
+  // Handle aliases
+  if (normalized === "dr-rajiv-singh") {
+    return DOCTORS.find((d) => d.slug === "dr-raviraj-singh");
+  }
+  return DOCTORS.find((d) => d.slug === normalized || d.id === normalized);
+}
+
+export function getDepartmentBySlug(slug: string): Department | undefined {
+  const normalized = slug.toLowerCase().trim();
+  // Handle aliases
+  if (normalized === "gynecology" || normalized === "obstetrics-gynaecology" || normalized === "gynaecology-obstetrics") {
+    return DEPARTMENTS.find((dept) => dept.slug === "gynecology-obstetrics");
+  }
+  if (normalized === "general-medicine" || normalized === "medicine") {
+    return DEPARTMENTS.find((dept) => dept.slug === "general-surgery");
+  }
+  return DEPARTMENTS.find((dept) => dept.slug === normalized || dept.id === normalized);
+}
+
+export function getDoctorsByDepartment(deptSlugOrId: string): Doctor[] {
+  const dept = getDepartmentBySlug(deptSlugOrId);
+  if (!dept) return [];
+  return DOCTORS.filter((doc) => dept.doctorIds.includes(doc.id) || doc.departmentSlug === dept.slug);
+}
+
+export function getAllDoctorSlugs(): string[] {
+  return DOCTORS.map((d) => d.slug);
+}
+
+export function getAllDepartmentSlugs(): string[] {
+  return DEPARTMENTS.map((dept) => dept.slug);
+}

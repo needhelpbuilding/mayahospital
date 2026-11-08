@@ -70,8 +70,8 @@ export default function ContactLocationSection() {
                   <p className="text-slate-200">
                     OPD / Booking: <a href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`} className="font-bold text-white hover:underline">{HOSPITAL_INFO.bookingPhone}</a>
                   </p>
-                  <p className="text-slate-300 text-xs">
-                    Landline: {HOSPITAL_INFO.landlinePhone}
+                  <p className="text-slate-200">
+                    Patient Care: <a href="tel:+917897576583" className="font-bold text-white hover:underline">+91 7897576583</a>
                   </p>
                 </div>
               </div>

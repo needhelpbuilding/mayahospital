@@ -130,7 +130,7 @@ export default function FathimaSlider({ onOpenAppointmentModal }: SliderProps) {
                       </button>
 
                       <a
-                        href="tel:+919935123456"
+                        href="tel:+919839752108"
                         className="btn-style btn-style2"
                         style={{
                           textDecoration: "none",
@@ -142,7 +142,7 @@ export default function FathimaSlider({ onOpenAppointmentModal }: SliderProps) {
                         }}
                       >
                         <i className="fa-solid fa-phone" style={{ color: "#d97706" }}></i>
-                        <span>Emergency: 9935123456</span>
+                        <span>Emergency: 9839752108</span>
                       </a>
                     </div>
                   </div>

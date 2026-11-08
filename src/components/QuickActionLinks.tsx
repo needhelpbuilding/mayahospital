@@ -76,7 +76,7 @@ export default function QuickActionLinks({
       title: "24x7 Ambulance",
       desc: "Rapid Patient Pickup",
       icon: Ambulance,
-      href: "tel:+919935123456",
+      href: "tel:+919839752108",
       color: "from-red-600 to-rose-600",
       bgHover: "hover:border-red-500",
       iconColor: "text-red-600",
