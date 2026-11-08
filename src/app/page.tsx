@@ -173,7 +173,17 @@ export default function Home() {
                     <div>
                       <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>Emergency 24x7:</strong>
                       <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700 }}>
-                        {HOSPITAL_INFO.emergencyPhone}
+                        {HOSPITAL_INFO.emergencyPhone} (Ambulance)
+                      </a>
+                    </div>
+                  </div>
+
+                  <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
+                    <i className="fa-solid fa-headset" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
+                    <div>
+                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>Hospital Helpline:</strong>
+                      <a href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700 }}>
+                        {HOSPITAL_INFO.bookingPhone}
                       </a>
                     </div>
                   </div>
@@ -213,7 +223,7 @@ export default function Home() {
                   </a>
 
                   <a
-                    href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
+                    href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`}
                     style={{
                       margin: 0,
                       textDecoration: "none",

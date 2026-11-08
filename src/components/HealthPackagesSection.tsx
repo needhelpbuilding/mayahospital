@@ -128,7 +128,7 @@ export default function HealthPackagesSection({ onOpenAppointmentModal }: Health
           </div>
 
           <a
-            href="tel:+918840123456"
+            href="tel:+919161103325"
             className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs whitespace-nowrap"
           >
             Inquire Checkup Support

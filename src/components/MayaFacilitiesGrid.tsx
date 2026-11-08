@@ -129,7 +129,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
 
           <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
             <a
-              href="tel:+919935123456"
+              href="tel:108"
               style={{
                 backgroundColor: "#ff0000",
                 color: "#ffffff",
@@ -144,7 +144,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
               }}
             >
               <i className="fa-solid fa-phone"></i>
-              <span>Call 24x7: +91 9935123456</span>
+              <span>Emergency: Dial 108</span>
             </a>
 
             <button

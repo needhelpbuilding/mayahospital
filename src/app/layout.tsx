@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" href="/Purple Caduceus Laurel Monogram.png" type="image/png" />
         <link rel="apple-touch-icon" href="/Purple Caduceus Laurel Monogram.png" />

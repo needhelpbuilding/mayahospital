@@ -442,7 +442,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
               }}
             >
               <i className="fa-solid fa-phone" style={{ color: "#f87171", fontSize: "11px" }}></i>
-              <span>{HOSPITAL_INFO.emergencyPhone}</span>
+              <span>Emergency {HOSPITAL_INFO.emergencyPhone}</span>
             </a>
 
             {/* Mobile Hamburger Toggle Button (Clean without white box) */}
@@ -666,7 +666,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
             {/* Drawer Bottom Actions */}
             <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "10px", flexShrink: 0 }}>
               <a
-                href="tel:+919935123456"
+                href="tel:108"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -685,7 +685,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 }}
               >
                 <i className="fa-solid fa-phone"></i>
-                <span>24x7: +91 99351 23456</span>
+                <span>Emergency: Dial 108</span>
               </a>
 
               <button
@@ -864,7 +864,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
 
             {/* Ghost 24x7 Emergency Button (pure ghost: transparent background, clean border, no glass blur) */}
             <a
-              href="tel:+919935123456"
+              href="tel:108"
               style={{
                 backgroundColor: "transparent",
                 color: "#ffffff",
@@ -893,9 +893,29 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
               }}
             >
               <i className="fa-solid fa-phone"></i>
-              <span>24x7 Emergency</span>
+              <span>Emergency: 108</span>
             </a>
           </div>
+
+          {/* Hospital helpline number */}
+          <a
+            href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "10px",
+              marginTop: "22px",
+              color: "rgba(255, 255, 255, 0.92)",
+              fontSize: "15px",
+              fontWeight: 600,
+              textDecoration: "none",
+              letterSpacing: "0.3px",
+              textShadow: "0 2px 12px rgba(0,0,0,0.6)"
+            }}
+          >
+            <i className="fa-solid fa-headset" style={{ color: "#c084fc" }}></i>
+            <span>Hospital Helpline: {HOSPITAL_INFO.bookingPhone}</span>
+          </a>
         </div>
       </div>
 

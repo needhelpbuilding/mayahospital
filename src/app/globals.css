@@ -22,6 +22,18 @@
   --body-font: 'Inter', system-ui, -apple-system, sans-serif !important;
 }
 
+/* Smooth in-page scrolling (anchor links, scrollIntoView). Offset accounts for the sticky navbar. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
