@@ -2,7 +2,13 @@ import React from "react";
 import Link from "next/link";
 import { HOSPITAL_INFO } from "@/data/hospitalData";
 
-export default function FathimaFooter() {
+interface FooterProps {
+  // Optional so pages without these modals keep working (links then fall back to their anchors)
+  onOpenAppointmentModal?: () => void;
+  onOpenEnquiryModal?: () => void;
+}
+
+export default function FathimaFooter({ onOpenAppointmentModal, onOpenEnquiryModal }: FooterProps = {}) {
   return (
     <footer
       style={{
@@ -201,18 +207,26 @@ export default function FathimaFooter() {
               Patient Services
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
-                { name: "Book OPD Consultation", href: "#book" },
-                { name: "24x7 Ambulance Request", href: `tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}` },
+              {([
+                { name: "Book OPD Consultation", href: "#location", onClick: onOpenAppointmentModal },
+                { name: "24x7 Ambulance Request (108)", href: `tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}` },
                 { name: "TPA & Insurance Desk", href: "#insurance" },
-                { name: "Clinical Inquiry / Enquiry", href: "#enquiry" },
+                { name: "Clinical Inquiry / Enquiry", href: "#location", onClick: onOpenEnquiryModal },
                 { name: "View on Google Maps", href: `https://www.google.com/maps/search/?api=1&query=${HOSPITAL_INFO.mapCoordinates.lat},${HOSPITAL_INFO.mapCoordinates.lng}`, external: true }
-              ].map((service, idx) => (
+              ] as { name: string; href: string; external?: boolean; onClick?: () => void }[]).map((service, idx) => (
                 <li key={idx}>
                   <a
                     href={service.href}
                     target={service.external ? "_blank" : undefined}
                     rel={service.external ? "noopener noreferrer" : undefined}
+                    onClick={
+                      service.onClick
+                        ? (e) => {
+                            e.preventDefault();
+                            service.onClick?.();
+                          }
+                        : undefined
+                    }
                     style={{
                       color: "rgba(255, 255, 255, 0.72)",
                       fontSize: "13.5px",

@@ -40,7 +40,7 @@ const MAYA_SERVICES = [
 
 export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: FacilitiesProps) {
   return (
-    <section id="services-facilities" style={{ padding: "90px 0", backgroundColor: "#fcfaf4" }}>
+    <section id="services-facilities" style={{ padding: "90px 0", backgroundColor: "var(--fadeblue)" }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "50px" }}>
@@ -56,7 +56,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
         {/* 6 Grid Service Boxes */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))",
           gap: "28px",
           marginBottom: "40px"
         }}>
@@ -116,7 +116,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
           alignItems: "center",
           justifyContent: "space-between",
           gap: "20px",
-          boxShadow: "0 15px 35px rgba(16, 58, 70, 0.2)"
+          boxShadow: "0 15px 35px rgba(36, 11, 59, 0.2)"
         }}>
           <div>
             <h3 style={{ color: "#ffffff", fontSize: "22px", fontWeight: 700, margin: "0 0 6px 0" }}>
@@ -131,7 +131,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             <a
               href="tel:108"
               style={{
-                backgroundColor: "#ff0000",
+                backgroundColor: "#dc2626",
                 color: "#ffffff",
                 padding: "12px 24px",
                 borderRadius: "50px",

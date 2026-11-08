@@ -1,5 +1,5 @@
-/* Professional Modern Healthcare Typography: Plus Jakarta Sans & Inter */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Professional Modern Healthcare Typography: Plus Jakarta Sans & Inter
+   (loaded once via <link> in app/layout.tsx — no duplicate @import here) */
 
 /* Imperial Royal Plum, Amethyst & Soft Lilac Cream Design Tokens */
 :root {
@@ -214,17 +214,57 @@ header {
   display: block !important;
 }
 
-/* Smooth mid-slow Scroll-on-Reveal Animation Classes */
+/* Smooth mid-slow Scroll-on-Reveal Animation Classes
+   Sections are only hidden once JS has started (html.reveal-ready, set in app/page.tsx),
+   so the server-rendered page is always readable even if scripts are slow or fail. */
 .reveal-on-scroll {
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1), transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.reveal-ready .reveal-on-scroll {
   opacity: 0;
   transform: translateY(32px);
-  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1), transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal-on-scroll.is-revealed {
+html.reveal-ready .reveal-on-scroll.is-revealed {
   opacity: 1 !important;
   transform: translateY(0) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.reveal-ready .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   KEYBOARD FOCUS: visible amethyst focus ring for every interactive element
+   (hover effects are mouse-only; this keeps keyboard users oriented)
+   ========================================================================== */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #7c3aed !important;
+  outline-offset: 3px !important;
+  border-radius: 6px;
+}
+
+/* Light ring on dark plum surfaces (hero, nav, footer, location card, chatbot header) */
+header a:focus-visible,
+header button:focus-visible,
+.maya-hero-wrap a:focus-visible,
+.maya-hero-wrap button:focus-visible,
+footer a:focus-visible,
+footer button:focus-visible,
+#location a:focus-visible,
+.suchi-side-panel button:focus-visible {
+  outline-color: #c084fc !important;
 }
 
 /* Smooth Mega Dropdown Reveal Animation (Clean fade in without weird folding/scaling) */
@@ -1501,9 +1541,30 @@ ul.footerlinks li a:hover {
 }
 
 .hex-card:hover .hex-hover-panel,
+.hex-card:focus-visible .hex-hover-panel,
 .hex-card.is-active-mobile .hex-hover-panel {
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+/* Keyboard focus on hexagons: clip-path hides outlines, so the white credentials panel
+   opens (above) and gets an inset amethyst ring along the hexagon's straight sides */
+.hex-card:focus-visible {
+  outline: none !important;
+  z-index: 50 !important;
+}
+
+.hex-card:focus-visible .hex-hover-panel {
+  box-shadow: inset 0 0 0 4px #7c3aed !important;
+}
+
+.hex-filler-card:focus-visible {
+  background: linear-gradient(145deg, #5b21b6 0%, #7c3aed 100%) !important;
+}
+
+.hex-filler-card:focus-visible .hex-filler-inner {
+  transform: scale(1.08) !important;
+  color: #ffffff !important;
 }
 
 .hex-text-inner {
@@ -1555,7 +1616,7 @@ ul.footerlinks li a:hover {
 }
 
 .hex-book-badge {
-  font-size: 10px !important;
+  font-size: 10.5px !important;
   font-weight: 700 !important;
   letter-spacing: 0.8px !important;
   color: #ffffff !important;
@@ -1623,7 +1684,7 @@ ul.footerlinks li a:hover {
     font-size: 26px !important;
   }
   .hex-filler-label {
-    font-size: 10px !important;
+    font-size: 10.5px !important;
   }
 }
 
@@ -1667,8 +1728,14 @@ ul.footerlinks li a:hover {
     font-size: 11px !important;
   }
   .hex-book-badge {
-    font-size: 9px !important;
-    padding: 3px 8px !important;
+    font-size: 10px !important;
+    padding: 3px 9px !important;
+  }
+
+  /* Edge fade so it's obvious more doctors are off-screen in the swipe row */
+  .honeycomb-scroll-wrapper {
+    -webkit-mask-image: linear-gradient(to right, #000 0%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 0%, #000 82%, transparent 100%);
   }
 
   /* Responsive Section Layouts */
@@ -1880,4 +1947,93 @@ ul.footerlinks li a:hover {
   transform: translateY(-4px) !important;
   border-color: rgba(124, 58, 237, 0.35) !important;
   box-shadow: 0 16px 40px rgba(124, 58, 237, 0.12) !important;
+}
+
+/* ==========================================================================
+   TOP LINKS: theme icons (replace hotlinked template PNGs)
+   ========================================================================== */
+.toplinks a .toplink-icon {
+  font-size: 34px;
+  line-height: 1;
+  color: #7c3aed;
+  width: 50px;
+  flex: 0 0 50px;
+  text-align: center;
+  transition: color 0.25s ease;
+}
+
+.toplinks a:hover .toplink-icon,
+.toplinks a:focus-visible .toplink-icon {
+  color: #6d28d9;
+  animation: slideTopDown 1s infinite alternate;
+}
+
+@media (max-width: 900px) {
+  .toplinks a .toplink-icon {
+    font-size: 28px;
+    width: 40px;
+    flex-basis: 40px;
+  }
+}
+
+/* ==========================================================================
+   SERVICE BOXES: theme icons in the same slot the template images used
+   ========================================================================== */
+.service-box .service-box-icon {
+  position: absolute !important;
+  top: 30px !important;
+  right: 30px !important;
+  width: 48px;
+  height: 48px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #ffffff;
+  background-color: rgba(192, 132, 252, 0.18);
+  border: 1px solid rgba(192, 132, 252, 0.35);
+  border-radius: 14px;
+}
+
+/* ==========================================================================
+   TESTIMONIALS: pause / play control (matches the purple slide dots)
+   ========================================================================== */
+.testimonial-pause-btn {
+  width: 28px;
+  height: 28px;
+  margin-left: 8px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(124, 58, 237, 0.35);
+  background-color: #ffffff;
+  color: #7c3aed;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.testimonial-pause-btn:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SUCHI CHATBOT LAUNCHER: compact on phones so it doesn't cover content
+   ========================================================================== */
+@media (max-width: 640px) {
+  .suchi-launcher {
+    bottom: 18px !important;
+    right: 16px !important;
+  }
+  .suchi-launcher .suchi-greeting-pill {
+    display: none !important;
+  }
+  .suchi-launcher .suchi-launcher-avatar {
+    width: 52px !important;
+    height: 52px !important;
+  }
 }

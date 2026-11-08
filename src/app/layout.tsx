@@ -22,10 +22,17 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/Purple Caduceus Laurel Monogram.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" />
+        {/* Site fonts: Plus Jakarta Sans (headings) + Inter (body) */}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="/css/fathima_combined.css" />
+        {/* Without JavaScript: never block the page behind the loader or hidden reveal sections */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              "<style>.maya-page-loader{display:none!important}.reveal-on-scroll{opacity:1!important;transform:none!important}</style>",
+          }}
+        />
       </head>
       <body>{children}</body>
     </html>

@@ -102,7 +102,10 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
     <>
       {/* Floating Avatar Trigger Button */}
       {!isOpen && (
-        <div
+        <button
+          type="button"
+          className="suchi-launcher"
+          aria-label="Chat with Nurse Suchi, Maya Hospital's virtual assistant"
           style={{
             position: "fixed",
             bottom: "28px",
@@ -111,12 +114,18 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            cursor: "pointer"
+            cursor: "pointer",
+            background: "none",
+            border: "none",
+            padding: 0,
+            font: "inherit"
           }}
           onClick={() => setIsOpen(true)}
         >
           {/* Friendly Theme-Consistent Speech Bubble (Pill shape, vertically centered with avatar, NO triangular pointer, NO border) */}
           <div
+            className="suchi-greeting-pill"
+            aria-hidden="true"
             style={{
               backgroundColor: "#2e0c4f",
               backgroundImage: "linear-gradient(135deg, #3b0764 0%, #2e0c4f 100%)",
@@ -139,6 +148,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
 
           {/* Animated Avatar Circle (Seamless purple ring) */}
           <div
+            className="suchi-launcher-avatar"
             style={{
               position: "relative",
               width: "60px",
@@ -160,7 +170,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
           >
             <img
               src="/suchi_avatar.png"
-              alt="Nurse Suchi - Maya Hospital Assistant"
+              alt=""
               style={{
                 width: "100%",
                 height: "100%",
@@ -170,7 +180,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
               }}
             />
           </div>
-        </div>
+        </button>
       )}
 
       {/* Expanded Suchi Chat Window as a Side Section Drawer */}
@@ -225,13 +235,15 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                 <h4 style={{ margin: 0, color: "#ffffff", fontSize: "15px", fontWeight: 700, letterSpacing: "0.5px" }}>
                   Nurse Suchi
                 </h4>
-                <p style={{ margin: "2px 0 0", color: "rgba(255, 255, 255, 0.7)", fontSize: "11px" }}>
+                <p style={{ margin: "2px 0 0", color: "rgba(255, 255, 255, 0.8)", fontSize: "11.5px" }}>
                   Maya Hospital Virtual Nurse • Online
                 </p>
               </div>
             </div>
 
             <button
+              type="button"
+              aria-label="Close chat"
               onClick={() => setIsOpen(false)}
               style={{
                 background: "rgba(255, 255, 255, 0.12)",
@@ -294,7 +306,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                 >
                   {m.text}
                 </div>
-                <span style={{ fontSize: "10px", color: "#9ca3af", marginTop: "4px", padding: "0 4px" }}>
+                <span style={{ fontSize: "11px", color: "#6b7280", marginTop: "4px", padding: "0 4px" }}>
                   {m.time}
                 </span>
 

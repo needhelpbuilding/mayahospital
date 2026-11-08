@@ -171,8 +171,6 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       { name: "Reviews", desc: "Patient ratings & experiences", icon: "fa-star", href: "#testimonials" },
                       { name: "Vision", desc: "Our core medical philosophy", icon: "fa-eye", href: "#vision" },
                       { name: "Awards", desc: "5.0 ★ verified recognition", icon: "fa-award", href: "#awards" },
-                      { name: "Events", desc: "Hospital updates & health camps", icon: "fa-calendar-days", href: "#events" },
-                      { name: "Gallery", desc: "Campus & advanced OT photos", icon: "fa-images", href: "#gallery" },
                       { name: "Doctors", desc: "Specialist consultants & surgeons", icon: "fa-user-doctor", href: "#doctors" }
                     ].map((item, i) => (
                       <Link
@@ -187,7 +185,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           borderRadius: "0px",
                           backgroundColor: "transparent",
                           textDecoration: "none",
-                          borderBottom: i < 4 ? "1px solid rgba(255, 255, 255, 0.12)" : "none",
+                          borderBottom: i < 2 ? "1px solid rgba(255, 255, 255, 0.12)" : "none",
                           borderRight: i % 2 === 0 ? "1px solid rgba(255, 255, 255, 0.12)" : "none",
                           transition: "background-color 0.2s ease"
                         }}
@@ -205,7 +203,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 600, marginBottom: "3px" }}>
                             {item.name}
                           </div>
-                          <div style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "11px", lineHeight: "1.35" }}>
+                          <div style={{ color: "rgba(255, 255, 255, 0.78)", fontSize: "11.5px", lineHeight: "1.4" }}>
                             {item.desc}
                           </div>
                         </div>
@@ -298,7 +296,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 600, marginBottom: "3px" }}>
                             {dept.name}
                           </div>
-                          <div style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "11px", lineHeight: "1.35" }}>
+                          <div style={{ color: "rgba(255, 255, 255, 0.78)", fontSize: "11.5px", lineHeight: "1.4" }}>
                             {dept.desc}
                           </div>
                         </div>
@@ -391,7 +389,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 600, marginBottom: "3px" }}>
                             {serv.name}
                           </div>
-                          <div style={{ color: "rgba(255, 255, 255, 0.65)", fontSize: "11px", lineHeight: "1.35" }}>
+                          <div style={{ color: "rgba(255, 255, 255, 0.78)", fontSize: "11.5px", lineHeight: "1.4" }}>
                             {serv.desc}
                           </div>
                         </div>
@@ -537,8 +535,6 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       { name: "Reviews", href: "#testimonials" },
                       { name: "Vision", href: "#vision" },
                       { name: "Awards", href: "#awards" },
-                      { name: "Events", href: "#events" },
-                      { name: "Gallery", href: "#gallery" },
                       { name: "Doctors", href: "#doctors" }
                     ].map((item, i) => (
                       <Link
@@ -782,21 +778,6 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
         }}
       >
         <div style={{ maxWidth: "860px" }}>
-          {/* Subtle accent rule */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "10px",
-              marginBottom: "16px",
-              color: "#ffffff",
-              fontSize: "11px",
-              letterSpacing: "3.5px",
-              textTransform: "uppercase",
-              fontWeight: 600
-            }}
-          >
-          </div>
 
           {/* Impactful Mission & Healthcare Promise Title with Montserrat */}
           <h1

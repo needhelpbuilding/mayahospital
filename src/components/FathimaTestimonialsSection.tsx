@@ -94,14 +94,6 @@ const ALL_REVIEWS: ReviewItem[] = [
     text: "Supportive staff and good clinical experience. Great infrastructure, modern operation theatres, and dedicated intensive care equipment."
   },
   {
-    id: "11",
-    name: "Brijendra Verma",
-    time: "4 months ago",
-    rating: 5,
-    location: "Local Guide",
-    text: "Availability of specialist doctors and nursing services is very dependable. Clean premise, transparent communication, and quick attention in emergencies."
-  },
-  {
     id: "12",
     name: "Ateek Shaikh",
     time: "a year ago",
@@ -178,30 +170,36 @@ const ALL_REVIEWS: ReviewItem[] = [
 export default function FathimaTestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  // User-controlled pause (WCAG 2.2.2) + temporary pause while hovered / focused
+  const [isPaused, setIsPaused] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
-  // Auto slide every 6 seconds
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const goTo = (getIndex: (prev: number) => number) => {
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex(getIndex);
+      setAnimating(false);
+    }, 200);
+  };
+
+  // Auto slide every 6 seconds unless paused, hovered/focused, or reduced motion is requested
+  const autoplay = !isPaused && !isInteracting && !reducedMotion;
+  useEffect(() => {
+    if (!autoplay) return;
     const timer = setInterval(() => {
-      handleNext();
+      goTo((prev) => (prev + 1) % ALL_REVIEWS.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [currentIndex]);
-
-  const handleNext = () => {
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % ALL_REVIEWS.length);
-      setAnimating(false);
-    }, 200);
-  };
-
-  const handlePrev = () => {
-    setAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev - 1 + ALL_REVIEWS.length) % ALL_REVIEWS.length);
-      setAnimating(false);
-    }, 200);
-  };
+  }, [autoplay]);
 
   const current = ALL_REVIEWS[currentIndex];
 
@@ -225,7 +223,14 @@ export default function FathimaTestimonialsSection() {
               </h2>
             </div>
 
-            <div className="row pt-50" style={{ marginTop: "30px" }}>
+            <div
+              className="row pt-50"
+              style={{ marginTop: "30px" }}
+              onMouseEnter={() => setIsInteracting(true)}
+              onMouseLeave={() => setIsInteracting(false)}
+              onFocus={() => setIsInteracting(true)}
+              onBlur={() => setIsInteracting(false)}
+            >
               {/* Sliding Testimonial Box exactly matching the reference card design */}
               <div className="testimonial-box">
                 <div 
@@ -310,14 +315,9 @@ export default function FathimaTestimonialsSection() {
                   return (
                     <button
                       key={idx}
-                      onClick={() => {
-                        setAnimating(true);
-                        setTimeout(() => {
-                          setCurrentIndex(idx);
-                          setAnimating(false);
-                        }, 200);
-                      }}
-                      aria-label={`Go to slide ${idx + 1}`}
+                      onClick={() => goTo(() => idx)}
+                      aria-label={`Go to review ${idx + 1}`}
+                      aria-current={isActive ? "true" : undefined}
                       style={{
                         width: isActive ? "26px" : "10px",
                         height: "10px",
@@ -331,6 +331,17 @@ export default function FathimaTestimonialsSection() {
                     />
                   );
                 })}
+
+                {/* Pause / Play control (same purple pill language as the dots) */}
+                <button
+                  type="button"
+                  onClick={() => setIsPaused((p) => !p)}
+                  aria-label={isPaused ? "Play review slideshow" : "Pause review slideshow"}
+                  aria-pressed={isPaused}
+                  className="testimonial-pause-btn"
+                >
+                  <i className={`fa-solid ${isPaused ? "fa-play" : "fa-pause"}`} aria-hidden="true"></i>
+                </button>
               </div>
             </div>
           </div>
@@ -404,7 +415,7 @@ export default function FathimaTestimonialsSection() {
                   <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#ffffff", letterSpacing: "0.2px" }}>
                     Amar Ujala &ldquo;Best of My City&rdquo; Award
                   </div>
-                  <div style={{ fontSize: "11px", color: "rgba(255, 255, 255, 0.75)" }}>
+                  <div style={{ fontSize: "12px", color: "rgba(255, 255, 255, 0.82)" }}>
                     Felicitation by Hon. Deputy CM, Uttar Pradesh
                   </div>
                 </div>

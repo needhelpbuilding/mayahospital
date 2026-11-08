@@ -8,39 +8,51 @@ interface TopLinksProps {
   onOpenReportModal: () => void;
 }
 
+// Theme-consistent amethyst dividers (replaces leftover template gold)
+const DIVIDER = "rgba(124, 58, 237, 0.14)";
+
 export default function FathimaTopLinks({
   onOpenAppointmentModal,
   onOpenQuestionModal,
   onOpenReportModal,
 }: TopLinksProps) {
+  const links: {
+    icon: string;
+    label: [string, string];
+    href: string;
+    onClick?: () => void;
+  }[] = [
+    { icon: "fa-heart-pulse", label: ["health", "Checkup"], href: "#location", onClick: onOpenAppointmentModal },
+    { icon: "fa-notes-medical", label: ["health", "packages"], href: "#location", onClick: onOpenAppointmentModal },
+    { icon: "fa-comment-medical", label: ["ask a", "question"], href: "#ask", onClick: onOpenQuestionModal },
+    { icon: "fa-file-waveform", label: ["download", "lab report"], href: "#report", onClick: onOpenReportModal },
+    { icon: "fa-file-shield", label: ["insurance", "providers"], href: "#insurance" },
+  ];
+
   return (
-    <section style={{ backgroundColor: "var(--fadeblue)", borderBottom: "1px solid rgba(205, 162, 80, 0.18)" }}>
+    <section style={{ backgroundColor: "var(--fadeblue)", borderBottom: `1px solid ${DIVIDER}` }}>
       <div className="container">
         <div className="row toplinks top-links-inner" style={{ padding: "26px 0" }}>
-          <a href="#packages" style={{ borderRightColor: "rgba(205, 162, 80, 0.2)" }}>
-            <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icon1.png" alt="Health Checkup" style={{ filter: "sepia(0.3) saturate(1.2)" }} />
-            <h3 style={{ color: "var(--primary-color)" }}>health <br /> Checkup</h3>
-          </a>
-
-          <a href="#packages" style={{ borderRightColor: "rgba(205, 162, 80, 0.2)" }}>
-            <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icon2.png" alt="Health Packages" style={{ filter: "sepia(0.3) saturate(1.2)" }} />
-            <h3 style={{ color: "var(--primary-color)" }}>health <br /> packages</h3>
-          </a>
-
-          <a href="#ask" onClick={(e) => { e.preventDefault(); onOpenQuestionModal(); }} style={{ borderRightColor: "rgba(205, 162, 80, 0.2)" }}>
-            <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icon3.png" alt="Ask a Question" style={{ filter: "sepia(0.3) saturate(1.2)" }} />
-            <h3 style={{ color: "var(--primary-color)" }}>ask a <br /> question</h3>
-          </a>
-
-          <a href="#report" onClick={(e) => { e.preventDefault(); onOpenReportModal(); }} style={{ borderRightColor: "rgba(205, 162, 80, 0.2)" }}>
-            <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icon4.png" alt="Download Lab Report" style={{ filter: "sepia(0.3) saturate(1.2)" }} />
-            <h3 style={{ color: "var(--primary-color)" }}>download <br /> lab report</h3>
-          </a>
-
-          <a href="#insurance">
-            <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icon5.png" alt="Insurance Providers" style={{ filter: "sepia(0.3) saturate(1.2)" }} />
-            <h3 style={{ color: "var(--primary-color)" }}>insurance <br /> providers</h3>
-          </a>
+          {links.map((link, i) => (
+            <a
+              key={link.href + i}
+              href={link.href}
+              onClick={
+                link.onClick
+                  ? (e) => {
+                      e.preventDefault();
+                      link.onClick?.();
+                    }
+                  : undefined
+              }
+              style={i < links.length - 1 ? { borderRightColor: DIVIDER } : undefined}
+            >
+              <i className={`fa-solid ${link.icon} toplink-icon`} aria-hidden="true"></i>
+              <h3 style={{ color: "var(--primary-color)" }}>
+                {link.label[0]} <br /> {link.label[1]}
+              </h3>
+            </a>
+          ))}
         </div>
       </div>
     </section>

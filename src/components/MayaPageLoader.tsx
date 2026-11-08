@@ -7,22 +7,53 @@ export default function MayaPageLoader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Elegant quick initial load sequence
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      const removeTimer = setTimeout(() => {
-        setLoading(false);
-      }, 500);
-      return () => clearTimeout(removeTimer);
-    }, 900);
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
-    return () => clearTimeout(timer);
+    // Skip the brand loader entirely for users who prefer reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      timers.push(setTimeout(() => setLoading(false), 0));
+      return () => timers.forEach(clearTimeout);
+    }
+
+    // Fade out as soon as the page has actually loaded (short minimum for the brand moment,
+    // hard cap so a slow third-party asset never holds the page hostage)
+    const MIN_VISIBLE_MS = 350;
+    const MAX_VISIBLE_MS = 1200;
+    const startedAt = performance.now();
+    let done = false;
+
+    const finish = () => {
+      if (done) return;
+      done = true;
+      const wait = Math.max(0, MIN_VISIBLE_MS - (performance.now() - startedAt));
+      timers.push(
+        setTimeout(() => {
+          setFadeOut(true);
+          timers.push(setTimeout(() => setLoading(false), 500));
+        }, wait)
+      );
+    };
+
+    if (document.readyState === "complete") {
+      finish();
+    } else {
+      window.addEventListener("load", finish, { once: true });
+    }
+    timers.push(setTimeout(finish, MAX_VISIBLE_MS));
+
+    return () => {
+      window.removeEventListener("load", finish);
+      timers.forEach(clearTimeout);
+    };
   }, []);
 
   if (!loading) return null;
 
   return (
     <div
+      className="maya-page-loader"
+      role="status"
+      aria-label="Loading Maya Hospital"
       style={{
         position: "fixed",
         inset: 0,

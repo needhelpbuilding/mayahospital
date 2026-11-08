@@ -7,54 +7,56 @@ interface DoctorsProps {
 }
 
 // 16 Doctors & Clinical Specialists spanning Maya Hospital's departments
+// PLACEHOLDER ROSTER: names and stock photos are illustrative only. Replace with Maya Hospital's real
+// doctors, qualifications and photos (stored locally in /public) before going live.
 const DOCTOR_LIST = [
   {
     name: "Dr. Maya Verma",
     degrees: "MBBS, MS (Obs & Gynae), FMAS",
     speciality: "Obstetrics & Gynaecology",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/anitha.png"
+    image: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Dr. R. K. Sharma",
     degrees: "MD, DM (Cardio), FACC",
     speciality: "Cardiology & Critical Care",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/6-2.png"
+    image: "https://images.unsplash.com/photo-1576669801775-ff43c5ab079d?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Dr. S. K. Singh",
     degrees: "MBBS, MS Ortho, FIJR",
     speciality: "Orthopaedics & Joint Surgery",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/5-1.png"
+    image: "https://images.unsplash.com/photo-1645066928295-2506defde470?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Dr. Alok Srivastava",
     degrees: "MBBS, MD (Paediatrics)",
     speciality: "Paediatrics & Neonatology",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/wasim.png"
+    image: "https://images.unsplash.com/photo-1612276529731-4b21494e6d71?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Dr. A. P. Mishra",
     degrees: "MBBS, MS (General Surgery), FIAGES",
     speciality: "Laparoscopic & General Surgery",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/Haleem.png"
+    image: "https://images.unsplash.com/photo-1618498082410-b4aa22193b38?auto=format&fit=crop&q=80&w=600"
   },
   {
-    name: "Dr. Ujual Narayanan",
+    name: "Dr. Shalini Gupta",
     degrees: "MBBS, MD (General Medicine)",
     speciality: "General Medicine & Diabetology",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/ujjal-narayanan.png"
+    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=600"
   },
   {
-    name: "Dr. Shalima P. S.",
+    name: "Dr. Ritu Awasthi",
     degrees: "MBBS, MS (ENT), DNB",
     speciality: "ENT, Head & Neck Surgery",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/shamila.png"
+    image: "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=600"
   },
   {
-    name: "Dr. Santhosh P. Varghese",
+    name: "Dr. Deepak Bajpai",
     degrees: "MS, MCh (Uro)",
     speciality: "Urology & Andrology",
-    image: "https://www.fathimahospital.com/wp-content/uploads/2024/12/Santhosh-P-Varghese.png"
+    image: "https://images.unsplash.com/photo-1550831107-1553da8c8464?auto=format&fit=crop&q=80&w=600"
   },
   {
     name: "Dr. Priya Pandey",
@@ -117,17 +119,68 @@ const FillerHexagon: React.FC<{
     <div
       className={`hex-card hex-filler-card ${extraClass}`}
       onClick={onClick}
+      onKeyDown={(e) => activateOnKey(e, onClick)}
+      role="button"
+      tabIndex={0}
+      aria-label={`${label} – book an appointment`}
       title={label}
     >
       <div className="hex-content hex-filler-content">
         <div className="hex-filler-inner">
-          <i className={`fa-solid ${icon} hex-filler-icon`}></i>
+          <i className={`fa-solid ${icon} hex-filler-icon`} aria-hidden="true"></i>
           <span className="hex-filler-label">{label}</span>
         </div>
       </div>
     </div>
   );
 };
+
+// Keyboard support for hexagon "buttons" (Enter / Space)
+function activateOnKey(e: React.KeyboardEvent, action?: () => void) {
+  if (!action) return;
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    action();
+  }
+}
+
+type DoctorItem = (typeof DOCTOR_LIST)[number];
+
+// Single doctor hexagon: photo by default, white credentials panel on hover / focus / tap
+const DoctorHex: React.FC<{
+  doc: DoctorItem;
+  offset: string;
+  isActive: boolean;
+  onActivate: (name: string) => void;
+  onBook: (name: string) => void;
+}> = ({ doc, offset, isActive, onActivate, onBook }) => (
+  <div
+    className={`hex-card ${isActive ? "is-active-mobile" : ""}`}
+    style={{ transform: `translateY(${offset})` }}
+    onClick={() => onActivate(doc.name)}
+    onKeyDown={(e) => activateOnKey(e, () => onBook(doc.name))}
+    role="button"
+    tabIndex={0}
+    aria-label={`${doc.name}, ${doc.speciality}, ${doc.degrees}. Book an appointment`}
+  >
+    <div className="hex-content">
+      {/* Default State: Doctor Image against solid theme-consistent purple */}
+      <div className="hex-image-holder">
+        <img src={doc.image} alt="" className="hex-img" loading="lazy" />
+      </div>
+
+      {/* Hover / Focus State: pure WHITE panel with centered Name, Education & Speciality */}
+      <div className="hex-hover-panel" aria-hidden="true">
+        <div className="hex-text-inner">
+          <h4 className="hex-doc-name">{doc.name}</h4>
+          <p className="hex-doc-edu">{doc.degrees}</p>
+          <p className="hex-doc-spec">{doc.speciality}</p>
+          <span className="hex-book-badge">Book Appointment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps) {
   // Mobile active doctor card state (for tap-to-inspect credentials)
@@ -181,7 +234,7 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
               lineHeight: "24px"
             }}
           >
-            Hover or tap on any specialist to view their clinical expertise, qualifications, and consultation scope.
+            Hover, tap or tab to any specialist to view their clinical expertise, qualifications, and consultation scope.
           </p>
 
           {/* Mobile swipe hint visible only on touch/mobile */}
@@ -212,36 +265,16 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
                 onClick={() => onOpenAppointmentModal()}
               />
 
-              {row1.map((doc, idx) => {
-                const isActive = activeMobileCard === doc.name;
-                return (
-                  <div
-                    key={doc.name}
-                    className={`hex-card ${isActive ? "is-active-mobile" : ""}`}
-                    style={{
-                      transform: `translateY(${subtleDisorderOffsets[idx % subtleDisorderOffsets.length]})`
-                    }}
-                    onClick={() => handleCardClick(doc.name)}
-                  >
-                    <div className="hex-content">
-                      {/* Default State: Doctor Image against solid theme-consistent purple */}
-                      <div className="hex-image-holder">
-                        <img src={doc.image} alt={doc.name} className="hex-img" />
-                      </div>
-
-                      {/* Hover State: Turns pure WHITE with PRECISELY centered Name, Education & Speciality */}
-                      <div className="hex-hover-panel">
-                        <div className="hex-text-inner">
-                          <h4 className="hex-doc-name">{doc.name}</h4>
-                          <p className="hex-doc-edu">{doc.degrees}</p>
-                          <p className="hex-doc-spec">{doc.speciality}</p>
-                          <span className="hex-book-badge">Book Appointment</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {row1.map((doc, idx) => (
+                <DoctorHex
+                  key={doc.name}
+                  doc={doc}
+                  offset={subtleDisorderOffsets[idx % subtleDisorderOffsets.length]}
+                  isActive={activeMobileCard === doc.name}
+                  onActivate={handleCardClick}
+                  onBook={onOpenAppointmentModal}
+                />
+              ))}
 
               {/* Right Filler Hexagon (Lighter Shade) */}
               <FillerHexagon
@@ -277,34 +310,16 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
                 onClick={() => onOpenAppointmentModal()}
               />
 
-              {row2.map((doc, idx) => {
-                const isActive = activeMobileCard === doc.name;
-                return (
-                  <div
-                    key={doc.name}
-                    className={`hex-card ${isActive ? "is-active-mobile" : ""}`}
-                    style={{
-                      transform: `translateY(${subtleDisorderOffsets[(idx + 2) % subtleDisorderOffsets.length]})`
-                    }}
-                    onClick={() => handleCardClick(doc.name)}
-                  >
-                    <div className="hex-content">
-                      <div className="hex-image-holder">
-                        <img src={doc.image} alt={doc.name} className="hex-img" />
-                      </div>
-
-                      <div className="hex-hover-panel">
-                        <div className="hex-text-inner">
-                          <h4 className="hex-doc-name">{doc.name}</h4>
-                          <p className="hex-doc-edu">{doc.degrees}</p>
-                          <p className="hex-doc-spec">{doc.speciality}</p>
-                          <span className="hex-book-badge">Book Appointment</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {row2.map((doc, idx) => (
+                <DoctorHex
+                  key={doc.name}
+                  doc={doc}
+                  offset={subtleDisorderOffsets[(idx + 2) % subtleDisorderOffsets.length]}
+                  isActive={activeMobileCard === doc.name}
+                  onActivate={handleCardClick}
+                  onBook={onOpenAppointmentModal}
+                />
+              ))}
 
               {/* Right Filler Hexagon (Lighter Shade) */}
               <FillerHexagon
@@ -339,34 +354,16 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
                 onClick={() => onOpenAppointmentModal()}
               />
 
-              {row3.map((doc, idx) => {
-                const isActive = activeMobileCard === doc.name;
-                return (
-                  <div
-                    key={doc.name}
-                    className={`hex-card ${isActive ? "is-active-mobile" : ""}`}
-                    style={{
-                      transform: `translateY(${subtleDisorderOffsets[(idx + 4) % subtleDisorderOffsets.length]})`
-                    }}
-                    onClick={() => handleCardClick(doc.name)}
-                  >
-                    <div className="hex-content">
-                      <div className="hex-image-holder">
-                        <img src={doc.image} alt={doc.name} className="hex-img" />
-                      </div>
-
-                      <div className="hex-hover-panel">
-                        <div className="hex-text-inner">
-                          <h4 className="hex-doc-name">{doc.name}</h4>
-                          <p className="hex-doc-edu">{doc.degrees}</p>
-                          <p className="hex-doc-spec">{doc.speciality}</p>
-                          <span className="hex-book-badge">Book Appointment</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {row3.map((doc, idx) => (
+                <DoctorHex
+                  key={doc.name}
+                  doc={doc}
+                  offset={subtleDisorderOffsets[(idx + 4) % subtleDisorderOffsets.length]}
+                  isActive={activeMobileCard === doc.name}
+                  onActivate={handleCardClick}
+                  onBook={onOpenAppointmentModal}
+                />
+              ))}
 
               {/* Right Filler Hexagon (Lighter Shade) */}
               <FillerHexagon

@@ -33,8 +33,8 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
                 </div>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: "12px", background: "var(--fadeblue)", padding: "14px 20px", borderRadius: "12px", borderLeft: "3px solid #ff0000" }}>
-                <i className="fa-solid fa-truck-medical" style={{ fontSize: "22px", color: "#ff0000" }}></i>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px", background: "var(--fadeblue)", padding: "14px 20px", borderRadius: "12px", borderLeft: "3px solid #dc2626" }}>
+                <i className="fa-solid fa-truck-medical" style={{ fontSize: "22px", color: "#dc2626" }}></i>
                 <div>
                   <div style={{ fontSize: "12px", color: "#6b7280", fontWeight: 600, textTransform: "uppercase" }}>Emergency & Trauma</div>
                   <div style={{ fontSize: "14px", fontWeight: 700, color: "var(--primary-color)" }}>24x7 Round the Clock</div>
@@ -45,10 +45,10 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
 
           {/* Right Image Feature with Experience Card */}
           <div style={{ flex: "1 1 450px", position: "relative" }}>
-            <div style={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 25px 60px rgba(36, 20, 10, 0.16)" }}>
+            <div style={{ borderRadius: "24px", overflow: "hidden", boxShadow: "0 25px 60px rgba(36, 11, 59, 0.16)" }}>
               <img
-                src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80"
-                alt="Maya Hospital Healthcare Facility"
+                src="/maya-reception-lobby.jpg"
+                alt="Reception lobby at Maya Hospital, Meerpur"
                 style={{ width: "100%", height: "380px", objectFit: "cover", display: "block" }}
               />
             </div>
@@ -66,7 +66,7 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
               display: "flex",
               alignItems: "center",
               gap: "16px",
-              border: "1px solid rgba(0, 184, 174, 0.3)"
+              border: "1px solid rgba(192, 132, 252, 0.35)"
             }}>
               <i className="fa-solid fa-award" style={{ fontSize: "36px", color: "var(--secondary-color)" }}></i>
               <div>

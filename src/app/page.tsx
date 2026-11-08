@@ -27,7 +27,19 @@ export default function Home() {
   const [reportModalOpen, setReportModalOpen] = useState(false);
 
   // Scroll-on-Reveal Animation IntersectionObserver
+  // Content is fully visible in the server HTML; sections are only hidden once JS is running
+  // (html.reveal-ready), so a slow / failed script never leaves blank sections.
   useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal-on-scroll");
+
+    // Anything already on screen is revealed immediately (no flicker on hydration)
+    revealElements.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add("is-revealed");
+      }
+    });
+    document.documentElement.classList.add("reveal-ready");
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,11 +54,11 @@ export default function Home() {
       }
     );
 
-    const revealElements = document.querySelectorAll(".reveal-on-scroll");
     revealElements.forEach((el) => observer.observe(el));
 
     return () => {
-      revealElements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
+      document.documentElement.classList.remove("reveal-ready");
     };
   }, []);
 
@@ -132,7 +144,7 @@ export default function Home() {
             <div 
               style={{ 
                 display: "grid", 
-                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(320px, 100%), 1fr))", 
                 gap: "0px", 
                 alignItems: "stretch",
                 boxShadow: "0 20px 50px rgba(33, 9, 58, 0.22)",
@@ -185,6 +197,33 @@ export default function Home() {
                       <a href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700 }}>
                         {HOSPITAL_INFO.bookingPhone}
                       </a>
+                    </div>
+                  </div>
+
+                  {/* Payments, Cashless Mediclaim & Insurance (target for all #insurance links) */}
+                  <div id="insurance" style={{ display: "flex", gap: "15px", alignItems: "flex-start" }}>
+                    <i className="fa-solid fa-file-shield" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }} aria-hidden="true"></i>
+                    <div>
+                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "10px" }}>Payments &amp; Insurance:</strong>
+                      <ul style={{ display: "flex", flexWrap: "wrap", gap: "8px", listStyle: "none", margin: 0, padding: 0 }}>
+                        {HOSPITAL_INFO.paymentMethods.map((method) => (
+                          <li
+                            key={method}
+                            style={{
+                              fontSize: "12px",
+                              fontWeight: 600,
+                              color: "#ede9fe",
+                              backgroundColor: "rgba(192, 132, 252, 0.14)",
+                              border: "1px solid rgba(192, 132, 252, 0.3)",
+                              borderRadius: "9999px",
+                              padding: "5px 12px",
+                              lineHeight: 1.3
+                            }}
+                          >
+                            {method}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -279,7 +318,10 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <FathimaFooter />
+      <FathimaFooter
+        onOpenAppointmentModal={() => handleOpenAppointment()}
+        onOpenEnquiryModal={() => setEnquiryModalOpen(true)}
+      />
 
       {/* Theme-Consistent Suchi Care Chatbot (replacing WhatsApp button) */}
       <SuchiChatbot onOpenAppointment={() => handleOpenAppointment()} />

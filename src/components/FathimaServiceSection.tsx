@@ -43,7 +43,7 @@ export default function FathimaServiceSection() {
             <div className="row-flex flex-gap space-between" style={{ display: "flex", flexWrap: "wrap", gap: "25px", justifyContent: "space-between" }}>
               {/* Box 1 */}
               <div className="service-box curved" style={{ flex: "0 0 47%", minHeight: "260px" }}>
-                <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icons/icon6.png" alt="" />
+                <i className="fa-solid fa-hand-holding-heart service-box-icon" aria-hidden="true"></i>
                 <h3 className="service-box-title">Service to Humanity.</h3>
                 <p className="mb-0">
                   Maya Hospital And Multi-speciality Centre has begun the new era of Modern High tech hospitals to bring the latest advances in Medical care to reach the common man in Meerpur and surrounding districts.
@@ -52,7 +52,7 @@ export default function FathimaServiceSection() {
 
               {/* Box 2 */}
               <div className="service-box curved" style={{ flex: "0 0 47%", minHeight: "260px" }}>
-                <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icons/icon7.png" alt="" />
+                <i className="fa-solid fa-user-nurse service-box-icon" aria-hidden="true"></i>
                 <h3 className="service-box-title">Passion & Commitment.</h3>
                 <p className="mb-0">
                   Our institution bears testimony to a longstanding tradition of excellence in service and our medical staff are committed to providing the best possible care and comfort to patients during their stay.
@@ -61,7 +61,7 @@ export default function FathimaServiceSection() {
 
               {/* Box 3 */}
               <div className="service-box curved" style={{ flex: "0 0 47%", minHeight: "260px" }}>
-                <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icons/icon8.png" alt="" />
+                <i className="fa-solid fa-seedling service-box-icon" aria-hidden="true"></i>
                 <h3 className="service-box-title">Towards Better Life.</h3>
                 <p className="mb-0">
                   Our hospital provides a wide array of acute services, including general medical and surgical services, pediatric intensive care (NICU), and complex orthopedic joint replacements.
@@ -70,8 +70,8 @@ export default function FathimaServiceSection() {
 
               {/* Box 4 */}
               <div className="service-box curved" style={{ flex: "0 0 47%", minHeight: "260px" }}>
-                <img src="https://www.fathimahospital.com/wp-content/themes/fathimahosptial/images/icons/icon9.png" alt="" />
-                <h3 className="service-box-title">Get in to life.</h3>
+                <i className="fa-solid fa-truck-medical service-box-icon" aria-hidden="true"></i>
+                <h3 className="service-box-title">Rapid Emergency Response.</h3>
                 <p className="mb-0">
                   At the forefront of hospital advances in treatment and technology, we provide rapid diagnostics for patients admitted as emergencies to direct them to clinical areas most appropriate for their condition.
                 </p>
