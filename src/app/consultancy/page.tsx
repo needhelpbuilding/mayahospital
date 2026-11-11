@@ -52,7 +52,7 @@ export default function ConsultancyPage() {
       {/* Header Bar */}
       <header
         style={{
-          backgroundColor: "#160526",
+          backgroundColor: "#0b1329",
           backgroundImage: "linear-gradient(135deg, #1b072c 0%, #0d0216 100%)",
           color: "#ffffff",
           padding: "16px 0",
@@ -100,7 +100,7 @@ export default function ConsultancyPage() {
               >
                 MAYA HOSPITAL
               </span>
-              <span style={{ color: "#c084fc", fontSize: "11px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 600 }}>
+              <span style={{ color: "#60a5fa", fontSize: "11px", letterSpacing: "1.5px", textTransform: "uppercase", fontWeight: 600 }}>
                 Specialist Consultancy Desk
               </span>
             </div>
@@ -140,7 +140,7 @@ export default function ConsultancyPage() {
                 backgroundColor: "#ffffff",
                 borderRadius: "28px",
                 padding: "50px 36px",
-                border: "1px solid #ede9fe",
+                border: "1px solid #eff6ff",
                 boxShadow: "0 20px 50px rgba(36, 11, 59, 0.08)",
                 textAlign: "center"
               }}
@@ -150,8 +150,8 @@ export default function ConsultancyPage() {
                   width: "72px", 
                   height: "72px", 
                   borderRadius: "50%", 
-                  backgroundColor: "#f3e8ff", 
-                  color: "#7c3aed",
+                  backgroundColor: "#eff6ff", 
+                  color: "#245BFF",
                   display: "flex", 
                   alignItems: "center", 
                   justifyContent: "center", 
@@ -161,19 +161,19 @@ export default function ConsultancyPage() {
                 <CheckCircle2 size={42} />
               </div>
 
-              <h2 style={{ fontSize: "28px", fontWeight: 800, color: "#240b3b", marginBottom: "12px" }}>
+              <h2 style={{ fontSize: "28px", fontWeight: 800, color: "#0f172a", marginBottom: "12px" }}>
                 Consultation Request Registered!
               </h2>
 
               <p style={{ color: "#64748b", fontSize: "15px", maxWidth: "560px", margin: "0 auto 28px", lineHeight: "1.6" }}>
-                Thank you <strong style={{ color: "#240b3b" }}>{patientName}</strong>. Your medical consultation request has been routed directly to our chief medical coordinator. We will call you at <strong style={{ color: "#240b3b" }}>{phoneNumber}</strong> within 15 minutes to confirm your consultant doctor and appointment slot.
+                Thank you <strong style={{ color: "#0f172a" }}>{patientName}</strong>. Your medical consultation request has been routed directly to our chief medical coordinator. We will call you at <strong style={{ color: "#0f172a" }}>{phoneNumber}</strong> within 15 minutes to confirm your consultant doctor and appointment slot.
               </p>
 
               {/* Summary Card */}
               <div 
                 style={{ 
                   backgroundColor: "#faf5ff", 
-                  border: "1.5px solid #ede9fe", 
+                  border: "1.5px solid #eff6ff", 
                   borderRadius: "20px", 
                   padding: "24px 28px", 
                   textAlign: "left", 
@@ -186,29 +186,29 @@ export default function ConsultancyPage() {
               >
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px" }}>
                   <span style={{ color: "#64748b" }}>Consultation Type:</span>
-                  <strong style={{ color: "#240b3b", textTransform: "capitalize" }}>{consultType.replace("-", " ")}</strong>
+                  <strong style={{ color: "#0f172a", textTransform: "capitalize" }}>{consultType.replace("-", " ")}</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px" }}>
                   <span style={{ color: "#64748b" }}>Selected Speciality:</span>
-                  <strong style={{ color: "#240b3b" }}>{department}</strong>
+                  <strong style={{ color: "#0f172a" }}>{department}</strong>
                 </div>
                 {doctor && (
                   <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px" }}>
                     <span style={{ color: "#64748b" }}>Preferred Doctor:</span>
-                    <strong style={{ color: "#240b3b" }}>{doctor}</strong>
+                    <strong style={{ color: "#0f172a" }}>{doctor}</strong>
                   </div>
                 )}
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px" }}>
                   <span style={{ color: "#64748b" }}>Scheduled Date & Slot:</span>
-                  <strong style={{ color: "#240b3b" }}>{date || "Earliest Available"} • {timeSlot}</strong>
+                  <strong style={{ color: "#0f172a" }}>{date || "Earliest Available"} • {timeSlot}</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px" }}>
                   <span style={{ color: "#64748b" }}>Facility Location:</span>
-                  <strong style={{ color: "#240b3b" }}>Aira Road, Meerpur</strong>
+                  <strong style={{ color: "#0f172a" }}>Aira Road, Meerpur</strong>
                 </div>
-                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px", borderTop: "1px solid #ede9fe", paddingTop: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "13.5px", borderTop: "1px solid #eff6ff", paddingTop: "10px" }}>
                   <span style={{ color: "#64748b" }}>OPD Direct Helpline:</span>
-                  <strong style={{ color: "#7c3aed" }}>{HOSPITAL_INFO.bookingPhone}</strong>
+                  <strong style={{ color: "#245BFF" }}>{HOSPITAL_INFO.bookingPhone}</strong>
                 </div>
               </div>
 
@@ -230,8 +230,8 @@ export default function ConsultancyPage() {
                   }}
                   style={{
                     backgroundColor: "#ffffff",
-                    color: "#240b3b",
-                    border: "1.5px solid #ede9fe",
+                    color: "#0f172a",
+                    border: "1.5px solid #eff6ff",
                     borderRadius: "9999px",
                     padding: "14px 30px",
                     fontWeight: 700,
@@ -249,7 +249,7 @@ export default function ConsultancyPage() {
               style={{
                 backgroundColor: "#ffffff",
                 borderRadius: "32px",
-                border: "1px solid #ede9fe",
+                border: "1px solid #eff6ff",
                 boxShadow: "0 25px 60px rgba(36, 11, 59, 0.06)",
                 overflow: "hidden"
               }}
@@ -257,14 +257,14 @@ export default function ConsultancyPage() {
               {/* Form Hero Header Banner */}
               <div
                 style={{
-                  backgroundColor: "#240b3b",
-                  backgroundImage: "linear-gradient(135deg, #240b3b 0%, #4a1575 100%)",
+                  backgroundColor: "#0f172a",
+                  backgroundImage: "linear-gradient(135deg, #0f172a 0%, #4a1575 100%)",
                   color: "#ffffff",
                   padding: "40px 36px 36px"
                 }}
               >
                 <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "rgba(255, 255, 255, 0.12)", padding: "5px 14px", borderRadius: "9999px", fontSize: "11px", fontWeight: 700, letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: "14px", color: "#e9d5ff" }}>
-                  <Activity size={13} style={{ color: "#c084fc" }} />
+                  <Activity size={13} style={{ color: "#60a5fa" }} />
                   <span>Maya Hospital Patient OPD Desk</span>
                 </div>
 
@@ -302,15 +302,15 @@ export default function ConsultancyPage() {
                             style={{
                               padding: "14px 16px",
                               borderRadius: "14px",
-                              border: isSelected ? "2px solid #7c3aed" : "1.5px solid #ede9fe",
+                              border: isSelected ? "2px solid #245BFF" : "1.5px solid #eff6ff",
                               backgroundColor: isSelected ? "#faf5ff" : "#ffffff",
                               cursor: "pointer",
                               transition: "all 0.2s ease"
                             }}
                           >
                             <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
-                              <i className={`fa-solid ${item.icon}`} style={{ color: isSelected ? "#7c3aed" : "#94a3b8", fontSize: "14px" }}></i>
-                              <span style={{ fontSize: "13px", fontWeight: 700, color: isSelected ? "#240b3b" : "#334155" }}>
+                              <i className={`fa-solid ${item.icon}`} style={{ color: isSelected ? "#245BFF" : "#94a3b8", fontSize: "14px" }}></i>
+                              <span style={{ fontSize: "13px", fontWeight: 700, color: isSelected ? "#0f172a" : "#334155" }}>
                                 {item.label}
                               </span>
                             </div>
@@ -516,7 +516,7 @@ export default function ConsultancyPage() {
 
                   {/* 24x7 Emergency Advisory */}
                   <div className="maya-dialog-emergency-notice">
-                    <ShieldCheck size={20} style={{ color: "#7c3aed", flexShrink: 0 }} />
+                    <ShieldCheck size={20} style={{ color: "#245BFF", flexShrink: 0 }} />
                     <span>
                       <strong>For immediate emergency care:</strong> Severe chest pain, head trauma, acute bleeding, or active labor should proceed directly to our Emergency Department on Aira Road Meerpur or call <strong>{HOSPITAL_INFO.emergencyPhone}</strong>.
                     </span>

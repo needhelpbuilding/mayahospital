@@ -25,7 +25,7 @@ export default function FathimaNewsSection() {
         {/* Header Row */}
         <div className="row-flex space-between align-center pt-30 pb-30" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "35px" }}>
           <div className="smd30">
-            <span className="subtitle text-white" style={{ color: "#c084fc" }}>insights</span>
+            <span className="subtitle text-white" style={{ color: "#60a5fa" }}>insights</span>
             <h2 className="heading text-white" style={{ color: "#ffffff", margin: 0 }}>News & Events</h2>
           </div>
 

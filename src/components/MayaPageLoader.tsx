@@ -95,7 +95,7 @@ export default function MayaPageLoader() {
             width: "36px",
             height: "36px",
             border: "3px solid rgba(255, 255, 255, 0.15)",
-            borderTopColor: "#c084fc",
+            borderTopColor: "#60a5fa",
             borderRadius: "50%",
             animation: "loaderSpin 0.85s linear infinite"
           }}

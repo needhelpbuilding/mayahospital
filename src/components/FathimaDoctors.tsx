@@ -147,7 +147,7 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
           <Link
             href="/doctors"
             style={{
-              backgroundColor: "#21093a",
+              backgroundColor: "#0f172a",
               color: "#ffffff",
               padding: "13px 32px",
               borderRadius: "9999px",
@@ -163,13 +163,13 @@ export default function FathimaDoctors({ onOpenAppointmentModal }: DoctorsProps)
               transition: "all 0.25s ease"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#7c3aed";
+              e.currentTarget.style.backgroundColor = "#245BFF";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#21093a";
+              e.currentTarget.style.backgroundColor = "#0f172a";
             }}
           >
-            <i className="fa-solid fa-user-doctor" style={{ color: "#c084fc" }}></i>
+            <i className="fa-solid fa-user-doctor" style={{ color: "#60a5fa" }}></i>
             <span>View All Doctors Directory &amp; Full Profiles</span>
             <i className="fa-solid fa-arrow-right" style={{ fontSize: "11px" }}></i>
           </Link>

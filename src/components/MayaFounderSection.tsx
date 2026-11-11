@@ -7,7 +7,7 @@ export default function MayaFounderSection() {
       style={{ 
         position: "relative",
         padding: "60px 0 80px 0", 
-        backgroundColor: "#160526",
+        backgroundColor: "#0b1329",
         color: "#f7f3ec",
         overflow: "hidden"
       }}
