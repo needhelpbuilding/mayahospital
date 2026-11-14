@@ -7,6 +7,8 @@ import SubpageNavbar from "@/components/SubpageNavbar";
 import FathimaFooter from "@/components/FathimaFooter";
 import SuchiChatbot from "@/components/SuchiChatbot";
 import AppointmentModal from "@/components/AppointmentModal";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, graph, listNode } from "@/lib/seo";
 
 export default function DepartmentsIndexPage() {
   const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
@@ -19,6 +21,13 @@ export default function DepartmentsIndexPage() {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#faf8fc", display: "flex", flexDirection: "column" }}>
+      <JsonLd
+        data={graph(
+          breadcrumbNode([["Home", "/"], ["Clinical Departments", "/departments"]]),
+          listNode("/departments", DEPARTMENTS.map((x) => [x.name, `/departments/${x.slug}`])),
+        )}
+      />
+
       {/* Sticky Theme-Consistent Navbar */}
       <SubpageNavbar onOpenAppointmentModal={handleOpenAppointment} />
 
@@ -26,7 +35,7 @@ export default function DepartmentsIndexPage() {
       <div style={{ backgroundColor: "#1e0734", borderBottom: "1px solid rgba(124, 58, 237, 0.2)", padding: "12px 0" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-            <Link href="/" style={{ color: "#60a5fa", textDecoration: "none" }}>Home</Link>
+            <Link href="/" style={{ color: "#c084fc", textDecoration: "none" }}>Home</Link>
             <span>/</span>
             <span style={{ color: "#ffffff", fontWeight: 600 }}>Clinical Departments</span>
           </nav>
@@ -36,7 +45,7 @@ export default function DepartmentsIndexPage() {
       {/* Hero Banner */}
       <section
         style={{
-          backgroundColor: "#0b1329",
+          backgroundColor: "#160526",
           backgroundImage: "linear-gradient(135deg, #1b072c 0%, #0d0216 100%)",
           color: "#ffffff",
           padding: "60px 0 70px",
@@ -49,7 +58,7 @@ export default function DepartmentsIndexPage() {
             <span
               style={{
                 backgroundColor: "rgba(124, 58, 237, 0.25)",
-                color: "#60a5fa",
+                color: "#c084fc",
                 border: "1px solid rgba(124, 58, 237, 0.4)",
                 padding: "5px 14px",
                 borderRadius: "9999px",
@@ -85,7 +94,7 @@ export default function DepartmentsIndexPage() {
               <button
                 onClick={() => handleOpenAppointment()}
                 style={{
-                  backgroundColor: "#245BFF",
+                  backgroundColor: "#7c3aed",
                   color: "#ffffff",
                   border: "none",
                   padding: "13px 26px",
@@ -120,7 +129,7 @@ export default function DepartmentsIndexPage() {
                   gap: "8px"
                 }}
               >
-                <i className="fa-solid fa-user-doctor" style={{ color: "#60a5fa" }}></i>
+                <i className="fa-solid fa-user-doctor" style={{ color: "#c084fc" }}></i>
                 <span>Meet Specialist Doctors</span>
               </Link>
             </div>
@@ -129,7 +138,7 @@ export default function DepartmentsIndexPage() {
       </section>
 
       {/* Facilities Highlight Bar */}
-      <section style={{ backgroundColor: "#0f172a", color: "#ffffff", padding: "14px 0", borderBottom: "1px solid rgba(124, 58, 237, 0.25)" }}>
+      <section style={{ backgroundColor: "#21093a", color: "#ffffff", padding: "14px 0", borderBottom: "1px solid rgba(124, 58, 237, 0.25)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "16px", fontSize: "13px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -137,7 +146,7 @@ export default function DepartmentsIndexPage() {
               <strong>24x7 Emergency &amp; Trauma</strong>
             </span>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <i className="fa-solid fa-bed-pulse" style={{ color: "#60a5fa" }}></i>
+              <i className="fa-solid fa-bed-pulse" style={{ color: "#c084fc" }}></i>
               <strong>ICU &amp; Level-2 NICU Facilities</strong>
             </span>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -177,7 +186,7 @@ export default function DepartmentsIndexPage() {
                         width: "52px",
                         height: "52px",
                         borderRadius: "16px",
-                        backgroundColor: "#245BFF",
+                        backgroundColor: "#7c3aed",
                         color: "#ffffff",
                         display: "flex",
                         alignItems: "center",
@@ -190,11 +199,11 @@ export default function DepartmentsIndexPage() {
                     </div>
 
                     <div>
-                      <span style={{ fontSize: "11px", fontWeight: 700, color: "#245BFF", textTransform: "uppercase", letterSpacing: "1px" }}>
+                      <span style={{ fontSize: "11px", fontWeight: 700, color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1px" }}>
                         Department 0{index + 1}
                       </span>
-                      <h2 style={{ margin: "2px 0 0", fontSize: "24px", fontWeight: 800, color: "#0b1329" }}>
-                        <Link href={`/departments/${dept.slug}`} style={{ color: "#0b1329", textDecoration: "none" }}>
+                      <h2 style={{ margin: "2px 0 0", fontSize: "24px", fontWeight: 800, color: "#160526" }}>
+                        <Link href={`/departments/${dept.slug}`} style={{ color: "#160526", textDecoration: "none" }}>
                           {dept.name}
                         </Link>
                       </h2>
@@ -207,24 +216,24 @@ export default function DepartmentsIndexPage() {
 
                   {/* Services List Preview */}
                   <div style={{ marginBottom: "20px" }}>
-                    <h4 style={{ fontSize: "11.5px", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 700, color: "#245BFF", marginBottom: "8px" }}>
+                    <h4 style={{ fontSize: "11.5px", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 700, color: "#7c3aed", marginBottom: "8px" }}>
                       Key Treatments &amp; Endoscopic Surgeries:
                     </h4>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "6px" }}>
                       {dept.services.slice(0, 3).map((srv, sIdx) => (
                         <div key={sIdx} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "13px", color: "#374151" }}>
-                          <span style={{ color: "#245BFF", fontSize: "12px", marginTop: "2px" }}>✔</span>
+                          <span style={{ color: "#7c3aed", fontSize: "12px", marginTop: "2px" }}>✔</span>
                           <span>{srv}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center", paddingTop: "12px", borderTop: "1px solid #eff6ff" }}>
+                  <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", alignItems: "center", paddingTop: "12px", borderTop: "1px solid #f3e8ff" }}>
                     <Link
                       href={`/departments/${dept.slug}`}
                       style={{
-                        backgroundColor: "#245BFF",
+                        backgroundColor: "#7c3aed",
                         color: "#ffffff",
                         padding: "10px 22px",
                         borderRadius: "9999px",
@@ -244,8 +253,8 @@ export default function DepartmentsIndexPage() {
                       onClick={() => handleOpenAppointment(dept.name)}
                       style={{
                         backgroundColor: "transparent",
-                        color: "#245BFF",
-                        border: "1.5px solid #245BFF",
+                        color: "#7c3aed",
+                        border: "1.5px solid #7c3aed",
                         padding: "9px 20px",
                         borderRadius: "9999px",
                         fontSize: "12.5px",
@@ -266,11 +275,11 @@ export default function DepartmentsIndexPage() {
                   style={{
                     backgroundColor: "#faf8fc",
                     borderRadius: "20px",
-                    border: "1px solid #eff6ff",
+                    border: "1px solid #ede9fe",
                     padding: "24px"
                   }}
                 >
-                  <div style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", color: "#1d4ed8", marginBottom: "14px" }}>
+                  <div style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px", color: "#6d28d9", marginBottom: "14px" }}>
                     Specialist Doctors Assigned
                   </div>
 
@@ -298,19 +307,19 @@ export default function DepartmentsIndexPage() {
                               height: "56px",
                               borderRadius: "14px",
                               objectFit: "cover",
-                              border: "2px solid #245BFF",
+                              border: "2px solid #7c3aed",
                               flexShrink: 0
                             }}
                           />
                         </Link>
 
                         <div style={{ flex: "1 1 auto", overflow: "hidden" }}>
-                          <h4 style={{ margin: "0 0 2px", fontSize: "15px", fontWeight: 800, color: "#0b1329" }}>
-                            <Link href={`/doctors/${doc.slug}`} style={{ color: "#0b1329", textDecoration: "none" }}>
+                          <h4 style={{ margin: "0 0 2px", fontSize: "15px", fontWeight: 800, color: "#160526" }}>
+                            <Link href={`/doctors/${doc.slug}`} style={{ color: "#160526", textDecoration: "none" }}>
                               {doc.name}
                             </Link>
                           </h4>
-                          <div style={{ fontSize: "11px", color: "#245BFF", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                          <div style={{ fontSize: "11px", color: "#7c3aed", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                             {doc.shortDegrees || doc.degrees}
                           </div>
                           <div style={{ fontSize: "11px", color: "#6b7280", marginTop: "2px" }}>
@@ -324,7 +333,7 @@ export default function DepartmentsIndexPage() {
                             padding: "8px 12px",
                             borderRadius: "8px",
                             backgroundColor: "#f5f3ff",
-                            color: "#245BFF",
+                            color: "#7c3aed",
                             fontSize: "11px",
                             fontWeight: 700,
                             textDecoration: "none",
@@ -338,7 +347,7 @@ export default function DepartmentsIndexPage() {
                   </div>
 
                   <div style={{ marginTop: "16px", fontSize: "11.5px", color: "#6b7280", display: "flex", alignItems: "center", gap: "6px" }}>
-                    <i className="fa-regular fa-clock" style={{ color: "#245BFF" }}></i>
+                    <i className="fa-regular fa-clock" style={{ color: "#7c3aed" }}></i>
                     <span>Department OPD: <strong>{dept.timing}</strong></span>
                   </div>
                 </div>

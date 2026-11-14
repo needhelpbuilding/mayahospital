@@ -219,8 +219,8 @@ export default function FathimaTestimonialsSection() {
           {/* Left Column: Heading and Sliding Testimonial Box */}
           <div className="smd60 pr-50" style={{ flex: "0 0 58%", paddingRight: "40px", boxSizing: "border-box" }}>
             <div className="row">
-              <span className="subtitle" style={{ color: "#245BFF" }}>Patient testimonials</span>
-              <h2 className="heading" style={{ color: "#0f172a" }}>
+              <span className="subtitle" style={{ color: "#7c3aed" }}>Patient testimonials</span>
+              <h2 className="heading" style={{ color: "#240b3b" }}>
                 What our patients <br /> have to say.
               </h2>
             </div>
@@ -251,7 +251,7 @@ export default function FathimaTestimonialsSection() {
                       width="42" 
                       height="38" 
                       viewBox="0 0 24 24" 
-                      fill="#245BFF" 
+                      fill="#7c3aed" 
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.324 1.433-4.524 3.737-4.524 5.378 0 .543.143.992.428 1.348.647-.48 1.442-.767 2.308-.767 2.016 0 3.651 1.635 3.651 3.651 0 2.016-1.635 3.651-3.651 3.651-1.393 0-2.613-.787-3.238-1.944L4.583 17.321zm10.584 0c-1.03-1.094-1.583-2.321-1.583-4.31 0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.324 1.433-4.524 3.737-4.524 5.378 0 .543.143.992.428 1.348.647-.48 1.442-.767 2.308-.767 2.016 0 3.651 1.635 3.651 3.651 0 2.016-1.635 3.651-3.651 3.651-1.393 0-2.613-.787-3.238-1.944l-.314-.199z"/>
@@ -278,7 +278,7 @@ export default function FathimaTestimonialsSection() {
                       style={{ 
                         marginTop: "24px", 
                         paddingTop: "16px", 
-                        borderTop: "1px solid #eff6ff",
+                        borderTop: "1px solid #ede9fe",
                         display: "flex",
                         flexDirection: "column",
                         gap: "4px"
@@ -288,7 +288,7 @@ export default function FathimaTestimonialsSection() {
                         style={{ 
                           fontSize: "16px", 
                           fontWeight: 800, 
-                          color: "#0f172a",
+                          color: "#240b3b",
                           fontFamily: "var(--heading-font), sans-serif"
                         }}
                       >
@@ -322,7 +322,7 @@ export default function FathimaTestimonialsSection() {
                         width: isActive ? "26px" : "10px",
                         height: "10px",
                         borderRadius: "5px",
-                        backgroundColor: isActive ? "#245BFF" : "#cbd5e1",
+                        backgroundColor: isActive ? "#7c3aed" : "#cbd5e1",
                         border: "none",
                         cursor: "pointer",
                         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -355,7 +355,7 @@ export default function FathimaTestimonialsSection() {
                 overflow: "hidden",
                 boxShadow: "0 22px 50px rgba(36, 11, 59, 0.22)",
                 border: "2px solid rgba(124, 58, 237, 0.22)",
-                backgroundColor: "#0f172a"
+                backgroundColor: "#240b3b"
               }}
             >
               <img

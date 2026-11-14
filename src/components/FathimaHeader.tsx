@@ -13,7 +13,7 @@ export default function FathimaHeader({ onOpenAppointmentModal }: HeaderProps) {
 
   return (
     <header>
-      {/* Top Mini Strip from mayahospital.in with Welcome note, OPD & Emergency alert, Portal Login */}
+      {/* Top Mini Strip with Welcome note, OPD & Emergency alert, Portal Login */}
       <div style={{
         backgroundColor: "#071c22",
         color: "#ffffff",

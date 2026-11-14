@@ -72,7 +72,7 @@ export default function AppointmentModal({
             />
             <div>
               <div className="maya-dialog-badge">
-                <Calendar size={13} style={{ color: "#60a5fa" }} />
+                <Calendar size={13} style={{ color: "#c084fc" }} />
                 <span>Online OPD Registration</span>
               </div>
               <h3 className="maya-dialog-title">
@@ -96,7 +96,7 @@ export default function AppointmentModal({
                 Appointment Request Confirmed!
               </h4>
               <p className="maya-dialog-success-desc">
-                Thank you <strong style={{ color: "#0f172a" }}>{patientName}</strong>. Our OPD front desk will contact you at <strong style={{ color: "#0f172a" }}>{phoneNumber}</strong> within 15 minutes to confirm your token and time slot.
+                Thank you <strong style={{ color: "#240b3b" }}>{patientName}</strong>. Our OPD front desk will contact you at <strong style={{ color: "#240b3b" }}>{phoneNumber}</strong> within 15 minutes to confirm your token and time slot.
               </p>
 
               <div className="maya-dialog-summary-card">
@@ -124,7 +124,7 @@ export default function AppointmentModal({
                 </div>
                 <div className="summary-row">
                   <span className="summary-label">OPD Desk Support:</span>
-                  <span className="summary-val" style={{ color: "#245BFF", fontWeight: 700 }}>
+                  <span className="summary-val" style={{ color: "#7c3aed", fontWeight: 700 }}>
                     {HOSPITAL_INFO.bookingPhone}
                   </span>
                 </div>

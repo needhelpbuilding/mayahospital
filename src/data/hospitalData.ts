@@ -78,8 +78,6 @@ export const HOSPITAL_INFO = {
   ],
   phoneDisplayList: "+91 9839752108 (Emergency) • +91 9161103325 • +91 7897576583",
   freeAmbulance: "Free Ambulance Service (फ्री एम्बुलेंस सुविधा)",
-  email: "contact@mayahospitalmeerpur.com",
-  appointmentEmail: "appointments@mayahospitalmeerpur.com",
   fullAddress: "556, Maya HOSPITAL & Multispeciality Center, Near Children's Academy School, Aira Road Near Children's Academy Meerpur, Meerpur, Lakhimpur Kheri-262701, Uttar Pradesh",
   shortAddress: "Near Children's Academy School, Aira Road, Meerpur, Lakhimpur Kheri, UP - 262701",
   mapCoordinates: {

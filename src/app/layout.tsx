@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CANONICAL_ORIGIN } from "@/config/site";
+import { HOME_DESCRIPTION, HOME_TITLE, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mayahospitalmeerpur.com"),
-  title: "Home - Maya Hospital And Multi-speciality Centre",
-  description: "Maya Hospital & Multi-speciality Centre in Meerpur, Lakhimpur Kheri. 24x7 Emergency, Gynaecology, Pediatrics, General Medicine, Orthopedics, Joint Replacement, Modern Operation Theatres.",
+  metadataBase: new URL(CANONICAL_ORIGIN),
+  // Homepage title, description, canonical and Open Graph (page.tsx is a client
+  // component). Every other route segment sets its own, which overrides these.
+  ...pageMetadata({ title: HOME_TITLE, description: HOME_DESCRIPTION, path: "/" }),
   icons: {
     icon: "/Purple Caduceus Laurel Monogram.png",
     apple: "/Purple Caduceus Laurel Monogram.png",

@@ -2,7 +2,6 @@ import React from "react";
 import { 
   MapPin, 
   Phone, 
-  Mail, 
   Clock, 
   ExternalLink, 
   Navigation,
@@ -85,19 +84,6 @@ export default function ContactLocationSection() {
                   <h4 className="font-bold text-sky-200 text-xs uppercase">Visiting & Emergency Hours</h4>
                   <p className="text-slate-200 font-bold mt-1">{HOSPITAL_INFO.hours}</p>
                   <p className="text-xs text-slate-300">OPD Clinics: Mon - Sun (10:00 AM - 08:00 PM)</p>
-                </div>
-              </div>
-
-              {/* Email */}
-              <div className="flex items-start gap-3.5 text-sm">
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0 text-emerald-400 mt-0.5">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-sky-200 text-xs uppercase">Email Address</h4>
-                  <a href={`mailto:${HOSPITAL_INFO.email}`} className="text-slate-200 hover:text-white transition-colors">
-                    {HOSPITAL_INFO.email}
-                  </a>
                 </div>
               </div>
             </div>

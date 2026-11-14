@@ -7,6 +7,8 @@ import {
   HOSPITAL_INFO 
 } from "@/data/hospitalData";
 import DepartmentDetailView from "@/components/DepartmentDetailView";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, clip, departmentNode, graph, hospitalNode, pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -33,15 +35,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
+  // Canonical uses the main slug, so alias URLs (e.g. /departments/gynecology) point at it.
+  return pageMetadata({
     title: `${department.name} - ${HOSPITAL_INFO.shortName} Meerpur`,
-    description: `${department.shortDesc} Expert specialist consultation and 24x7 emergency medical services in Meerpur, Lakhimpur Kheri.`,
-    openGraph: {
-      title: `${department.name} | Maya Hospital & Multi Speciality Centre`,
-      description: department.shortDesc,
-      images: [department.image]
-    }
-  };
+    description: clip(`${department.shortDesc} ${HOSPITAL_INFO.shortName}, Meerpur, Lakhimpur Kheri.`),
+    path: `/departments/${department.slug}`,
+    image: department.image,
+    imageAlt: `${department.name} at ${HOSPITAL_INFO.shortName}, Meerpur`,
+  });
 }
 
 export default async function DepartmentPage({ params }: PageProps) {
@@ -54,5 +55,20 @@ export default async function DepartmentPage({ params }: PageProps) {
 
   const doctors = getDoctorsByDepartment(department.slug);
 
-  return <DepartmentDetailView department={department} doctors={doctors} />;
+  return (
+    <>
+      <JsonLd
+        data={graph(
+          hospitalNode(),
+          departmentNode(department),
+          breadcrumbNode([
+            ["Home", "/"],
+            ["Departments", "/departments"],
+            [department.name, `/departments/${department.slug}`],
+          ]),
+        )}
+      />
+      <DepartmentDetailView department={department} doctors={doctors} />
+    </>
+  );
 }

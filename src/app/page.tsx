@@ -1,19 +1,54 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import CleanNavbar from "@/components/CleanNavbar";
-import VitalScanHero from "@/components/VitalScanHero";
-import VitalScanDepartments from "@/components/VitalScanDepartments";
-import VitalScanStory from "@/components/VitalScanStory";
-import CleanFooter from "@/components/CleanFooter";
+import MayaHeroSection from "@/components/MayaHeroSection";
+import FathimaTopLinks from "@/components/FathimaTopLinks";
+import MayaAboutSection from "@/components/MayaAboutSection";
+import MayaFounderSection from "@/components/MayaFounderSection";
+import MayaDepartmentsGrid from "@/components/MayaDepartmentsGrid";
+import MayaFacilitiesGrid from "@/components/MayaFacilitiesGrid";
+import FathimaDoctors from "@/components/FathimaDoctors";
+import FathimaServiceSection from "@/components/FathimaServiceSection";
+import FathimaTestimonialsSection from "@/components/FathimaTestimonialsSection";
+import FathimaFooter from "@/components/FathimaFooter";
 import AppointmentModal from "@/components/AppointmentModal";
+import SupportModals from "@/components/SupportModals";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import SuchiChatbot from "@/components/SuchiChatbot";
+import MayaPageLoader from "@/components/MayaPageLoader";
+import EnquiryModal from "@/components/EnquiryModal";
 import { HOSPITAL_INFO } from "@/data/hospitalData";
 
 export default function Home() {
   const [appointmentModalOpen, setAppointmentModalOpen] = useState(false);
   const [selectedDoctor, setSelectedDoctor] = useState("");
+  const [enquiryModalOpen, setEnquiryModalOpen] = useState(false);
+  const [questionModalOpen, setQuestionModalOpen] = useState(false);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
+
+  // Scroll-on-Reveal Animation IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    const revealElements = document.querySelectorAll(".reveal-on-scroll");
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      revealElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   const handleOpenAppointment = (docOrDeptName?: string) => {
     if (docOrDeptName) {
@@ -26,138 +61,206 @@ export default function Home() {
 
   return (
     <>
+      {/* Theme Consistent Purple Page Loader */}
+      <MayaPageLoader />
+
       {/* Schema.org Structured Data */}
       <SchemaMarkup />
 
-      {/* Clean White Top Navbar matching VitalScan reference */}
-      <CleanNavbar onOpenAppointmentModal={() => handleOpenAppointment()} />
+      <main>
+        {/* Full Cinematic Hero Section with Sticky Integrated Navbar and Whitescale Logo */}
+        <MayaHeroSection 
+          onOpenAppointmentModal={() => handleOpenAppointment()} 
+          onOpenEnquiryModal={() => setEnquiryModalOpen(true)}
+        />
 
-      <main style={{ backgroundColor: "#ffffff" }}>
-        {/* VitalScan Hero Section: Circular Scanner aperture visual, bullet badges, 4 key value props */}
-        <VitalScanHero onOpenAppointmentModal={() => handleOpenAppointment()} />
+        {/* Top 5 Service Links */}
+        <div className="reveal-on-scroll">
+          <FathimaTopLinks
+            onOpenAppointmentModal={() => handleOpenAppointment()}
+            onOpenQuestionModal={() => setQuestionModalOpen(true)}
+            onOpenReportModal={() => setReportModalOpen(true)}
+          />
+        </div>
 
-        {/* VitalScan Departments Showcase: Flat blue (#245BFF) pill grid + detailed department explorer */}
-        <VitalScanDepartments onOpenAppointmentModal={handleOpenAppointment} />
+        {/* About Maya Hospital */}
+        <div className="reveal-on-scroll">
+          <MayaAboutSection onOpenAppointmentModal={() => handleOpenAppointment()} />
+        </div>
 
-        {/* VitalScan Alternating Story Sections: High-res Imaging, Campus Exterior, Lobby Waiting, Insurance Strip, Booking Form, FAQs & Testimonials */}
-        <VitalScanStory onOpenAppointmentModal={() => handleOpenAppointment()} />
+        {/* Founder's Testimony: Rooted in Lakhimpur Kheri */}
+        <div className="reveal-on-scroll">
+          <MayaFounderSection />
+        </div>
 
-        {/* Hospital Location Section (Map Embed) */}
-        <section id="location" style={{ padding: "80px 0", backgroundColor: "#ffffff", borderTop: "1px solid #f1f5f9" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px", boxSizing: "border-box" }}>
-            <div style={{ textAlign: "center", marginBottom: "40px" }}>
-              <span style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1.5px", color: "#245BFF" }}>
-                HOSPITAL LOCATION &amp; ACCESS
-              </span>
-              <h2 style={{ fontSize: "32px", fontWeight: 800, color: "#0f172a", margin: "6px 0 10px 0" }}>
-                Visit Maya Hospital in Meerpur
-              </h2>
-              <p style={{ maxWidth: "680px", margin: "0 auto", color: "#64748b", fontSize: "14.5px" }}>
-                Conveniently located on Aira Road Near Children&apos;s Academy School, Meerpur, Lakhimpur Kheri with 24x7 emergency ramp entry and ample patient parking.
+        {/* Specialized Clinical Departments */}
+        <div className="reveal-on-scroll">
+          <MayaDepartmentsGrid onOpenAppointmentModal={handleOpenAppointment} />
+        </div>
+
+        {/* Dedicated Doctors Carousel */}
+        <div className="reveal-on-scroll">
+          <FathimaDoctors onOpenAppointmentModal={handleOpenAppointment} />
+        </div>
+
+        {/* 24x7 Services & Facilities Grid */}
+        <div className="reveal-on-scroll">
+          <MayaFacilitiesGrid onOpenAppointmentModal={() => handleOpenAppointment()} />
+        </div>
+
+        {/* Entrust your health in safe hands */}
+        <div className="reveal-on-scroll">
+          <FathimaServiceSection />
+        </div>
+
+        {/* Patient Testimonials */}
+        <div className="reveal-on-scroll">
+          <FathimaTestimonialsSection />
+        </div>
+
+        {/* Hospital Location Section (Google Map & Justdial Link) */}
+        <section id="location" className="reveal-on-scroll" style={{ padding: "80px 0", backgroundColor: "#ffffff" }}>
+          <div className="container">
+            <div className="row text-center pb-50" style={{ textAlign: "center", marginBottom: "40px" }}>
+              <span className="subtitle">HOSPITAL LOCATION</span>
+              <h2 className="heading">Visit Maya Hospital Meerpur</h2>
+              <p style={{ maxWidth: "700px", margin: "0 auto", color: "#666", fontSize: "15px" }}>
+                Conveniently located on Aira Road Near Children&apos;s Academy School, Meerpur, Lakhimpur Kheri with 24x7 emergency entry and ambulance pickup.
               </p>
             </div>
 
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-                gap: "0px",
-                borderRadius: "20px",
-                overflow: "hidden",
-                border: "1.5px solid #e2e8f0",
-                boxShadow: "0 15px 35px rgba(15, 23, 42, 0.06)"
+            <div 
+              style={{ 
+                display: "grid", 
+                gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", 
+                gap: "0px", 
+                alignItems: "stretch",
+                boxShadow: "0 20px 50px rgba(33, 9, 58, 0.22)",
+                borderRadius: "28px",
+                overflow: "hidden"
               }}
             >
-              {/* Left Info Card */}
-              <div
+              {/* Left Purple Card: Left corners rounded, right corners squared off to join the map */}
+              <div 
                 style={{
-                  backgroundColor: "#0f172a",
+                  backgroundColor: "#21093a",
                   color: "#ffffff",
-                  padding: "44px 36px",
+                  padding: "44px 40px",
+                  border: "1px solid rgba(124, 58, 237, 0.25)",
+                  borderRight: "none",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between"
                 }}
               >
                 <div>
-                  <h3 style={{ fontSize: "22px", fontWeight: 800, marginBottom: "20px", color: "#ffffff" }}>
+                  <h3 style={{ color: "#ffffff", fontSize: "24px", fontWeight: 800, marginBottom: "24px" }}>
                     {HOSPITAL_INFO.name}
                   </h3>
-
-                  <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", marginBottom: "20px" }}>
-                    <i className="fa-solid fa-location-dot" style={{ color: "#245BFF", fontSize: "18px", marginTop: "3px" }}></i>
+                  
+                  <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
+                    <i className="fa-solid fa-location-dot" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
                     <div>
-                      <strong style={{ display: "block", color: "#e2e8f0", fontSize: "13px", marginBottom: "3px" }}>Address:</strong>
-                      <span style={{ color: "#94a3b8", fontSize: "13.5px", lineHeight: "22px" }}>
+                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>Address:</strong>
+                      <span style={{ color: "rgba(255,255,255,0.88)", fontSize: "14px", lineHeight: "22px" }}>
                         {HOSPITAL_INFO.fullAddress}
                       </span>
                     </div>
                   </div>
 
-                  <div style={{ display: "flex", gap: "14px", alignItems: "flex-start", marginBottom: "20px" }}>
-                    <i className="fa-solid fa-phone" style={{ color: "#245BFF", fontSize: "18px", marginTop: "3px" }}></i>
+                  <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
+                    <i className="fa-solid fa-phone" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
                     <div>
-                      <strong style={{ display: "block", color: "#e2e8f0", fontSize: "13px", marginBottom: "3px" }}>24x7 Emergency Hotline:</strong>
+                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>24x7 Emergency (अस्पताल हेल्पलाइन):</strong>
                       <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700, fontSize: "16px" }}>
                         {HOSPITAL_INFO.emergencyPhone}
                       </a>
-                      <div style={{ marginTop: "4px", fontSize: "13px", color: "#94a3b8" }}>
-                        OPD / Reception: <a href="tel:+919161103325" style={{ color: "#245BFF", textDecoration: "none" }}>+91 9161103325</a>
+                      <div style={{ marginTop: "4px", fontSize: "13px", color: "rgba(255,255,255,0.85)" }}>
+                        <span>OPD / Reception: </span>
+                        <a href="tel:+919161103325" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 9161103325</a>
+                        <span style={{ margin: "0 6px" }}>•</span>
+                        <a href="tel:+917897576583" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 7897576583</a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: "12px", marginTop: "32px", flexWrap: "wrap", alignItems: "center" }}>
                   <a
                     href={HOSPITAL_INFO.justdialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
-                      backgroundColor: "#245BFF",
-                      color: "#ffffff",
+                      margin: 0,
                       textDecoration: "none",
-                      padding: "11px 22px",
-                      borderRadius: "9999px",
-                      fontSize: "13px",
+                      backgroundColor: "#ffffff",
+                      color: "#21093a",
+                      border: "none",
                       fontWeight: 700,
+                      fontSize: "12.5px",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      padding: "13px 24px",
+                      borderRadius: "9999px",
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "6px"
+                      justifyContent: "center",
+                      boxShadow: "none",
+                      transition: "all 0.25s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ede9fe";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
                     }}
                   >
-                    <span>Justdial 5.0 ★</span>
-                    <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: "11px" }}></i>
+                    Justdial Profile (5.0 ★)
                   </a>
 
                   <a
-                    href={`https://maps.google.com/maps?daddr=${HOSPITAL_INFO.mapCoordinates.lat},${HOSPITAL_INFO.mapCoordinates.lng}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`}
                     style={{
+                      margin: 0,
+                      textDecoration: "none",
                       backgroundColor: "transparent",
                       color: "#ffffff",
-                      border: "1.5px solid #475569",
-                      textDecoration: "none",
-                      padding: "11px 22px",
+                      border: "1.5px solid #ffffff",
+                      fontWeight: 700,
+                      fontSize: "12.5px",
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      padding: "12px 24px",
                       borderRadius: "9999px",
-                      fontSize: "13px",
-                      fontWeight: 600,
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "6px"
+                      justifyContent: "center",
+                      boxShadow: "none",
+                      transition: "all 0.25s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.15)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
                     }}
                   >
-                    <span>Get Directions</span>
-                    <i className="fa-solid fa-location-arrow" style={{ fontSize: "11px" }}></i>
+                    Contact Us
                   </a>
                 </div>
               </div>
 
-              {/* Right Map */}
-              <div style={{ minHeight: "420px" }}>
+              {/* Right Map Embed: Right corners rounded, left corners squared off to join the card */}
+              <div 
+                style={{ 
+                  border: "1px solid rgba(124, 58, 237, 0.25)",
+                  borderLeft: "none",
+                  overflow: "hidden", 
+                  minHeight: "420px" 
+                }}
+              >
                 <iframe
-                  title="Maya Hospital Map Location"
+                  title="Maya Hospital Map"
                   src={`https://maps.google.com/maps?q=${HOSPITAL_INFO.mapCoordinates.lat},${HOSPITAL_INFO.mapCoordinates.lng}&hl=en&z=15&output=embed`}
                   width="100%"
                   height="100%"
@@ -171,17 +274,31 @@ export default function Home() {
         </section>
       </main>
 
-      {/* Clean Dark Footer */}
-      <CleanFooter />
+      {/* Footer */}
+      <FathimaFooter />
 
-      {/* AI Nurse Suchi Chatbot Styled in Flat Blue */}
+      {/* Theme-Consistent Suchi Care Chatbot (replacing WhatsApp button) */}
       <SuchiChatbot onOpenAppointment={() => handleOpenAppointment()} />
 
-      {/* Appointment Booking Modal */}
+      {/* Interactive Appointment Modal */}
       <AppointmentModal
         isOpen={appointmentModalOpen}
         onClose={() => setAppointmentModalOpen(false)}
         initialDoctor={selectedDoctor}
+      />
+
+      {/* Dedicated Hospital Enquiry Modal */}
+      <EnquiryModal
+        isOpen={enquiryModalOpen}
+        onClose={() => setEnquiryModalOpen(false)}
+      />
+
+      {/* Support Modals: Ask a Question & Download Lab Report */}
+      <SupportModals
+        isQuestionOpen={questionModalOpen}
+        onCloseQuestion={() => setQuestionModalOpen(false)}
+        isReportOpen={reportModalOpen}
+        onCloseReport={() => setReportModalOpen(false)}
       />
     </>
   );

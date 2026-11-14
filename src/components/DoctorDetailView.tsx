@@ -32,13 +32,13 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
       <div style={{ backgroundColor: "#1e0734", borderBottom: "1px solid rgba(124, 58, 237, 0.2)", padding: "12px 0" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-            <Link href="/" style={{ color: "#60a5fa", textDecoration: "none" }}>Home</Link>
+            <Link href="/" style={{ color: "#c084fc", textDecoration: "none" }}>Home</Link>
             <span>/</span>
-            <Link href="/doctors" style={{ color: "#60a5fa", textDecoration: "none" }}>Doctors</Link>
+            <Link href="/doctors" style={{ color: "#c084fc", textDecoration: "none" }}>Doctors</Link>
             <span>/</span>
             {currentDept && (
               <>
-                <Link href={`/departments/${currentDept.slug}`} style={{ color: "#60a5fa", textDecoration: "none" }}>
+                <Link href={`/departments/${currentDept.slug}`} style={{ color: "#c084fc", textDecoration: "none" }}>
                   {currentDept.name}
                 </Link>
                 <span>/</span>
@@ -52,7 +52,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
       {/* Doctor Hero Profile Header */}
       <section
         style={{
-          backgroundColor: "#0b1329",
+          backgroundColor: "#160526",
           backgroundImage: "linear-gradient(135deg, #1b072c 0%, #0d0216 100%)",
           color: "#ffffff",
           padding: "50px 0 60px",
@@ -76,9 +76,9 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   position: "relative",
                   borderRadius: "28px",
                   overflow: "hidden",
-                  border: "4px solid #245BFF",
+                  border: "4px solid #7c3aed",
                   boxShadow: "0 20px 50px rgba(0, 0, 0, 0.6)",
-                  backgroundColor: "#0f172a"
+                  backgroundColor: "#21093a"
                 }}
               >
                 <img
@@ -107,7 +107,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 >
                   <span
                     style={{
-                      backgroundColor: "#245BFF",
+                      backgroundColor: "#7c3aed",
                       color: "#ffffff",
                       fontSize: "11px",
                       fontWeight: 700,
@@ -143,7 +143,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   href={`/departments/${doctor.departmentSlug}`}
                   style={{
                     backgroundColor: "rgba(124, 58, 237, 0.3)",
-                    color: "#60a5fa",
+                    color: "#c084fc",
                     border: "1px solid rgba(124, 58, 237, 0.5)",
                     padding: "6px 16px",
                     borderRadius: "9999px",
@@ -157,7 +157,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.5)";
-                    e.currentTarget.style.borderColor = "#60a5fa";
+                    e.currentTarget.style.borderColor = "#c084fc";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "rgba(124, 58, 237, 0.3)";
@@ -236,7 +236,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     width: "42px",
                     height: "42px",
                     borderRadius: "50%",
-                    backgroundColor: "#245BFF",
+                    backgroundColor: "#7c3aed",
                     color: "#ffffff",
                     display: "flex",
                     alignItems: "center",
@@ -248,7 +248,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   <i className="fa-regular fa-calendar-days"></i>
                 </div>
                 <div>
-                  <div style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 700, color: "#60a5fa", letterSpacing: "1px" }}>
+                  <div style={{ fontSize: "11px", textTransform: "uppercase", fontWeight: 700, color: "#c084fc", letterSpacing: "1px" }}>
                     OPD Consultation Schedule
                   </div>
                   <div style={{ fontSize: "15px", fontWeight: 800, color: "#ffffff", marginTop: "2px" }}>
@@ -262,7 +262,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 <button
                   onClick={() => handleBook()}
                   style={{
-                    backgroundColor: "#245BFF",
+                    backgroundColor: "#7c3aed",
                     color: "#ffffff",
                     border: "none",
                     padding: "13px 28px",
@@ -279,10 +279,10 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     transition: "all 0.25s ease"
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#1d4ed8";
+                    e.currentTarget.style.backgroundColor = "#6d28d9";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#245BFF";
+                    e.currentTarget.style.backgroundColor = "#7c3aed";
                   }}
                 >
                   <i className="fa-regular fa-calendar-check"></i>
@@ -356,14 +356,14 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                   fontSize: "22px",
                   fontWeight: 800,
-                  color: "#0b1329",
+                  color: "#160526",
                   marginBottom: "16px",
                   display: "flex",
                   alignItems: "center",
                   gap: "10px"
                 }}
               >
-                <i className="fa-solid fa-user-doctor" style={{ color: "#245BFF" }}></i>
+                <i className="fa-solid fa-user-doctor" style={{ color: "#7c3aed" }}></i>
                 <span>About {doctor.name}</span>
               </h2>
 
@@ -372,7 +372,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
               </p>
 
               <div>
-                <h4 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 700, color: "#245BFF", marginBottom: "12px" }}>
+                <h4 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 700, color: "#7c3aed", marginBottom: "12px" }}>
                   Core Areas of Specialization
                 </h4>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
@@ -382,7 +382,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                       style={{
                         backgroundColor: "#f5f3ff",
                         border: "1px solid #e9d5ff",
-                        color: "#1d4ed8",
+                        color: "#6d28d9",
                         fontSize: "12px",
                         fontWeight: 600,
                         padding: "6px 12px",
@@ -407,7 +407,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
               }}
             >
               <div style={{ marginBottom: "20px" }}>
-                <span style={{ fontSize: "11px", fontWeight: 700, color: "#245BFF", textTransform: "uppercase", letterSpacing: "1.5px" }}>
+                <span style={{ fontSize: "11px", fontWeight: 700, color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1.5px" }}>
                   CLINICAL CAPABILITIES
                 </span>
                 <h2
@@ -415,7 +415,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                     fontSize: "22px",
                     fontWeight: 800,
-                    color: "#0b1329",
+                    color: "#160526",
                     margin: "4px 0 0"
                   }}
                 >
@@ -434,7 +434,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                       padding: "14px 16px",
                       backgroundColor: "#faf8fc",
                       borderRadius: "12px",
-                      border: "1px solid #eff6ff"
+                      border: "1px solid #f3e8ff"
                     }}
                   >
                     <div
@@ -442,7 +442,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                         width: "24px",
                         height: "24px",
                         borderRadius: "50%",
-                        backgroundColor: "#245BFF",
+                        backgroundColor: "#7c3aed",
                         color: "#ffffff",
                         display: "flex",
                         alignItems: "center",
@@ -477,26 +477,26 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                   fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                   fontSize: "22px",
                   fontWeight: 800,
-                  color: "#0b1329",
+                  color: "#160526",
                   marginBottom: "16px",
                   display: "flex",
                   alignItems: "center",
                   gap: "10px"
                 }}
               >
-                <i className="fa-solid fa-graduation-cap" style={{ color: "#245BFF" }}></i>
+                <i className="fa-solid fa-graduation-cap" style={{ color: "#7c3aed" }}></i>
                 <span>Educational Pedigree &amp; Qualifications</span>
               </h2>
 
               <div
                 style={{
                   backgroundColor: "#faf5ff",
-                  borderLeft: "4px solid #245BFF",
+                  borderLeft: "4px solid #7c3aed",
                   borderRadius: "8px",
                   padding: "18px 20px"
                 }}
               >
-                <p style={{ margin: "0 0 6px", fontSize: "15px", fontWeight: 700, color: "#0b1329" }}>
+                <p style={{ margin: "0 0 6px", fontSize: "15px", fontWeight: 700, color: "#160526" }}>
                   {doctor.degrees}
                 </p>
                 <p style={{ margin: 0, fontSize: "13px", color: "#6b7280", lineHeight: "20px" }}>
@@ -515,7 +515,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: "24px",
-                  border: "2px solid #245BFF",
+                  border: "2px solid #7c3aed",
                   boxShadow: "0 12px 35px rgba(124, 58, 237, 0.1)",
                   padding: "32px",
                   position: "relative",
@@ -524,7 +524,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
               >
                 <span
                   style={{
-                    backgroundColor: "#245BFF",
+                    backgroundColor: "#7c3aed",
                     color: "#ffffff",
                     fontSize: "10.5px",
                     fontWeight: 800,
@@ -544,7 +544,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                     fontSize: "22px",
                     fontWeight: 800,
-                    color: "#0b1329",
+                    color: "#160526",
                     margin: "0 0 8px"
                   }}
                 >
@@ -556,7 +556,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 </p>
 
                 <div style={{ marginBottom: "22px" }}>
-                  <div style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#1d4ed8", marginBottom: "8px" }}>
+                  <div style={{ fontSize: "11px", fontWeight: 700, textTransform: "uppercase", color: "#6d28d9", marginBottom: "8px" }}>
                     Department Facilities
                   </div>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
@@ -564,8 +564,8 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                       <span
                         key={bi}
                         style={{
-                          backgroundColor: "#eff6ff",
-                          color: "#245BFF",
+                          backgroundColor: "#f3e8ff",
+                          color: "#7c3aed",
                           fontSize: "11px",
                           fontWeight: 600,
                           padding: "3px 10px",
@@ -585,7 +585,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "8px",
-                    backgroundColor: "#0f172a",
+                    backgroundColor: "#21093a",
                     color: "#ffffff",
                     textDecoration: "none",
                     padding: "12px 20px",
@@ -597,10 +597,10 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     transition: "all 0.25s ease"
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "#245BFF";
+                    e.currentTarget.style.backgroundColor = "#7c3aed";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "#0f172a";
+                    e.currentTarget.style.backgroundColor = "#21093a";
                   }}
                 >
                   <span>Explore {currentDept.shortName}</span>
@@ -612,7 +612,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
             {/* Quick OPD Appointment Card */}
             <div
               style={{
-                backgroundColor: "#0f172a",
+                backgroundColor: "#21093a",
                 backgroundImage: "linear-gradient(135deg, #2b0b4a 0%, #150324 100%)",
                 borderRadius: "24px",
                 color: "#ffffff",
@@ -621,7 +621,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
-                <i className="fa-regular fa-clock" style={{ color: "#60a5fa", fontSize: "18px" }}></i>
+                <i className="fa-regular fa-clock" style={{ color: "#c084fc", fontSize: "18px" }}></i>
                 <span style={{ fontSize: "11px", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 700, color: "#d8b4fe" }}>
                   Direct OPD Registration
                 </span>
@@ -639,7 +639,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 onClick={() => handleBook()}
                 style={{
                   width: "100%",
-                  backgroundColor: "#245BFF",
+                  backgroundColor: "#7c3aed",
                   color: "#ffffff",
                   border: "none",
                   padding: "13px 20px",
@@ -681,7 +681,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                     fontSize: "16px",
                     fontWeight: 800,
-                    color: "#0b1329",
+                    color: "#160526",
                     margin: 0
                   }}
                 >
@@ -689,7 +689,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                 </h4>
                 <Link
                   href="/doctors"
-                  style={{ color: "#245BFF", fontSize: "12px", fontWeight: 700, textDecoration: "none" }}
+                  style={{ color: "#7c3aed", fontSize: "12px", fontWeight: 700, textDecoration: "none" }}
                 >
                   View All →
                 </Link>
@@ -707,7 +707,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                       padding: "10px",
                       borderRadius: "12px",
                       backgroundColor: "#faf8fc",
-                      border: "1px solid #eff6ff",
+                      border: "1px solid #f3e8ff",
                       textDecoration: "none",
                       transition: "all 0.2s ease"
                     }}
@@ -717,7 +717,7 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#faf8fc";
-                      e.currentTarget.style.borderColor = "#eff6ff";
+                      e.currentTarget.style.borderColor = "#f3e8ff";
                     }}
                   >
                     <img
@@ -732,10 +732,10 @@ export default function DoctorDetailView({ doctor, department }: DoctorDetailVie
                       }}
                     />
                     <div style={{ overflow: "hidden" }}>
-                      <div style={{ color: "#0b1329", fontSize: "13px", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                      <div style={{ color: "#160526", fontSize: "13px", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                         {doc.name}
                       </div>
-                      <div style={{ color: "#245BFF", fontSize: "11px", fontWeight: 600 }}>
+                      <div style={{ color: "#7c3aed", fontSize: "11px", fontWeight: 600 }}>
                         {doc.department}
                       </div>
                     </div>

@@ -1,21 +1,20 @@
 /* Professional Modern Healthcare Typography: Plus Jakarta Sans & Inter */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Clean Healthcare Design Tokens: Flat Blue #245BFF & Neutral Slate Palette */
+/* Imperial Royal Plum, Amethyst & Soft Lilac Cream Design Tokens */
 :root {
-  --primary-color: #0f172a !important;       /* Slate 900 for crisp readable headings */
-  --secondary-color: #245BFF !important;     /* Flat Blue Shade #245BFF */
-  --accent-blue: #245BFF !important;
-  --accent-purple: #245BFF !important;       /* Replaced purple with flat blue */
-  --accent-light: #60a5fa !important;        /* Crisp accessible light blue */
-  --tertiary-color: #0b1329 !important;      /* Deep navy slate */
-  --darkblue: #0f172a !important;
-  --black: #020617 !important;
+  --primary-color: #240b3b !important;       /* Deep Imperial Royal Velvet Plum */
+  --secondary-color: #7c3aed !important;     /* Majestic Imperial Purple Accent */
+  --accent-purple: #9333ea !important;
+  --accent-light: #c084fc !important;
+  --tertiary-color: #170526 !important;      /* Darkest Amethyst / Midnight Plum */
+  --darkblue: #170526 !important;
+  --black: #10031c !important;
   --white: #ffffff !important;
-  --grey: #64748b !important;
-  --fadeblue: #f0f5ff !important;            /* Very light clean soft blue tint */
-  --red: #ef4444 !important;                 /* Emergency alert color */
-  --body-color: #334155 !important;          /* Slate 700 - high contrast readability */
+  --grey: #806b8c !important;
+  --fadeblue: #faf6fd !important;            /* Luxurious Soft Lilac-Tinted Cream */
+  --red: #c94a29 !important;                 /* Accent alert color */
+  --body-color: #3b284c !important;          /* Deep rich warm slate plum */
   --brand-font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
   --luxury-serif: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
   --serif-font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
@@ -313,7 +312,7 @@ header {
 
 .book-btn:hover {
   background-color: #ffffff !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
   border: 1.5px solid #ffffff !important;
 }
 
@@ -500,7 +499,7 @@ button:not(.square-keep) {
   font-family: var(--heading-font), 'Plus Jakarta Sans', sans-serif !important;
   font-size: 12px !important;
   font-weight: 700 !important;
-  color: #245BFF !important;
+  color: #7c3aed !important;
   text-transform: uppercase !important;
   letter-spacing: 3px !important;
   padding: 0 !important;
@@ -514,7 +513,7 @@ button:not(.square-keep) {
   position: static !important;
   width: 26px !important;
   height: 2px !important;
-  background-color: #245BFF !important;
+  background-color: #7c3aed !important;
   margin: 0 !important;
   animation: none !important;
   -webkit-animation: none !important;
@@ -694,7 +693,7 @@ button:not(.square-keep) {
 .testimonial-single .name {
   font-size: 17px !important;
   font-weight: 800 !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
   border-top: none !important;
 }
 
@@ -975,8 +974,8 @@ ul.footerlinks li a:hover {
 }
 
 .maya-dialog-header {
-  background-color: #0f172a !important;
-  background-image: linear-gradient(135deg, #0f172a 0%, #351052 100%) !important;
+  background-color: #240b3b !important;
+  background-image: linear-gradient(135deg, #240b3b 0%, #351052 100%) !important;
   color: #ffffff !important;
   padding: 22px 28px !important;
   position: relative !important;
@@ -1024,7 +1023,7 @@ ul.footerlinks li a:hover {
   display: inline-flex !important;
   align-items: center !important;
   gap: 6px !important;
-  color: #60a5fa !important;
+  color: #c084fc !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
@@ -1065,7 +1064,7 @@ ul.footerlinks li a:hover {
   flex-direction: column !important;
   gap: 12px !important;
   background: #fbf9fd !important;
-  border: 1px solid #eff6ff !important;
+  border: 1px solid #ede9fe !important;
   border-radius: 16px !important;
   padding: 16px 18px !important;
 }
@@ -1085,8 +1084,8 @@ ul.footerlinks li a:hover {
   width: 20px !important;
   height: 20px !important;
   border-radius: 6px !important;
-  background: #0f172a !important;
-  color: #60a5fa !important;
+  background: #240b3b !important;
+  color: #c084fc !important;
   font-size: 11px !important;
   font-weight: 700 !important;
 }
@@ -1096,7 +1095,7 @@ ul.footerlinks li a:hover {
   font-weight: 800 !important;
   letter-spacing: 0.8px !important;
   text-transform: uppercase !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
 }
 
 .form-group {
@@ -1126,11 +1125,11 @@ ul.footerlinks li a:hover {
   gap: 6px !important;
   font-size: 12.5px !important;
   font-weight: 700 !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
 }
 
 .form-label-icon {
-  color: #245BFF !important;
+  color: #7c3aed !important;
 }
 
 .form-input,
@@ -1152,7 +1151,7 @@ ul.footerlinks li a:hover {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: #245BFF !important;
+  border-color: #7c3aed !important;
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15) !important;
 }
 
@@ -1173,7 +1172,7 @@ ul.footerlinks li a:hover {
   gap: 8px !important;
   padding: 9px 12px !important;
   border-radius: 10px !important;
-  border: 1.5px solid #eff6ff !important;
+  border: 1.5px solid #ede9fe !important;
   background: #faf5ff !important;
   color: #4b5563 !important;
   font-size: 12px !important;
@@ -1184,20 +1183,20 @@ ul.footerlinks li a:hover {
 }
 
 .enquiry-topic-chip:hover {
-  background: #eff6ff !important;
-  border-color: #60a5fa !important;
-  color: #0f172a !important;
+  background: #f3e8ff !important;
+  border-color: #c084fc !important;
+  color: #240b3b !important;
 }
 
 .enquiry-topic-chip.is-selected {
-  background: #0f172a !important;
-  border-color: #0f172a !important;
+  background: #240b3b !important;
+  border-color: #240b3b !important;
   color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(36, 11, 59, 0.25) !important;
 }
 
 .enquiry-topic-chip.is-selected .topic-icon {
-  color: #60a5fa !important;
+  color: #c084fc !important;
 }
 
 .maya-dialog-emergency-notice {
@@ -1217,8 +1216,8 @@ ul.footerlinks li a:hover {
   width: 100% !important;
   padding: 13px 20px !important;
   border-radius: 9999px !important;
-  background-color: #0f172a !important;
-  background-image: linear-gradient(135deg, #0f172a 0%, #4a1575 100%) !important;
+  background-color: #240b3b !important;
+  background-image: linear-gradient(135deg, #240b3b 0%, #4a1575 100%) !important;
   color: #ffffff !important;
   font-family: var(--heading-font), 'Plus Jakarta Sans', sans-serif !important;
   font-size: 13px !important;
@@ -1255,8 +1254,8 @@ ul.footerlinks li a:hover {
   width: 72px !important;
   height: 72px !important;
   border-radius: 50% !important;
-  background-color: #eff6ff !important;
-  color: #245BFF !important;
+  background-color: #f3e8ff !important;
+  color: #7c3aed !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -1268,7 +1267,7 @@ ul.footerlinks li a:hover {
   font-family: var(--heading-font), 'Plus Jakarta Sans', sans-serif !important;
   font-size: 22px !important;
   font-weight: 700 !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
   margin: 0 !important;
 }
 
@@ -1284,7 +1283,7 @@ ul.footerlinks li a:hover {
   width: 100% !important;
   max-width: 420px !important;
   background: #faf5ff !important;
-  border: 1px solid #eff6ff !important;
+  border: 1px solid #ede9fe !important;
   border-radius: 16px !important;
   padding: 14px 18px !important;
   display: flex !important;
@@ -1378,7 +1377,7 @@ ul.footerlinks li a:hover {
   ) !important;
   border-radius: 18px !important;
   border: none !important;
-  background-color: #0f172a !important;
+  background-color: #240b3b !important;
   cursor: pointer !important;
   transition: transform 0.25s ease, z-index 0.1s ease, box-shadow 0.25s ease !important;
   flex-shrink: 0 !important;
@@ -1409,7 +1408,7 @@ ul.footerlinks li a:hover {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  background-color: #0f172a !important;
+  background-color: #240b3b !important;
   transition: opacity 0.25s ease !important;
   overflow: hidden !important;
   border: none !important;
@@ -1466,7 +1465,7 @@ ul.footerlinks li a:hover {
   font-family: var(--heading-font), 'Plus Jakarta Sans', sans-serif !important;
   font-size: 15.5px !important;
   font-weight: 700 !important;
-  color: #0f172a !important;
+  color: #240b3b !important;
   margin: 0 auto 5px auto !important;
   line-height: 1.25 !important;
   text-align: center !important;
@@ -1477,7 +1476,7 @@ ul.footerlinks li a:hover {
   font-family: var(--body-font), sans-serif !important;
   font-size: 11.5px !important;
   font-weight: 600 !important;
-  color: #245BFF !important;
+  color: #7c3aed !important;
   margin: 0 auto 5px auto !important;
   line-height: 1.3 !important;
   text-align: center !important;
@@ -1520,7 +1519,7 @@ ul.footerlinks li a:hover {
 }
 
 .hex-btn-profile {
-  background-color: #245BFF !important;
+  background-color: #7c3aed !important;
   color: #ffffff !important;
   font-size: 11px !important;
   font-weight: 700 !important;
@@ -1534,13 +1533,13 @@ ul.footerlinks li a:hover {
 }
 
 .hex-btn-profile:hover {
-  background-color: #1d4ed8 !important;
+  background-color: #6d28d9 !important;
 }
 
 .hex-btn-book {
   background-color: #ffffff !important;
-  color: #245BFF !important;
-  border: 1.5px solid #245BFF !important;
+  color: #7c3aed !important;
+  border: 1.5px solid #7c3aed !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   padding: 4px 11px !important;
@@ -1560,7 +1559,7 @@ ul.footerlinks li a:hover {
   margin-top: 14px;
   font-size: 12px;
   font-weight: 600;
-  color: #245BFF;
+  color: #7c3aed;
   background: #f5f3ff;
   border: 1px solid #ddd6fe;
   padding: 6px 14px;
@@ -1745,7 +1744,7 @@ ul.footerlinks li a:hover {
 }
 
 .mobile-nav-item:hover {
-  color: #60a5fa !important;
+  color: #c084fc !important;
   padding-left: 10px !important;
 }
 

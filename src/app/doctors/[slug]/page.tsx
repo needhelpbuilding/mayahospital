@@ -7,6 +7,8 @@ import {
   HOSPITAL_INFO 
 } from "@/data/hospitalData";
 import DoctorDetailView from "@/components/DoctorDetailView";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbNode, clip, doctorNode, graph, hospitalNode, pageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -31,15 +33,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  return {
-    title: `${doctor.name} (${doctor.shortDegrees || doctor.degrees}) - ${doctor.department} | ${HOSPITAL_INFO.shortName}`,
-    description: `${doctor.name}, ${doctor.designation} at Maya Hospital Meerpur. ${doctor.about.slice(0, 160)}`,
-    openGraph: {
-      title: `${doctor.name} - ${doctor.department} Specialist | Maya Hospital`,
-      description: doctor.about,
-      images: [doctor.image]
-    }
-  };
+  // Canonical uses the main slug, so alias URLs (e.g. /doctors/dr-rajiv-singh) point at it.
+  return pageMetadata({
+    title: `${doctor.name} – ${doctor.department} | ${HOSPITAL_INFO.shortName}`,
+    description: clip(
+      `${doctor.name} (${doctor.shortDegrees || doctor.degrees}), ${doctor.designation} at ${HOSPITAL_INFO.shortName}, Meerpur. ${doctor.experience}. OPD: ${doctor.opdTimings}.`,
+    ),
+    path: `/doctors/${doctor.slug}`,
+    image: doctor.image,
+    imageAlt: doctor.name,
+  });
 }
 
 export default async function DoctorPage({ params }: PageProps) {
@@ -52,5 +55,23 @@ export default async function DoctorPage({ params }: PageProps) {
 
   const department = getDepartmentBySlug(doctor.departmentSlug);
 
-  return <DoctorDetailView doctor={doctor} department={department} />;
+  return (
+    <>
+      <JsonLd
+        data={graph(
+          hospitalNode(),
+          doctorNode(doctor),
+          breadcrumbNode([
+            ["Home", "/"],
+            ["Doctors", "/doctors"],
+            ...(department
+              ? [[department.name, `/departments/${department.slug}`] as [string, string]]
+              : []),
+            [doctor.name, `/doctors/${doctor.slug}`],
+          ]),
+        )}
+      />
+      <DoctorDetailView doctor={doctor} department={department} />
+    </>
+  );
 }

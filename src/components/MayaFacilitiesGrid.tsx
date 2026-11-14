@@ -69,7 +69,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
                 borderRadius: "22px",
                 boxShadow: "0 12px 35px rgba(124, 58, 237, 0.06)",
                 border: "1px solid rgba(124, 58, 237, 0.15)",
-                borderTop: "4px solid #245BFF",
+                borderTop: "4px solid #7c3aed",
                 transition: "all 0.3s ease",
                 position: "relative",
                 overflow: "hidden"
@@ -77,7 +77,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             >
               {/* Clean Icon without bulky box container */}
               <div style={{
-                color: "#245BFF",
+                color: "#7c3aed",
                 fontSize: "32px",
                 marginBottom: "20px"
               }}>
@@ -150,7 +150,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             <button
               onClick={onOpenAppointmentModal}
               style={{
-                backgroundColor: "#245BFF",
+                backgroundColor: "#7c3aed",
                 color: "#ffffff",
                 border: "1.5px solid rgba(255, 255, 255, 0.4)",
                 padding: "12px 28px",
@@ -165,11 +165,11 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "#ffffff";
-                e.currentTarget.style.color = "#0f172a";
+                e.currentTarget.style.color = "#240b3b";
                 e.currentTarget.style.borderColor = "#ffffff";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#245BFF";
+                e.currentTarget.style.backgroundColor = "#7c3aed";
                 e.currentTarget.style.color = "#ffffff";
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
               }}

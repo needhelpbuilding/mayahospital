@@ -155,7 +155,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       top: "100%",
                       left: "0",
                       width: "560px",
-                      backgroundColor: "#0b1329",
+                      backgroundColor: "#160526",
                       borderRadius: "0px",
                       boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
                       border: "none",
@@ -248,7 +248,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       top: "100%",
                       left: "-120px",
                       width: "600px",
-                      backgroundColor: "#0b1329",
+                      backgroundColor: "#160526",
                       borderRadius: "16px",
                       boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
                       border: "1px solid rgba(124, 58, 237, 0.3)",
@@ -284,7 +284,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           e.currentTarget.style.transform = "translateX(0px)";
                         }}
                       >
-                        <div style={{ color: "#60a5fa", fontSize: "16px", marginTop: "2px" }}>
+                        <div style={{ color: "#c084fc", fontSize: "16px", marginTop: "2px" }}>
                           <i className={dept.iconClass}></i>
                         </div>
                         <div>
@@ -309,7 +309,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           gap: "8px",
                           padding: "10px",
                           borderRadius: "8px",
-                          backgroundColor: "#245BFF",
+                          backgroundColor: "#7c3aed",
                           color: "#ffffff",
                           textDecoration: "none",
                           fontSize: "12px",
@@ -359,7 +359,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       top: "100%",
                       left: "-120px",
                       width: "620px",
-                      backgroundColor: "#0b1329",
+                      backgroundColor: "#160526",
                       borderRadius: "16px",
                       boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
                       border: "1px solid rgba(124, 58, 237, 0.3)",
@@ -403,7 +403,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                             height: "44px",
                             borderRadius: "50%",
                             objectFit: "cover",
-                            border: "1.5px solid #245BFF",
+                            border: "1.5px solid #7c3aed",
                             flexShrink: 0
                           }}
                         />
@@ -411,7 +411,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                             {doc.name}
                           </div>
-                          <div style={{ color: "#60a5fa", fontSize: "11px", fontWeight: 600 }}>
+                          <div style={{ color: "#c084fc", fontSize: "11px", fontWeight: 600 }}>
                             {doc.department}
                           </div>
                         </div>
@@ -429,7 +429,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                           gap: "8px",
                           padding: "10px",
                           borderRadius: "8px",
-                          backgroundColor: "#245BFF",
+                          backgroundColor: "#7c3aed",
                           color: "#ffffff",
                           textDecoration: "none",
                           fontSize: "12px",
@@ -479,7 +479,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       top: "100%",
                       left: "-140px",
                       width: "560px",
-                      backgroundColor: "#0b1329",
+                      backgroundColor: "#160526",
                       borderRadius: "0px",
                       boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
                       border: "none",
@@ -539,7 +539,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 )}
               </div>
 
-              <Link href="/consultancy" className="maya-nav-link" style={{ color: "#60a5fa" }}>CONSULTANCY</Link>
+              <Link href="/consultancy" className="maya-nav-link" style={{ color: "#c084fc" }}>CONSULTANCY</Link>
             </nav>
           </div>
 
@@ -721,7 +721,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       href="/departments"
                       onClick={() => setMobileMenuOpen(false)}
                       style={{
-                        color: "#60a5fa",
+                        color: "#c084fc",
                         fontSize: "13px",
                         fontWeight: 700,
                         textDecoration: "none",
@@ -774,7 +774,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                       href="/doctors"
                       onClick={() => setMobileMenuOpen(false)}
                       style={{
-                        color: "#60a5fa",
+                        color: "#c084fc",
                         fontSize: "13px",
                         fontWeight: 700,
                         textDecoration: "none",
@@ -854,7 +854,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 href="/consultancy"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mobile-nav-item"
-                style={{ color: "#60a5fa" }}
+                style={{ color: "#c084fc" }}
               >
                 <span>BOOK CONSULTANCY</span>
                 <i className="fa-solid fa-chevron-right" style={{ fontSize: "11px", opacity: 0.5 }}></i>
@@ -894,7 +894,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 style={{
                   padding: "13px 18px",
                   borderRadius: "12px",
-                  backgroundColor: "#245BFF",
+                  backgroundColor: "#7c3aed",
                   border: "none",
                   color: "#ffffff",
                   fontWeight: 700,
@@ -1049,7 +1049,7 @@ export default function MayaHeroSection({ onOpenAppointmentModal, onOpenEnquiryM
                 boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#60a5fa";
+                e.currentTarget.style.backgroundColor = "#c084fc";
                 e.currentTarget.style.color = "#ffffff";
               }}
               onMouseLeave={(e) => {

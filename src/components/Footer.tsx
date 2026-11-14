@@ -4,7 +4,6 @@ import {
   Heart, 
   MapPin, 
   Phone, 
-  Mail, 
   Globe, 
   ExternalLink, 
   Clock, 
@@ -49,12 +48,6 @@ export default function Footer() {
                 <span>
                   Emergency: <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} className="font-bold text-white hover:underline">{HOSPITAL_INFO.emergencyPhone}</a>
                 </span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href={`mailto:${HOSPITAL_INFO.email}`} className="text-slate-300 hover:text-white transition-colors">
-                  {HOSPITAL_INFO.email}
-                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Globe className="w-4 h-4 text-purple-400 shrink-0" />

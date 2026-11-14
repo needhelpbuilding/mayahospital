@@ -70,7 +70,7 @@ export default function MayaGallerySection() {
       className="reveal-on-scroll"
       style={{
         padding: "90px 0",
-        backgroundColor: "#0b1329",
+        backgroundColor: "#160526",
         color: "#ffffff",
         scrollMarginTop: "90px",
         position: "relative",
@@ -107,7 +107,7 @@ export default function MayaGallerySection() {
         <div style={{ textAlign: "center", marginBottom: "45px" }}>
           <span
             style={{
-              color: "#60a5fa",
+              color: "#c084fc",
               fontSize: "12px",
               fontWeight: 800,
               letterSpacing: "3px",
@@ -149,9 +149,9 @@ export default function MayaGallerySection() {
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 style={{
-                  backgroundColor: activeFilter === cat ? "#245BFF" : "rgba(255, 255, 255, 0.08)",
+                  backgroundColor: activeFilter === cat ? "#7c3aed" : "rgba(255, 255, 255, 0.08)",
                   color: "#ffffff",
-                  border: activeFilter === cat ? "1px solid #3b82f6" : "1px solid rgba(255, 255, 255, 0.15)",
+                  border: activeFilter === cat ? "1px solid #a855f7" : "1px solid rgba(255, 255, 255, 0.15)",
                   padding: "8px 20px",
                   borderRadius: "9999px",
                   fontSize: "12px",
@@ -216,7 +216,7 @@ export default function MayaGallerySection() {
                     left: "14px",
                     backgroundColor: "rgba(22, 6, 36, 0.85)",
                     backdropFilter: "blur(8px)",
-                    color: "#60a5fa",
+                    color: "#c084fc",
                     border: "1px solid rgba(192, 132, 252, 0.3)",
                     padding: "4px 12px",
                     borderRadius: "9999px",
