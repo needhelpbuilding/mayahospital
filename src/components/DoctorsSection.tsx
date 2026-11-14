@@ -94,7 +94,7 @@ export default function DoctorsSection({ onOpenAppointmentModal }: DoctorsSectio
                   alt={doc.name}
                   className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-white/90 backdrop-blur-md text-[#0076d7] text-xs font-bold rounded-full shadow-sm">
                     {doc.department}

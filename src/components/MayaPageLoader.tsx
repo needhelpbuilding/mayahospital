@@ -27,8 +27,7 @@ export default function MayaPageLoader() {
         position: "fixed",
         inset: 0,
         zIndex: 99999,
-        backgroundColor: "#1c0630",
-        backgroundImage: "radial-gradient(circle at 50% 50%, #2e0c4f 0%, #160326 100%)",
+        backgroundColor: "#245BFF",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -66,7 +65,7 @@ export default function MayaPageLoader() {
               width: "100%",
               height: "100%",
               objectFit: "contain",
-              filter: "drop-shadow(0 4px 20px rgba(168, 85, 247, 0.35))"
+              filter: "drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25))"
             }}
           />
         </div>
@@ -94,8 +93,8 @@ export default function MayaPageLoader() {
             marginTop: "10px",
             width: "36px",
             height: "36px",
-            border: "3px solid rgba(255, 255, 255, 0.15)",
-            borderTopColor: "#c084fc",
+            border: "3px solid rgba(255, 255, 255, 0.2)",
+            borderTopColor: "#FF8A00",
             borderRadius: "50%",
             animation: "loaderSpin 0.85s linear infinite"
           }}

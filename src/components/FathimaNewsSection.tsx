@@ -20,12 +20,12 @@ export default function FathimaNewsSection() {
   ];
 
   return (
-    <section id="events" className="pt-100 pb-100 bg1 jarallax text-white section-news" style={{ backgroundColor: "#1e0733", padding: "90px 0", color: "#ffffff", scrollMarginTop: "90px" }}>
+    <section id="events" className="pt-100 pb-100 bg1 jarallax text-white section-news" style={{ backgroundColor: "#0E36B4", padding: "90px 0", color: "#ffffff", scrollMarginTop: "90px" }}>
       <div className="container">
         {/* Header Row */}
         <div className="row-flex space-between align-center pt-30 pb-30" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "35px" }}>
           <div className="smd30">
-            <span className="subtitle text-white" style={{ color: "#c084fc" }}>insights</span>
+            <span className="subtitle text-white" style={{ color: "#FF8A00" }}>insights</span>
             <h2 className="heading text-white" style={{ color: "#ffffff", margin: 0 }}>News & Events</h2>
           </div>
 

@@ -68,7 +68,7 @@ export default function HeroBanner({ onOpenAppointmentModal }: HeroBannerProps) 
 
   return (
     <div className="relative w-full overflow-hidden bg-slate-900 text-white min-h-[580px] lg:min-h-[660px] flex items-center">
-      {/* Background Image with Gradient Overlay */}
+      {/* Background Image with Flat Solid Overlay */}
       {SLIDES.map((s, index) => (
         <div
           key={s.id}
@@ -82,7 +82,7 @@ export default function HeroBanner({ onOpenAppointmentModal }: HeroBannerProps) 
             alt={s.title}
             className="w-full h-full object-cover object-center filter brightness-[0.4]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#001a36]/95 via-[#002855]/85 to-transparent" />
+          <div className="absolute inset-0 bg-[#001a36]/80" />
         </div>
       ))}
 

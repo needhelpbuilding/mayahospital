@@ -45,10 +45,10 @@ export default function DoctorsIndexPage() {
       <SubpageNavbar onOpenAppointmentModal={() => handleBook()} />
 
       {/* Breadcrumbs */}
-      <div style={{ backgroundColor: "#1e0734", borderBottom: "1px solid rgba(124, 58, 237, 0.2)", padding: "12px 0" }}>
+      <div style={{ backgroundColor: "#1A45C8", borderBottom: "1px solid rgba(255, 255, 255, 0.15)", padding: "12px 0" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-            <Link href="/" style={{ color: "#c084fc", textDecoration: "none" }}>Home</Link>
+            <Link href="/" style={{ color: "#FF8A00", textDecoration: "none" }}>Home</Link>
             <span>/</span>
             <span style={{ color: "#ffffff", fontWeight: 600 }}>Specialist Doctors</span>
           </nav>
@@ -58,8 +58,7 @@ export default function DoctorsIndexPage() {
       {/* Hero Banner */}
       <section
         style={{
-          backgroundColor: "#160526",
-          backgroundImage: "linear-gradient(135deg, #1b072c 0%, #0d0216 100%)",
+          backgroundColor: "#0E36B4",
           color: "#ffffff",
           padding: "60px 0 70px",
           position: "relative",
@@ -70,9 +69,9 @@ export default function DoctorsIndexPage() {
           <div style={{ maxWidth: "860px" }}>
             <span
               style={{
-                backgroundColor: "rgba(124, 58, 237, 0.25)",
-                color: "#c084fc",
-                border: "1px solid rgba(124, 58, 237, 0.4)",
+                backgroundColor: "rgba(255, 138, 0, 0.2)",
+                color: "#FF8A00",
+                border: "1px solid rgba(255, 138, 0, 0.4)",
                 padding: "5px 14px",
                 borderRadius: "9999px",
                 fontSize: "11px",
@@ -107,7 +106,7 @@ export default function DoctorsIndexPage() {
               <button
                 onClick={() => handleBook()}
                 style={{
-                  backgroundColor: "#7c3aed",
+                  backgroundColor: "#FF8A00",
                   color: "#ffffff",
                   border: "none",
                   padding: "13px 28px",
@@ -142,7 +141,7 @@ export default function DoctorsIndexPage() {
                   gap: "8px"
                 }}
               >
-                <i className="fa-solid fa-hospital-user" style={{ color: "#c084fc" }}></i>
+                <i className="fa-solid fa-hospital-user" style={{ color: "#FF8A00" }}></i>
                 <span>Browse Clinical Departments</span>
               </Link>
             </div>
@@ -151,7 +150,7 @@ export default function DoctorsIndexPage() {
       </section>
 
       {/* Facilities Highlight Bar */}
-      <section style={{ backgroundColor: "#21093a", color: "#ffffff", padding: "14px 0", borderBottom: "1px solid rgba(124, 58, 237, 0.25)" }}>
+      <section style={{ backgroundColor: "#0E36B4", color: "#ffffff", padding: "14px 0", borderBottom: "1px solid rgba(255, 255, 255, 0.15)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: "16px", fontSize: "13px" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -163,7 +162,7 @@ export default function DoctorsIndexPage() {
               <strong>24x7 Emergency: {HOSPITAL_INFO.emergencyPhone}</strong>
             </span>
             <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <i className="fa-solid fa-ambulance" style={{ color: "#c084fc" }}></i>
+              <i className="fa-solid fa-ambulance" style={{ color: "#FF8A00" }}></i>
               <strong>Free Ambulance (फ्री एम्बुलेंस)</strong>
             </span>
           </div>
@@ -190,9 +189,9 @@ export default function DoctorsIndexPage() {
               <button
                 onClick={() => setSelectedDeptFilter("all")}
                 style={{
-                  backgroundColor: selectedDeptFilter === "all" ? "#7c3aed" : "#ffffff",
+                  backgroundColor: selectedDeptFilter === "all" ? "#245BFF" : "#ffffff",
                   color: selectedDeptFilter === "all" ? "#ffffff" : "#4b5563",
-                  border: selectedDeptFilter === "all" ? "1.5px solid #7c3aed" : "1px solid #e5e7eb",
+                  border: selectedDeptFilter === "all" ? "1.5px solid #245BFF" : "1px solid #e5e7eb",
                   padding: "8px 16px",
                   borderRadius: "9999px",
                   fontSize: "12.5px",
@@ -209,9 +208,9 @@ export default function DoctorsIndexPage() {
                   key={dept.slug}
                   onClick={() => setSelectedDeptFilter(dept.slug)}
                   style={{
-                    backgroundColor: selectedDeptFilter === dept.slug ? "#7c3aed" : "#ffffff",
+                    backgroundColor: selectedDeptFilter === dept.slug ? "#245BFF" : "#ffffff",
                     color: selectedDeptFilter === dept.slug ? "#ffffff" : "#4b5563",
-                    border: selectedDeptFilter === dept.slug ? "1.5px solid #7c3aed" : "1px solid #e5e7eb",
+                    border: selectedDeptFilter === dept.slug ? "1.5px solid #245BFF" : "1px solid #e5e7eb",
                     padding: "8px 16px",
                     borderRadius: "9999px",
                     fontSize: "12.5px",
@@ -236,7 +235,7 @@ export default function DoctorsIndexPage() {
                   width: "100%",
                   padding: "10px 16px 10px 38px",
                   borderRadius: "9999px",
-                  border: "1.5px solid #d8b4fe",
+                  border: "1.5px solid #E2E8F0",
                   backgroundColor: "#ffffff",
                   fontSize: "13px",
                   outline: "none",
@@ -245,7 +244,7 @@ export default function DoctorsIndexPage() {
               />
               <i
                 className="fa-solid fa-magnifying-glass"
-                style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", color: "#7c3aed", fontSize: "13px" }}
+                style={{ position: "absolute", left: "14px", top: "50%", transform: "translateY(-50%)", color: "#FF8A00", fontSize: "13px" }}
               />
             </div>
           </div>
@@ -279,7 +278,7 @@ export default function DoctorsIndexPage() {
                   display: "flex",
                   gap: "18px",
                   padding: "24px",
-                  borderBottom: "1px solid #f3e8ff",
+                  borderBottom: "1px solid #E2E8F0",
                   alignItems: "flex-start",
                   backgroundColor: "#ffffff"
                 }}
@@ -291,9 +290,9 @@ export default function DoctorsIndexPage() {
                       height: "108px",
                       borderRadius: "20px",
                       overflow: "hidden",
-                      border: "3px solid #7c3aed",
-                      backgroundColor: "#f5f3ff",
-                      boxShadow: "0 6px 16px rgba(124, 58, 237, 0.2)"
+                      border: "3px solid #245BFF",
+                      backgroundColor: "#EFF6FF",
+                      boxShadow: "0 6px 16px rgba(36, 91, 255, 0.15)"
                     }}
                   >
                     <img
@@ -308,8 +307,8 @@ export default function DoctorsIndexPage() {
                   <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
                     <span
                       style={{
-                        backgroundColor: "#f3e8ff",
-                        color: "#6d28d9",
+                        backgroundColor: "#FFF7ED",
+                        color: "#FF8A00",
                         fontSize: "10.5px",
                         fontWeight: 700,
                         padding: "2px 8px",
@@ -320,13 +319,13 @@ export default function DoctorsIndexPage() {
                     </span>
                   </div>
 
-                  <h3 style={{ margin: "0 0 4px", fontSize: "18px", fontWeight: 800, color: "#160526" }}>
-                    <Link href={`/doctors/${doc.slug}`} style={{ color: "#160526", textDecoration: "none" }}>
+                  <h3 style={{ margin: "0 0 4px", fontSize: "18px", fontWeight: 800, color: "#0E36B4" }}>
+                    <Link href={`/doctors/${doc.slug}`} style={{ color: "#0E36B4", textDecoration: "none" }}>
                       {doc.name}
                     </Link>
                   </h3>
 
-                  <p style={{ margin: "0 0 6px", fontSize: "12px", color: "#7c3aed", fontWeight: 700, lineHeight: "1.4" }}>
+                  <p style={{ margin: "0 0 6px", fontSize: "12px", color: "#FF8A00", fontWeight: 700, lineHeight: "1.4" }}>
                     {doc.degrees}
                   </p>
 
@@ -339,9 +338,9 @@ export default function DoctorsIndexPage() {
                       gap: "5px",
                       fontSize: "11.5px",
                       fontWeight: 700,
-                      color: "#6d28d9",
+                      color: "#245BFF",
                       textDecoration: "none",
-                      backgroundColor: "rgba(124, 58, 237, 0.08)",
+                      backgroundColor: "rgba(36, 91, 255, 0.08)",
                       padding: "3px 10px",
                       borderRadius: "6px"
                     }}
@@ -357,8 +356,8 @@ export default function DoctorsIndexPage() {
               <div style={{ padding: "20px 24px", flex: "1 1 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div
                   style={{
-                    backgroundColor: "#faf8fc",
-                    border: "1px dashed #d8b4fe",
+                    backgroundColor: "#F8FAFC",
+                    border: "1px dashed #E2E8F0",
                     borderRadius: "12px",
                     padding: "10px 14px",
                     display: "flex",
@@ -366,12 +365,12 @@ export default function DoctorsIndexPage() {
                     gap: "10px"
                   }}
                 >
-                  <i className="fa-regular fa-clock" style={{ color: "#7c3aed", fontSize: "15px" }}></i>
+                  <i className="fa-regular fa-clock" style={{ color: "#FF8A00", fontSize: "15px" }}></i>
                   <div>
-                    <div style={{ fontSize: "10.5px", textTransform: "uppercase", fontWeight: 700, color: "#6d28d9" }}>
+                    <div style={{ fontSize: "10.5px", textTransform: "uppercase", fontWeight: 700, color: "#245BFF" }}>
                       Availability
                     </div>
-                    <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#160526" }}>
+                    <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#0E36B4" }}>
                       {doc.availability}
                     </div>
                   </div>
@@ -386,8 +385,8 @@ export default function DoctorsIndexPage() {
                     <span
                       key={idx}
                       style={{
-                        backgroundColor: "#f5f3ff",
-                        color: "#6d28d9",
+                        backgroundColor: "#EFF6FF",
+                        color: "#245BFF",
                         fontSize: "11px",
                         fontWeight: 600,
                         padding: "3px 8px",
@@ -404,8 +403,8 @@ export default function DoctorsIndexPage() {
               <div
                 style={{
                   padding: "16px 24px",
-                  backgroundColor: "#faf8fc",
-                  borderTop: "1px solid #f3e8ff",
+                  backgroundColor: "#F8FAFC",
+                  borderTop: "1px solid #E2E8F0",
                   display: "flex",
                   gap: "10px",
                   alignItems: "center"
@@ -417,8 +416,8 @@ export default function DoctorsIndexPage() {
                     flex: "1 1 50%",
                     textAlign: "center",
                     backgroundColor: "#ffffff",
-                    color: "#7c3aed",
-                    border: "1.5px solid #7c3aed",
+                    color: "#245BFF",
+                    border: "1.5px solid #245BFF",
                     padding: "10px 14px",
                     borderRadius: "9999px",
                     fontSize: "12px",
@@ -439,7 +438,7 @@ export default function DoctorsIndexPage() {
                   style={{
                     flex: "1 1 50%",
                     textAlign: "center",
-                    backgroundColor: "#7c3aed",
+                    backgroundColor: "#FF8A00",
                     color: "#ffffff",
                     border: "none",
                     padding: "11px 14px",

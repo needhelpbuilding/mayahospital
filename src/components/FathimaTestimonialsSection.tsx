@@ -219,8 +219,8 @@ export default function FathimaTestimonialsSection() {
           {/* Left Column: Heading and Sliding Testimonial Box */}
           <div className="smd60 pr-50" style={{ flex: "0 0 58%", paddingRight: "40px", boxSizing: "border-box" }}>
             <div className="row">
-              <span className="subtitle" style={{ color: "#7c3aed" }}>Patient testimonials</span>
-              <h2 className="heading" style={{ color: "#240b3b" }}>
+              <span className="subtitle" style={{ color: "#FF8A00" }}>Patient testimonials</span>
+              <h2 className="heading" style={{ color: "#245BFF" }}>
                 What our patients <br /> have to say.
               </h2>
             </div>
@@ -230,10 +230,10 @@ export default function FathimaTestimonialsSection() {
               <div className="testimonial-box">
                 <div 
                   style={{
-                    backgroundColor: "#faf7fe",
+                    backgroundColor: "#FFF7ED",
                     borderRadius: "20px",
-                    border: "none",
-                    boxShadow: "0 10px 35px rgba(36, 11, 59, 0.04)",
+                    border: "1px solid #FFEDD5",
+                    boxShadow: "0 10px 35px rgba(36, 91, 255, 0.04)",
                     padding: "44px 44px 36px 44px",
                     position: "relative",
                     minHeight: "220px",
@@ -245,13 +245,13 @@ export default function FathimaTestimonialsSection() {
                     transform: animating ? "translateX(8px)" : "translateX(0)"
                   }}
                 >
-                  {/* Left Column: Bold Purple Solid Quotation Marks */}
+                  {/* Left Column: Bold Orange Solid Quotation Marks */}
                   <div style={{ flexShrink: 0, paddingTop: "2px" }}>
                     <svg 
                       width="42" 
                       height="38" 
                       viewBox="0 0 24 24" 
-                      fill="#7c3aed" 
+                      fill="#FF8A00" 
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.324 1.433-4.524 3.737-4.524 5.378 0 .543.143.992.428 1.348.647-.48 1.442-.767 2.308-.767 2.016 0 3.651 1.635 3.651 3.651 0 2.016-1.635 3.651-3.651 3.651-1.393 0-2.613-.787-3.238-1.944L4.583 17.321zm10.584 0c-1.03-1.094-1.583-2.321-1.583-4.31 0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.324 1.433-4.524 3.737-4.524 5.378 0 .543.143.992.428 1.348.647-.48 1.442-.767 2.308-.767 2.016 0 3.651 1.635 3.651 3.651 0 2.016-1.635 3.651-3.651 3.651-1.393 0-2.613-.787-3.238-1.944l-.314-.199z"/>
@@ -278,7 +278,7 @@ export default function FathimaTestimonialsSection() {
                       style={{ 
                         marginTop: "24px", 
                         paddingTop: "16px", 
-                        borderTop: "1px solid #ede9fe",
+                        borderTop: "1px solid #FFEDD5",
                         display: "flex",
                         flexDirection: "column",
                         gap: "4px"
@@ -288,7 +288,7 @@ export default function FathimaTestimonialsSection() {
                         style={{ 
                           fontSize: "16px", 
                           fontWeight: 800, 
-                          color: "#240b3b",
+                          color: "#245BFF",
                           fontFamily: "var(--heading-font), sans-serif"
                         }}
                       >
@@ -303,7 +303,7 @@ export default function FathimaTestimonialsSection() {
                 </div>
               </div>
 
-              {/* Exact Scroll Graphics: Purple Rounded Pills & Dots (Replacing arrows & counters) */}
+              {/* Exact Scroll Graphics: Blue Rounded Pills & Dots (Replacing arrows & counters) */}
               <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "24px" }}>
                 {ALL_REVIEWS.map((_, idx) => {
                   const isActive = idx === currentIndex;
@@ -322,7 +322,7 @@ export default function FathimaTestimonialsSection() {
                         width: isActive ? "26px" : "10px",
                         height: "10px",
                         borderRadius: "5px",
-                        backgroundColor: isActive ? "#7c3aed" : "#cbd5e1",
+                        backgroundColor: isActive ? "#245BFF" : "#cbd5e1",
                         border: "none",
                         cursor: "pointer",
                         transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -353,9 +353,9 @@ export default function FathimaTestimonialsSection() {
                 maxWidth: "380px",
                 borderRadius: "22px",
                 overflow: "hidden",
-                boxShadow: "0 22px 50px rgba(36, 11, 59, 0.22)",
-                border: "2px solid rgba(124, 58, 237, 0.22)",
-                backgroundColor: "#240b3b"
+                boxShadow: "0 22px 50px rgba(36, 91, 255, 0.18)",
+                border: "2px solid rgba(36, 91, 255, 0.22)",
+                backgroundColor: "#245BFF"
               }}
             >
               <img
@@ -376,7 +376,7 @@ export default function FathimaTestimonialsSection() {
                   bottom: "0",
                   left: "0",
                   right: "0",
-                  background: "linear-gradient(to top, rgba(23, 5, 38, 0.95) 0%, rgba(23, 5, 38, 0.8) 65%, transparent 100%)",
+                  background: "rgba(14, 54, 180, 0.92)",
                   padding: "24px 18px 14px 18px",
                   color: "#ffffff",
                   display: "flex",

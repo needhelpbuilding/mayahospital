@@ -69,7 +69,7 @@ export default function Navbar({ onOpenAppointmentModal }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between">
         {/* Logo and Hospital Name */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0076d7] to-[#092c57] flex items-center justify-center text-white shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform">
+          <div className="w-12 h-12 rounded-xl bg-[#245BFF] flex items-center justify-center text-white shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
             <Heart className="w-7 h-7 text-white fill-white/20" />
           </div>
           <div className="flex flex-col">

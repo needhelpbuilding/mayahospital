@@ -32,7 +32,7 @@ export default function ContactLocationSection() {
         {/* Location & Details Card Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Contact Details Card */}
-          <div className="lg:col-span-5 bg-gradient-to-br from-[#092c57] to-[#003870] text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between space-y-8">
+          <div className="lg:col-span-5 bg-[#092c57] text-white rounded-3xl p-8 sm:p-10 shadow-2xl flex flex-col justify-between space-y-8">
             <div className="space-y-6">
               <div>
                 <span className="text-xs font-bold text-sky-300 uppercase tracking-wider">

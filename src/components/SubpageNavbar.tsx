@@ -81,7 +81,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                   fontSize: "10px",
                   letterSpacing: "1.5px",
                   textTransform: "uppercase",
-                  color: "#c084fc",
+                  color: "#FF8A00",
                   fontWeight: 600
                 }}
               >
@@ -165,10 +165,10 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                     top: "100%",
                     left: "-80px",
                     width: "560px",
-                    backgroundColor: "#160526",
+                    backgroundColor: "#0E36B4",
                     borderRadius: "16px",
                     boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
-                    border: "1px solid rgba(124, 58, 237, 0.3)",
+                    border: "1px solid rgba(36, 91, 255, 0.3)",
                     padding: "20px 24px",
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
@@ -206,8 +206,8 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                           width: "36px",
                           height: "36px",
                           borderRadius: "8px",
-                          backgroundColor: "rgba(124, 58, 237, 0.25)",
-                          color: "#c084fc",
+                          backgroundColor: "rgba(36, 91, 255, 0.2)",
+                          color: "#FF8A00",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -239,7 +239,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                         gap: "8px",
                         padding: "10px",
                         borderRadius: "8px",
-                        backgroundColor: "#7c3aed",
+                        backgroundColor: "#245BFF",
                         color: "#ffffff",
                         textDecoration: "none",
                         fontSize: "12px",
@@ -296,10 +296,10 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                     top: "100%",
                     left: "-120px",
                     width: "600px",
-                    backgroundColor: "#160526",
+                    backgroundColor: "#0E36B4",
                     borderRadius: "16px",
                     boxShadow: "0 25px 60px rgba(0,0,0,0.85)",
-                    border: "1px solid rgba(124, 58, 237, 0.3)",
+                    border: "1px solid rgba(36, 91, 255, 0.3)",
                     padding: "20px 24px",
                     display: "grid",
                     gridTemplateColumns: "1fr 1fr",
@@ -340,7 +340,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                           height: "44px",
                           borderRadius: "50%",
                           objectFit: "cover",
-                          border: "1.5px solid #7c3aed",
+                          border: "1.5px solid #245BFF",
                           flexShrink: 0
                         }}
                       />
@@ -348,7 +348,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                         <div style={{ color: "#ffffff", fontSize: "13px", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                           {doc.name}
                         </div>
-                        <div style={{ color: "#c084fc", fontSize: "11px", fontWeight: 600 }}>
+                        <div style={{ color: "#FF8A00", fontSize: "11px", fontWeight: 600 }}>
                           {doc.department}
                         </div>
                       </div>
@@ -366,7 +366,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                         gap: "8px",
                         padding: "10px",
                         borderRadius: "8px",
-                        backgroundColor: "#7c3aed",
+                        backgroundColor: "#245BFF",
                         color: "#ffffff",
                         textDecoration: "none",
                         fontSize: "12px",
@@ -386,7 +386,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
             <Link
               href="/consultancy"
               style={{
-                color: "#c084fc",
+                color: "#FF8A00",
                 textDecoration: "none",
                 fontSize: "13px",
                 fontWeight: 700,
@@ -430,7 +430,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
               onClick={() => onOpenAppointmentModal()}
               className="subpage-book-btn"
               style={{
-                backgroundColor: "#7c3aed",
+                backgroundColor: "#245BFF",
                 color: "#ffffff",
                 border: "none",
                 borderRadius: "9999px",
@@ -443,14 +443,14 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",
-                boxShadow: "0 4px 15px rgba(124, 58, 237, 0.35)",
+                boxShadow: "0 4px 15px rgba(36, 91, 255, 0.35)",
                 transition: "all 0.25s ease"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#6d28d9";
+                e.currentTarget.style.backgroundColor = "#0E36B4";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#7c3aed";
+                e.currentTarget.style.backgroundColor = "#245BFF";
               }}
             >
               <i className="fa-regular fa-calendar-check" style={{ fontSize: "12px" }}></i>
@@ -483,8 +483,8 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
         <div
           className="subpage-mobile-drawer"
           style={{
-            backgroundColor: "#160526",
-            borderTop: "1px solid rgba(124, 58, 237, 0.25)",
+            backgroundColor: "#0E36B4",
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
             padding: "20px 24px 30px",
             display: "flex",
             flexDirection: "column",
@@ -516,11 +516,11 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
               <i className={`fa-solid fa-chevron-${mobileSubmenu === "departments" ? "up" : "down"}`} style={{ fontSize: "11px" }}></i>
             </div>
             {mobileSubmenu === "departments" && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "12px", paddingLeft: "14px", borderLeft: "2px solid #7c3aed" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "12px", paddingLeft: "14px", borderLeft: "2px solid #245BFF" }}>
                 <Link
                   href="/departments"
                   onClick={() => setMobileMenuOpen(false)}
-                  style={{ color: "#c084fc", textDecoration: "none", fontSize: "13px", fontWeight: 700 }}
+                  style={{ color: "#FF8A00", textDecoration: "none", fontSize: "13px", fontWeight: 700 }}
                 >
                   All Departments Overview →
                 </Link>
@@ -555,11 +555,11 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
               <i className={`fa-solid fa-chevron-${mobileSubmenu === "doctors" ? "up" : "down"}`} style={{ fontSize: "11px" }}></i>
             </div>
             {mobileSubmenu === "doctors" && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "12px", paddingLeft: "14px", borderLeft: "2px solid #7c3aed" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "12px", paddingLeft: "14px", borderLeft: "2px solid #245BFF" }}>
                 <Link
                   href="/doctors"
                   onClick={() => setMobileMenuOpen(false)}
-                  style={{ color: "#c084fc", textDecoration: "none", fontSize: "13px", fontWeight: 700 }}
+                  style={{ color: "#FF8A00", textDecoration: "none", fontSize: "13px", fontWeight: 700 }}
                 >
                   All Specialists Directory →
                 </Link>
@@ -580,7 +580,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
           <Link
             href="/consultancy"
             onClick={() => setMobileMenuOpen(false)}
-            style={{ color: "#c084fc", textDecoration: "none", fontSize: "14px", fontWeight: 700 }}
+            style={{ color: "#FF8A00", textDecoration: "none", fontSize: "14px", fontWeight: 700 }}
           >
             ONLINE CONSULTANCY
           </Link>
@@ -610,7 +610,7 @@ export default function SubpageNavbar({ onOpenAppointmentModal }: SubpageNavbarP
                   onOpenAppointmentModal();
                 }}
                 style={{
-                  backgroundColor: "#7c3aed",
+                  backgroundColor: "#245BFF",
                   color: "#ffffff",
                   border: "none",
                   borderRadius: "8px",

@@ -45,10 +45,10 @@ export default function WhyChooseUsSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#092c57] via-[#003870] to-[#005fad] text-white relative overflow-hidden">
-      {/* Background Accent Gradients */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-sky-400/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
+    <section className="py-20 bg-[#0E36B4] text-white relative overflow-hidden">
+      {/* Background Accent Flat Shapes */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/5 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-white/5 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

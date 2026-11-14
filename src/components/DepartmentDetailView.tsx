@@ -30,12 +30,12 @@ export default function DepartmentDetailView({ department, doctors }: Department
       <SubpageNavbar onOpenAppointmentModal={() => handleBook()} />
 
       {/* Breadcrumbs */}
-      <div style={{ backgroundColor: "#1e0734", borderBottom: "1px solid rgba(124, 58, 237, 0.2)", padding: "12px 0" }}>
+      <div style={{ backgroundColor: "#0E36B4", borderBottom: "1px solid rgba(255, 255, 255, 0.15)", padding: "12px 0" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-            <Link href="/" style={{ color: "#c084fc", textDecoration: "none" }}>Home</Link>
+            <Link href="/" style={{ color: "#FF8A00", textDecoration: "none" }}>Home</Link>
             <span>/</span>
-            <Link href="/departments" style={{ color: "#c084fc", textDecoration: "none" }}>Departments</Link>
+            <Link href="/departments" style={{ color: "#FF8A00", textDecoration: "none" }}>Departments</Link>
             <span>/</span>
             <span style={{ color: "#ffffff", fontWeight: 600 }}>{department.name}</span>
           </nav>
@@ -45,8 +45,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
       {/* Hero Banner */}
       <section
         style={{
-          backgroundColor: "#160526",
-          backgroundImage: "linear-gradient(135deg, #1b072c 0%, #0d0216 100%)",
+          backgroundColor: "#245BFF",
           color: "#ffffff",
           padding: "60px 0 70px",
           position: "relative",
@@ -58,9 +57,9 @@ export default function DepartmentDetailView({ department, doctors }: Department
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", flexWrap: "wrap" }}>
               <span
                 style={{
-                  backgroundColor: "rgba(124, 58, 237, 0.25)",
-                  color: "#c084fc",
-                  border: "1px solid rgba(124, 58, 237, 0.4)",
+                  backgroundColor: "rgba(255, 138, 0, 0.2)",
+                  color: "#FF8A00",
+                  border: "1px solid rgba(255, 138, 0, 0.4)",
                   padding: "5px 14px",
                   borderRadius: "9999px",
                   fontSize: "11px",
@@ -113,7 +112,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
               <button
                 onClick={() => handleBook()}
                 style={{
-                  backgroundColor: "#7c3aed",
+                  backgroundColor: "#FF8A00",
                   color: "#ffffff",
                   border: "none",
                   padding: "13px 28px",
@@ -126,14 +125,14 @@ export default function DepartmentDetailView({ department, doctors }: Department
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  boxShadow: "0 6px 20px rgba(124, 58, 237, 0.4)",
+                  boxShadow: "0 6px 20px rgba(0, 0, 0, 0.2)",
                   transition: "all 0.25s ease"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#6d28d9";
+                  e.currentTarget.style.backgroundColor = "#EA580C";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#7c3aed";
+                  e.currentTarget.style.backgroundColor = "#FF8A00";
                 }}
               >
                 <i className="fa-regular fa-calendar-check"></i>
@@ -165,7 +164,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
               <Link
                 href="/doctors"
                 style={{
-                  color: "#c084fc",
+                  color: "#FF8A00",
                   fontSize: "13px",
                   fontWeight: 700,
                   textDecoration: "none",
@@ -181,24 +180,10 @@ export default function DepartmentDetailView({ department, doctors }: Department
             </div>
           </div>
         </div>
-
-        {/* Decorative background glow */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-100px",
-            right: "-100px",
-            width: "500px",
-            height: "500px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, rgba(0,0,0,0) 70%)",
-            pointerEvents: "none"
-          }}
-        />
       </section>
 
       {/* Quick Hospital Highlights Strip */}
-      <section style={{ backgroundColor: "#21093a", color: "#ffffff", padding: "16px 0", borderBottom: "1px solid rgba(124, 58, 237, 0.25)" }}>
+      <section style={{ backgroundColor: "#0E36B4", color: "#ffffff", padding: "16px 0", borderBottom: "1px solid rgba(255, 255, 255, 0.15)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px" }}>
           <div
             style={{
@@ -210,9 +195,9 @@ export default function DepartmentDetailView({ department, doctors }: Department
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <i className="fa-solid fa-clock-rotate-left" style={{ color: "#c084fc", fontSize: "18px" }}></i>
+              <i className="fa-solid fa-clock-rotate-left" style={{ color: "#FF8A00", fontSize: "18px" }}></i>
               <div>
-                <div style={{ fontSize: "11px", color: "#d8b4fe", textTransform: "uppercase", fontWeight: 700 }}>Department Hours</div>
+                <div style={{ fontSize: "11px", color: "#FFEDD5", textTransform: "uppercase", fontWeight: 700 }}>Department Hours</div>
                 <div style={{ fontSize: "13px", fontWeight: 600 }}>{department.timing}</div>
               </div>
             </div>
@@ -241,8 +226,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
         
         {/* DOCTORS IN THIS DEPARTMENT (Prominent Showcase) */}
         <section style={{ marginBottom: "60px" }}>
-          <div style={{ marginBottom: "30px", borderBottom: "2px solid #ede9fe", paddingBottom: "16px" }}>
-            <span style={{ fontSize: "12px", fontWeight: 700, color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1.5px" }}>
+          <div style={{ marginBottom: "30px", borderBottom: "2px solid #e2e8f0", paddingBottom: "16px" }}>
+            <span style={{ fontSize: "12px", fontWeight: 700, color: "#245BFF", textTransform: "uppercase", letterSpacing: "1.5px" }}>
               CLINICAL SPECIALISTS
             </span>
             <h2
@@ -250,7 +235,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                 fontSize: "28px",
                 fontWeight: 800,
-                color: "#160526",
+                color: "#0f172a",
                 margin: "6px 0 0"
               }}
             >
@@ -274,8 +259,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: "24px",
-                  border: "1px solid rgba(124, 58, 237, 0.18)",
-                  boxShadow: "0 10px 30px rgba(22, 6, 36, 0.06)",
+                  border: "1px solid rgba(36, 91, 255, 0.18)",
+                  boxShadow: "0 10px 30px rgba(0, 0, 0, 0.06)",
                   overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
@@ -283,7 +268,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 }}
               >
                 {/* Top Header: Image & Badges */}
-                <div style={{ display: "flex", gap: "20px", padding: "24px 24px 18px", borderBottom: "1px solid #f3e8ff", alignItems: "flex-start" }}>
+                <div style={{ display: "flex", gap: "20px", padding: "24px 24px 18px", borderBottom: "1px solid #e2e8f0", alignItems: "flex-start" }}>
                   <Link href={`/doctors/${doc.slug}`} style={{ textDecoration: "none", flexShrink: 0 }}>
                     <div
                       style={{
@@ -291,9 +276,9 @@ export default function DepartmentDetailView({ department, doctors }: Department
                         height: "100px",
                         borderRadius: "20px",
                         overflow: "hidden",
-                        border: "3px solid #7c3aed",
-                        backgroundColor: "#f5f3ff",
-                        boxShadow: "0 4px 12px rgba(124, 58, 237, 0.2)"
+                        border: "3px solid #245BFF",
+                        backgroundColor: "#f8fafc",
+                        boxShadow: "0 4px 12px rgba(36, 91, 255, 0.2)"
                       }}
                     >
                       <img
@@ -307,8 +292,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                   <div style={{ flex: "1 1 auto" }}>
                     <span
                       style={{
-                        backgroundColor: "rgba(124, 58, 237, 0.1)",
-                        color: "#6d28d9",
+                        backgroundColor: "rgba(36, 91, 255, 0.1)",
+                        color: "#245BFF",
                         fontSize: "10.5px",
                         fontWeight: 700,
                         padding: "3px 10px",
@@ -320,13 +305,13 @@ export default function DepartmentDetailView({ department, doctors }: Department
                       {doc.experience}
                     </span>
 
-                    <h3 style={{ margin: "0 0 4px", fontSize: "19px", fontWeight: 800, color: "#160526" }}>
-                      <Link href={`/doctors/${doc.slug}`} style={{ color: "#160526", textDecoration: "none" }}>
+                    <h3 style={{ margin: "0 0 4px", fontSize: "19px", fontWeight: 800, color: "#0f172a" }}>
+                      <Link href={`/doctors/${doc.slug}`} style={{ color: "#0f172a", textDecoration: "none" }}>
                         {doc.name}
                       </Link>
                     </h3>
 
-                    <p style={{ margin: "0 0 6px", fontSize: "12px", color: "#7c3aed", fontWeight: 700, lineHeight: "1.4" }}>
+                    <p style={{ margin: "0 0 6px", fontSize: "12px", color: "#245BFF", fontWeight: 700, lineHeight: "1.4" }}>
                       {doc.degrees}
                     </p>
 
@@ -340,8 +325,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 <div style={{ padding: "18px 24px", flex: "1 1 auto", display: "flex", flexDirection: "column", gap: "12px" }}>
                   <div
                     style={{
-                      backgroundColor: "#faf5ff",
-                      border: "1px dashed #d8b4fe",
+                      backgroundColor: "#FFF7ED",
+                      border: "1px dashed #FF8A00",
                       borderRadius: "12px",
                       padding: "10px 14px",
                       display: "flex",
@@ -349,12 +334,12 @@ export default function DepartmentDetailView({ department, doctors }: Department
                       gap: "10px"
                     }}
                   >
-                    <i className="fa-regular fa-clock" style={{ color: "#7c3aed", fontSize: "15px" }}></i>
+                    <i className="fa-regular fa-clock" style={{ color: "#FF8A00", fontSize: "15px" }}></i>
                     <div>
-                      <div style={{ fontSize: "10px", textTransform: "uppercase", fontWeight: 700, color: "#6d28d9" }}>
+                      <div style={{ fontSize: "10px", textTransform: "uppercase", fontWeight: 700, color: "#EA580C" }}>
                         Consultation Availability
                       </div>
-                      <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#160526" }}>
+                      <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#0f172a" }}>
                         {doc.availability}
                       </div>
                     </div>
@@ -369,8 +354,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                       <span
                         key={idx}
                         style={{
-                          backgroundColor: "#f3e8ff",
-                          color: "#6d28d9",
+                          backgroundColor: "#EFF6FF",
+                          color: "#245BFF",
                           fontSize: "11px",
                           fontWeight: 600,
                           padding: "3px 8px",
@@ -387,8 +372,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 <div
                   style={{
                     padding: "16px 24px",
-                    backgroundColor: "#faf8fc",
-                    borderTop: "1px solid #f3e8ff",
+                    backgroundColor: "#f8fafc",
+                    borderTop: "1px solid #e2e8f0",
                     display: "flex",
                     gap: "10px",
                     alignItems: "center"
@@ -400,8 +385,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                       flex: "1 1 50%",
                       textAlign: "center",
                       backgroundColor: "#ffffff",
-                      color: "#7c3aed",
-                      border: "1.5px solid #7c3aed",
+                      color: "#245BFF",
+                      border: "1.5px solid #245BFF",
                       padding: "10px 14px",
                       borderRadius: "9999px",
                       fontSize: "12px",
@@ -423,7 +408,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                     style={{
                       flex: "1 1 50%",
                       textAlign: "center",
-                      backgroundColor: "#7c3aed",
+                      backgroundColor: "#245BFF",
                       color: "#ffffff",
                       border: "none",
                       padding: "11px 14px",
@@ -438,10 +423,10 @@ export default function DepartmentDetailView({ department, doctors }: Department
                       transition: "all 0.2s ease"
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#6d28d9";
+                      e.currentTarget.style.backgroundColor = "#0E36B4";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "#7c3aed";
+                      e.currentTarget.style.backgroundColor = "#245BFF";
                     }}
                   >
                     <i className="fa-regular fa-calendar-check"></i>
@@ -458,14 +443,14 @@ export default function DepartmentDetailView({ department, doctors }: Department
           style={{
             backgroundColor: "#ffffff",
             borderRadius: "28px",
-            border: "1px solid rgba(124, 58, 237, 0.16)",
-            boxShadow: "0 10px 30px rgba(22, 6, 36, 0.04)",
+            border: "1px solid rgba(36, 91, 255, 0.16)",
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.04)",
             padding: "40px",
             marginBottom: "60px"
           }}
         >
           <div style={{ marginBottom: "26px" }}>
-            <span style={{ fontSize: "11.5px", fontWeight: 700, color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1.5px" }}>
+            <span style={{ fontSize: "11.5px", fontWeight: 700, color: "#245BFF", textTransform: "uppercase", letterSpacing: "1.5px" }}>
               TREATMENTS &amp; PROCEDURES
             </span>
             <h2
@@ -473,7 +458,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                 fontSize: "26px",
                 fontWeight: 800,
-                color: "#160526",
+                color: "#0f172a",
                 marginTop: "6px"
               }}
             >
@@ -496,7 +481,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 key={idx}
                 style={{
                   backgroundColor: "#faf8fc",
-                  border: "1px solid #f3e8ff",
+                  border: "1px solid #e2e8f0",
                   borderRadius: "16px",
                   padding: "18px 20px",
                   display: "flex",
@@ -510,7 +495,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                     width: "32px",
                     height: "32px",
                     borderRadius: "50%",
-                    backgroundColor: "#7c3aed",
+                    backgroundColor: "#245BFF",
                     color: "#ffffff",
                     display: "flex",
                     alignItems: "center",
@@ -523,7 +508,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                   <i className="fa-solid fa-check"></i>
                 </div>
                 <div>
-                  <h4 style={{ margin: "0 0 4px", fontSize: "14px", fontWeight: 700, color: "#160526" }}>
+                  <h4 style={{ margin: "0 0 4px", fontSize: "14px", fontWeight: 700, color: "#0f172a" }}>
                     {service}
                   </h4>
                   <span style={{ fontSize: "11.5px", color: "#6b7280" }}>
@@ -539,7 +524,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
         <section style={{ marginBottom: "60px" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "26px", flexWrap: "wrap", gap: "12px" }}>
             <div>
-              <span style={{ fontSize: "11.5px", fontWeight: 700, color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1.5px" }}>
+              <span style={{ fontSize: "11.5px", fontWeight: 700, color: "#245BFF", textTransform: "uppercase", letterSpacing: "1.5px" }}>
                 INTERCONNECTED DEPARTMENTS
               </span>
               <h2
@@ -547,7 +532,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                   fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                   fontSize: "26px",
                   fontWeight: 800,
-                  color: "#160526",
+                  color: "#0f172a",
                   margin: "6px 0 0"
                 }}
               >
@@ -558,7 +543,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
             <Link
               href="/departments"
               style={{
-                color: "#7c3aed",
+                color: "#245BFF",
                 fontWeight: 700,
                 fontSize: "13px",
                 textDecoration: "none",
@@ -586,21 +571,21 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 style={{
                   backgroundColor: "#ffffff",
                   borderRadius: "20px",
-                  border: "1px solid rgba(124, 58, 237, 0.15)",
+                  border: "1px solid rgba(36, 91, 255, 0.15)",
                   padding: "24px",
                   textDecoration: "none",
                   display: "flex",
                   flexDirection: "column",
                   gap: "12px",
-                  boxShadow: "0 6px 20px rgba(22, 6, 36, 0.04)",
+                  boxShadow: "0 6px 20px rgba(0, 0, 0, 0.04)",
                   transition: "all 0.25s ease"
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#7c3aed";
+                  e.currentTarget.style.borderColor = "#245BFF";
                   e.currentTarget.style.transform = "translateY(-4px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(124, 58, 237, 0.15)";
+                  e.currentTarget.style.borderColor = "rgba(36, 91, 255, 0.15)";
                   e.currentTarget.style.transform = "translateY(0px)";
                 }}
               >
@@ -609,8 +594,8 @@ export default function DepartmentDetailView({ department, doctors }: Department
                     width: "48px",
                     height: "48px",
                     borderRadius: "14px",
-                    backgroundColor: "rgba(124, 58, 237, 0.1)",
-                    color: "#7c3aed",
+                    backgroundColor: "rgba(36, 91, 255, 0.1)",
+                    color: "#245BFF",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -621,7 +606,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                 </div>
 
                 <div>
-                  <h3 style={{ margin: "0 0 6px", fontSize: "17px", fontWeight: 700, color: "#160526" }}>
+                  <h3 style={{ margin: "0 0 6px", fontSize: "17px", fontWeight: 700, color: "#0f172a" }}>
                     {dept.name}
                   </h3>
                   <p style={{ margin: 0, fontSize: "12.5px", color: "#6b7280", lineHeight: "1.4" }}>
@@ -629,7 +614,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
                   </p>
                 </div>
 
-                <div style={{ marginTop: "auto", display: "flex", alignItems: "center", gap: "6px", color: "#7c3aed", fontSize: "12px", fontWeight: 700 }}>
+                <div style={{ marginTop: "auto", display: "flex", alignItems: "center", gap: "6px", color: "#245BFF", fontSize: "12px", fontWeight: 700 }}>
                   <span>Department Details</span>
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: "10px" }}></i>
                 </div>
@@ -641,8 +626,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
         {/* Action Banner */}
         <section
           style={{
-            backgroundColor: "#21093a",
-            backgroundImage: "linear-gradient(135deg, #2b0b4a 0%, #150324 100%)",
+            backgroundColor: "#245BFF",
             color: "#ffffff",
             borderRadius: "28px",
             padding: "44px 40px",
@@ -651,14 +635,14 @@ export default function DepartmentDetailView({ department, doctors }: Department
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "24px",
-            boxShadow: "0 20px 50px rgba(33, 9, 58, 0.3)"
+            boxShadow: "0 20px 50px rgba(36, 91, 255, 0.3)"
           }}
         >
           <div>
             <span
               style={{
-                backgroundColor: "rgba(192, 132, 252, 0.2)",
-                color: "#e9d5ff",
+                backgroundColor: "rgba(255, 138, 0, 0.2)",
+                color: "#FFEDD5",
                 fontSize: "11px",
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -682,7 +666,7 @@ export default function DepartmentDetailView({ department, doctors }: Department
               onClick={() => handleBook()}
               style={{
                 backgroundColor: "#ffffff",
-                color: "#21093a",
+                color: "#245BFF",
                 border: "none",
                 fontWeight: 700,
                 fontSize: "13px",

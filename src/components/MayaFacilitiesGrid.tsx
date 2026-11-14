@@ -64,12 +64,12 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             <div
               key={idx}
               style={{
-                backgroundColor: "rgba(124, 58, 237, 0.03)",
+                backgroundColor: "#F8FAFC",
                 padding: "36px 30px",
                 borderRadius: "22px",
-                boxShadow: "0 12px 35px rgba(124, 58, 237, 0.06)",
-                border: "1px solid rgba(124, 58, 237, 0.15)",
-                borderTop: "4px solid #7c3aed",
+                boxShadow: "0 12px 35px rgba(36, 91, 255, 0.05)",
+                border: "1px solid #E2E8F0",
+                borderTop: "4px solid #245BFF",
                 transition: "all 0.3s ease",
                 position: "relative",
                 overflow: "hidden"
@@ -77,7 +77,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             >
               {/* Clean Icon without bulky box container */}
               <div style={{
-                color: "#7c3aed",
+                color: "#FF8A00",
                 fontSize: "32px",
                 marginBottom: "20px"
               }}>
@@ -150,7 +150,7 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
             <button
               onClick={onOpenAppointmentModal}
               style={{
-                backgroundColor: "#7c3aed",
+                backgroundColor: "#FF8A00",
                 color: "#ffffff",
                 border: "1.5px solid rgba(255, 255, 255, 0.4)",
                 padding: "12px 28px",
@@ -165,11 +165,11 @@ export default function MayaFacilitiesGrid({ onOpenAppointmentModal }: Facilitie
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = "#ffffff";
-                e.currentTarget.style.color = "#240b3b";
+                e.currentTarget.style.color = "#245BFF";
                 e.currentTarget.style.borderColor = "#ffffff";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#7c3aed";
+                e.currentTarget.style.backgroundColor = "#FF8A00";
                 e.currentTarget.style.color = "#ffffff";
                 e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
               }}

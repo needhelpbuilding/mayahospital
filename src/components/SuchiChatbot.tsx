@@ -118,12 +118,11 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
           {/* Friendly Theme-Consistent Speech Bubble (Pill shape, vertically centered with avatar, NO triangular pointer, NO border) */}
           <div
             style={{
-              backgroundColor: "#2e0c4f",
-              backgroundImage: "linear-gradient(135deg, #3b0764 0%, #2e0c4f 100%)",
+              backgroundColor: "#245BFF",
               color: "#ffffff",
               padding: "10px 18px",
               borderRadius: "9999px",
-              boxShadow: "0 8px 24px rgba(46, 12, 79, 0.4)",
+              boxShadow: "0 8px 24px rgba(36, 91, 255, 0.3)",
               border: "none",
               fontSize: "13px",
               fontWeight: 600,
@@ -137,7 +136,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
             <span>Hi, Suchi this side, how can I help you?</span>
           </div>
 
-          {/* Animated Avatar Circle (Seamless purple ring) */}
+          {/* Animated Avatar Circle (Seamless blue ring) */}
           <div
             style={{
               position: "relative",
@@ -145,10 +144,10 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
               height: "60px",
               borderRadius: "50%",
               padding: "0",
-              boxShadow: "0 8px 25px rgba(36, 11, 59, 0.45)",
+              boxShadow: "0 8px 25px rgba(36, 91, 255, 0.35)",
               transition: "transform 0.25s ease",
               overflow: "hidden",
-              border: "2.5px solid #7c3aed",
+              border: "2.5px solid #245BFF",
               flexShrink: 0
             }}
             onMouseEnter={(e) => {
@@ -186,13 +185,12 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
             {/* Chat Window Header */}
             <div
               style={{
-                backgroundColor: "#2e0c4f",
+                backgroundColor: "#245BFF",
                 padding: "16px 20px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 borderBottom: "1px solid rgba(255, 255, 255, 0.15)",
-                background: "linear-gradient(135deg, #2e0c4f 0%, #4c1d95 100%)",
                 flexShrink: 0
               }}
             >
@@ -205,7 +203,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                   borderRadius: "50%",
                   padding: "0",
                   overflow: "hidden",
-                  border: "2px solid #a855f7"
+                  border: "2px solid #FF8A00"
                 }}
               >
                 <img
@@ -284,10 +282,10 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                     maxWidth: "85%",
                     padding: "12px 16px",
                     borderRadius: m.sender === "user" ? "20px 20px 4px 20px" : "20px 20px 20px 4px",
-                    backgroundColor: m.sender === "user" ? "#3b1261" : "#ffffff",
-                    color: m.sender === "user" ? "#ffffff" : "#261633",
+                    backgroundColor: m.sender === "user" ? "#245BFF" : "#ffffff",
+                    color: m.sender === "user" ? "#ffffff" : "#0f172a",
                     boxShadow: "0 3px 12px rgba(0,0,0,0.06)",
-                    border: m.sender === "user" ? "none" : "1px solid #e9d5ff",
+                    border: m.sender === "user" ? "none" : "1px solid #E2E8F0",
                     fontSize: "13px",
                     lineHeight: "1.5"
                   }}
@@ -323,8 +321,8 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                         }}
                         style={{
                           backgroundColor: "#ffffff",
-                          border: "1px solid #7c3aed",
-                          color: "#3b1261",
+                          border: "1px solid #245BFF",
+                          color: "#245BFF",
                           padding: "6px 14px",
                           borderRadius: "18px",
                           fontSize: "11.5px",
@@ -333,12 +331,12 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                           transition: "all 0.2s ease"
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = "#7c3aed";
+                          e.currentTarget.style.backgroundColor = "#245BFF";
                           e.currentTarget.style.color = "#ffffff";
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.backgroundColor = "#ffffff";
-                          e.currentTarget.style.color = "#3b1261";
+                          e.currentTarget.style.color = "#245BFF";
                         }}
                       >
                         {qr}
@@ -350,10 +348,10 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
             ))}
 
             {isTyping && (
-              <div style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 12px", backgroundColor: "#fff", borderRadius: "16px", alignSelf: "flex-start", border: "1px solid #e9d5ff" }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#7c3aed", animation: "bounce 1s infinite" }}></span>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#7c3aed", animation: "bounce 1s infinite 0.2s" }}></span>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#7c3aed", animation: "bounce 1s infinite 0.4s" }}></span>
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", padding: "8px 12px", backgroundColor: "#fff", borderRadius: "16px", alignSelf: "flex-start", border: "1px solid #E2E8F0" }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#245BFF", animation: "bounce 1s infinite" }}></span>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#245BFF", animation: "bounce 1s infinite 0.2s" }}></span>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#245BFF", animation: "bounce 1s infinite 0.4s" }}></span>
               </div>
             )}
 
@@ -369,7 +367,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
             style={{
               padding: "12px 14px",
               backgroundColor: "#ffffff",
-              borderTop: "1px solid #ede9fe",
+              borderTop: "1px solid #E2E8F0",
               display: "flex",
               alignItems: "center",
               gap: "8px"
@@ -382,13 +380,13 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
               onChange={(e) => setInput(e.target.value)}
               style={{
                 flex: 1,
-                border: "1px solid #e9d5ff",
+                border: "1px solid #E2E8F0",
                 borderRadius: "24px",
                 padding: "10px 16px",
                 fontSize: "13px",
                 outline: "none",
-                backgroundColor: "#fbf8fe",
-                color: "#261633"
+                backgroundColor: "#F8FAFC",
+                color: "#0f172a"
               }}
             />
             <button
@@ -397,7 +395,7 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                 width: "40px",
                 height: "40px",
                 borderRadius: "50%",
-                backgroundColor: "#3b1261",
+                backgroundColor: "#245BFF",
                 border: "none",
                 color: "#ffffff",
                 display: "flex",
@@ -408,10 +406,10 @@ export default function SuchiChatbot({ onOpenAppointment }: SuchiChatbotProps) {
                 flexShrink: 0
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#7c3aed";
+                e.currentTarget.style.backgroundColor = "#0E36B4";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#3b1261";
+                e.currentTarget.style.backgroundColor = "#245BFF";
               }}
             >
               <Send size={16} />

@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Hospital Identity & Address */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0076d7] to-[#005fad] flex items-center justify-center text-white shadow-md">
+              <div className="w-11 h-11 rounded-xl bg-[#0076d7] flex items-center justify-center text-white shadow-md">
                 <Heart className="w-6 h-6 fill-white/20" />
               </div>
               <div>
@@ -50,7 +50,7 @@ export default function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-purple-400 shrink-0" />
+                <Globe className="w-4 h-4 text-sky-400 shrink-0" />
                 <span>{HOSPITAL_INFO.hours}</span>
               </div>
             </div>

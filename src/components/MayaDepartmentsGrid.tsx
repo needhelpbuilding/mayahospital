@@ -40,10 +40,10 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
               <div
                 key={dept.id}
                 style={{
-                  backgroundColor: isOpen ? "#ffffff" : "rgba(124, 58, 237, 0.02)",
+                  backgroundColor: isOpen ? "#ffffff" : "#F8FAFC",
                   borderRadius: isOpen ? "32px" : "9999px",
-                  border: isOpen ? "1.5px solid #7c3aed" : "1px solid rgba(124, 58, 237, 0.15)",
-                  boxShadow: isOpen ? "0 14px 35px rgba(124, 58, 237, 0.1)" : "0 4px 15px rgba(0, 0, 0, 0.02)",
+                  border: isOpen ? "1.5px solid #245BFF" : "1px solid #E2E8F0",
+                  boxShadow: isOpen ? "0 14px 35px rgba(36, 91, 255, 0.08)" : "0 4px 15px rgba(0, 0, 0, 0.02)",
                   transition: "all 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
                   overflow: "hidden"
                 }}
@@ -71,8 +71,8 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                         width: "52px",
                         height: "52px",
                         borderRadius: "50%",
-                        backgroundColor: isOpen ? "#7c3aed" : "rgba(124, 58, 237, 0.08)",
-                        color: isOpen ? "#ffffff" : "#7c3aed",
+                        backgroundColor: isOpen ? "#245BFF" : "rgba(36, 91, 255, 0.08)",
+                        color: isOpen ? "#ffffff" : "#245BFF",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -90,7 +90,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                           fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif",
                           fontSize: "18px",
                           fontWeight: 700,
-                          color: isOpen ? "#7c3aed" : "var(--primary-color)",
+                          color: isOpen ? "#245BFF" : "var(--primary-color)",
                           margin: "0 0 4px 0",
                           transition: "color 0.25s ease"
                         }}
@@ -109,8 +109,8 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                       width: "36px",
                       height: "36px",
                       borderRadius: "50%",
-                      backgroundColor: isOpen ? "rgba(124, 58, 237, 0.12)" : "rgba(0, 0, 0, 0.04)",
-                      color: isOpen ? "#7c3aed" : "#9ca3af",
+                      backgroundColor: isOpen ? "rgba(36, 91, 255, 0.12)" : "rgba(0, 0, 0, 0.04)",
+                      color: isOpen ? "#245BFF" : "#9ca3af",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -136,7 +136,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                   <div
                     style={{
                       padding: "0 34px 28px 34px",
-                      borderTop: "1px solid #f3e8ff",
+                      borderTop: "1px solid #E2E8F0",
                       marginTop: "6px"
                     }}
                   >
@@ -152,7 +152,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                           fontWeight: 700,
                           textTransform: "uppercase",
                           letterSpacing: "1.5px",
-                          color: "#7c3aed",
+                          color: "#245BFF",
                           margin: "0 0 12px 0"
                         }}
                       >
@@ -169,8 +169,8 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                           <div
                             key={doc.id}
                             style={{
-                              backgroundColor: "#faf8fc",
-                              border: "1px solid #e9d5ff",
+                              backgroundColor: "#F8FAFC",
+                              border: "1px solid #E2E8F0",
                               borderRadius: "14px",
                               padding: "12px 14px",
                               display: "flex",
@@ -187,19 +187,19 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                                   height: "50px",
                                   borderRadius: "12px",
                                   objectFit: "cover",
-                                  border: "2px solid #7c3aed",
+                                  border: "2px solid #245BFF",
                                   flexShrink: 0
                                 }}
                               />
                             </Link>
 
                             <div style={{ flex: "1 1 auto", overflow: "hidden" }}>
-                              <h5 style={{ margin: "0 0 2px", fontSize: "14px", fontWeight: 800, color: "#160526" }}>
-                                <Link href={`/doctors/${doc.slug}`} style={{ color: "#160526", textDecoration: "none" }}>
+                              <h5 style={{ margin: "0 0 2px", fontSize: "14px", fontWeight: 800, color: "#0E36B4" }}>
+                                <Link href={`/doctors/${doc.slug}`} style={{ color: "#0E36B4", textDecoration: "none" }}>
                                   {doc.name}
                                 </Link>
                               </h5>
-                              <div style={{ fontSize: "11px", color: "#7c3aed", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                              <div style={{ fontSize: "11px", color: "#FF8A00", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                                 {doc.shortDegrees || doc.degrees}
                               </div>
                               <div style={{ fontSize: "11px", color: "#6b7280" }}>
@@ -212,7 +212,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                               style={{
                                 padding: "6px 10px",
                                 borderRadius: "6px",
-                                backgroundColor: "#7c3aed",
+                                backgroundColor: "#245BFF",
                                 color: "#ffffff",
                                 fontSize: "11px",
                                 fontWeight: 700,
@@ -235,7 +235,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                           fontWeight: 700,
                           textTransform: "uppercase",
                           letterSpacing: "1.5px",
-                          color: "#7c3aed",
+                          color: "#245BFF",
                           margin: "0 0 10px 0"
                         }}
                       >
@@ -250,7 +250,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                       >
                         {dept.services.map((feat, fi) => (
                           <div key={fi} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "13px", color: "#374151" }}>
-                            <span style={{ color: "#7c3aed", fontSize: "11px", marginTop: "2px" }}>✔</span>
+                            <span style={{ color: "#FF8A00", fontSize: "11px", marginTop: "2px" }}>✔</span>
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -266,7 +266,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                         flexWrap: "wrap",
                         gap: "12px",
                         paddingTop: "16px",
-                        borderTop: "1px dashed #e9d5ff"
+                        borderTop: "1px dashed #E2E8F0"
                       }}
                     >
                       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
@@ -293,8 +293,8 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                           href={`/departments/${dept.slug}`}
                           style={{
                             backgroundColor: "#ffffff",
-                            color: "#7c3aed",
-                            border: "1.5px solid #7c3aed",
+                            color: "#245BFF",
+                            border: "1.5px solid #245BFF",
                             padding: "9px 20px",
                             borderRadius: "9999px",
                             fontSize: "12px",
@@ -308,7 +308,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                             transition: "all 0.25s ease"
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = "#f5f3ff";
+                            e.currentTarget.style.backgroundColor = "#EFF6FF";
                           }}
                           onMouseLeave={(e) => {
                             e.currentTarget.style.backgroundColor = "#ffffff";
@@ -321,7 +321,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                         <button
                           onClick={() => onOpenAppointmentModal && onOpenAppointmentModal(dept.name)}
                           style={{
-                            backgroundColor: "#7c3aed",
+                            backgroundColor: "#FF8A00",
                             color: "#ffffff",
                             border: "none",
                             padding: "10px 22px",
@@ -335,13 +335,13 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
                             alignItems: "center",
                             gap: "8px",
                             transition: "all 0.25s ease",
-                            boxShadow: "0 4px 14px rgba(124, 58, 237, 0.25)"
+                            boxShadow: "0 4px 14px rgba(255, 138, 0, 0.25)"
                           }}
                           onMouseEnter={(e) => {
-                            e.currentTarget.style.backgroundColor = "#5b21b6";
+                            e.currentTarget.style.backgroundColor = "#E67A00";
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.backgroundColor = "#7c3aed";
+                            e.currentTarget.style.backgroundColor = "#FF8A00";
                           }}
                         >
                           <span>Consult Specialist</span>
@@ -361,7 +361,7 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
           <Link
             href="/departments"
             style={{
-              backgroundColor: "#21093a",
+              backgroundColor: "#245BFF",
               color: "#ffffff",
               padding: "13px 32px",
               borderRadius: "9999px",
@@ -373,17 +373,17 @@ export default function MayaDepartmentsGrid({ onOpenAppointmentModal }: Departme
               display: "inline-flex",
               alignItems: "center",
               gap: "10px",
-              boxShadow: "0 10px 30px rgba(33, 9, 58, 0.2)",
+              boxShadow: "0 10px 30px rgba(36, 91, 255, 0.2)",
               transition: "all 0.25s ease"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#7c3aed";
+              e.currentTarget.style.backgroundColor = "#1A45C8";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#21093a";
+              e.currentTarget.style.backgroundColor = "#245BFF";
             }}
           >
-            <i className="fa-solid fa-hospital-user" style={{ color: "#c084fc" }}></i>
+            <i className="fa-solid fa-hospital-user" style={{ color: "#FF8A00" }}></i>
             <span>Browse All Clinical Departments</span>
             <i className="fa-solid fa-arrow-right" style={{ fontSize: "11px" }}></i>
           </Link>

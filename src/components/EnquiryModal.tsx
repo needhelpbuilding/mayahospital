@@ -114,7 +114,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
             />
             <div>
               <div className="maya-dialog-badge">
-                <Sparkles size={12} style={{ color: "#c084fc" }} />
+                <Sparkles size={12} style={{ color: "#FF8A00" }} />
                 <span>Patient Helpdesk & Medical Enquiries</span>
               </div>
               <h3 
@@ -141,7 +141,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 Enquiry Successfully Registered!
               </h4>
               <p className="maya-dialog-success-desc">
-                Thank you, <strong style={{ color: "#240b3b" }}>{fullName}</strong>. Your enquiry regarding <strong style={{ color: "#7c3aed" }}>{selectedTopic}</strong> has been assigned to our front desk team. We will call you at <strong style={{ color: "#240b3b" }}>{phone}</strong> promptly.
+                Thank you, <strong style={{ color: "#245BFF" }}>{fullName}</strong>. Your enquiry regarding <strong style={{ color: "#245BFF" }}>{selectedTopic}</strong> has been assigned to our front desk team. We will call you at <strong style={{ color: "#245BFF" }}>{phone}</strong> promptly.
               </p>
 
               <div className="maya-dialog-summary-card">
@@ -159,7 +159,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 </div>
                 <div className="summary-row">
                   <span className="summary-label">24x7 Helpline:</span>
-                  <span className="summary-val" style={{ color: "#7c3aed", fontWeight: 700 }}>
+                  <span className="summary-val" style={{ color: "#245BFF", fontWeight: 700 }}>
                     {HOSPITAL_INFO.bookingPhone}
                   </span>
                 </div>
@@ -308,9 +308,9 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
 
               {/* Direct 24x7 Emergency Help Notice */}
               <div className="maya-dialog-emergency-notice">
-                <ShieldCheck size={18} style={{ color: "#7c3aed", flexShrink: 0 }} />
+                <ShieldCheck size={18} style={{ color: "#FF8A00", flexShrink: 0 }} />
                 <span>
-                  <strong>Need immediate emergency care?</strong> Call our 24x7 Casualty & Ambulance directly at <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#7c3aed", fontWeight: 700, textDecoration: "underline" }}>{HOSPITAL_INFO.emergencyPhone}</a>.
+                  <strong>Need immediate emergency care?</strong> Call our 24x7 Casualty & Ambulance directly at <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#FF8A00", fontWeight: 700, textDecoration: "underline" }}>{HOSPITAL_INFO.emergencyPhone}</a>.
                 </span>
               </div>
 

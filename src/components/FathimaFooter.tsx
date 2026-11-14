@@ -6,11 +6,10 @@ export default function FathimaFooter() {
   return (
     <footer
       style={{
-        backgroundColor: "#120320",
-        backgroundImage: "linear-gradient(180deg, #1b072c 0%, #0d0216 100%)",
+        backgroundColor: "#0E36B4",
         color: "#ffffff",
         paddingTop: "60px",
-        borderTop: "1px solid rgba(124, 58, 237, 0.25)"
+        borderTop: "1px solid rgba(255, 255, 255, 0.15)"
       }}
     >
       <div className="container">
@@ -46,7 +45,7 @@ export default function FathimaFooter() {
                 </h4>
                 <span
                   style={{
-                    color: "#c084fc",
+                    color: "#FF8A00",
                     fontSize: "11px",
                     textTransform: "uppercase",
                     letterSpacing: "1.5px",
@@ -79,7 +78,7 @@ export default function FathimaFooter() {
                 </a>
               </div>
               <div>
-                <span style={{ color: "#c084fc", fontWeight: 600 }}>OPD / Reception: </span>
+                <span style={{ color: "#FF8A00", fontWeight: 600 }}>OPD / Reception: </span>
                 <a
                   href={`tel:${HOSPITAL_INFO.bookingPhone.replace(/\s+/g, '')}`}
                   style={{ color: "rgba(255, 255, 255, 0.85)", textDecoration: "none" }}
@@ -133,7 +132,7 @@ export default function FathimaFooter() {
                       transition: "color 0.2s ease"
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#c084fc";
+                      e.currentTarget.style.color = "#FF8A00";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = "rgba(255, 255, 255, 0.72)";
@@ -182,7 +181,7 @@ export default function FathimaFooter() {
                       transition: "color 0.2s ease"
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#c084fc";
+                      e.currentTarget.style.color = "#FF8A00";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = "rgba(255, 255, 255, 0.72)";
@@ -232,7 +231,7 @@ export default function FathimaFooter() {
                       transition: "color 0.2s ease"
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "#c084fc";
+                      e.currentTarget.style.color = "#FF8A00";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = "rgba(255, 255, 255, 0.72)";
@@ -250,7 +249,7 @@ export default function FathimaFooter() {
       {/* Simplified, Clean Bottom Bar */}
       <div
         style={{
-          backgroundColor: "#0d0216",
+          backgroundColor: "#0A2882",
           borderTop: "1px solid rgba(255, 255, 255, 0.06)",
           padding: "18px 0"
         }}
@@ -275,7 +274,7 @@ export default function FathimaFooter() {
             <span>Aira Road, Meerpur, Lakhimpur Kheri</span>
             <span style={{ opacity: 0.3 }}>•</span>
             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "rgba(255, 255, 255, 0.85)" }}>
-              <i className="fa-solid fa-certificate" style={{ color: "#c084fc", fontSize: "11px" }}></i>
+              <i className="fa-solid fa-certificate" style={{ color: "#FF8A00", fontSize: "11px" }}></i>
               <span>Accreditations &amp; Clinical Quality Standards</span>
             </span>
             <span style={{ opacity: 0.3 }}>•</span>
@@ -286,7 +285,7 @@ export default function FathimaFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: "#c084fc",
+                  color: "#FF8A00",
                   fontWeight: 600,
                   textDecoration: "none",
                   transition: "color 0.2s ease"
@@ -295,7 +294,7 @@ export default function FathimaFooter() {
                   e.currentTarget.style.color = "#ffffff";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#c084fc";
+                  e.currentTarget.style.color = "#FF8A00";
                 }}
               >
                 NeedHelpBuilding Team

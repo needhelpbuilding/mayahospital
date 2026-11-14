@@ -70,44 +70,18 @@ export default function MayaGallerySection() {
       className="reveal-on-scroll"
       style={{
         padding: "90px 0",
-        backgroundColor: "#160526",
+        backgroundColor: "#0E36B4",
         color: "#ffffff",
         scrollMarginTop: "90px",
         position: "relative",
         overflow: "hidden"
       }}
     >
-      {/* Background ambient glow */}
-      <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          right: "-5%",
-          width: "450px",
-          height: "450px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%)",
-          pointerEvents: "none"
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "-5%",
-          width: "450px",
-          height: "450px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%)",
-          pointerEvents: "none"
-        }}
-      />
-
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div style={{ textAlign: "center", marginBottom: "45px" }}>
           <span
             style={{
-              color: "#c084fc",
+              color: "#FF8A00",
               fontSize: "12px",
               fontWeight: 800,
               letterSpacing: "3px",
@@ -149,9 +123,9 @@ export default function MayaGallerySection() {
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 style={{
-                  backgroundColor: activeFilter === cat ? "#7c3aed" : "rgba(255, 255, 255, 0.08)",
+                  backgroundColor: activeFilter === cat ? "#245BFF" : "rgba(255, 255, 255, 0.08)",
                   color: "#ffffff",
-                  border: activeFilter === cat ? "1px solid #a855f7" : "1px solid rgba(255, 255, 255, 0.15)",
+                  border: activeFilter === cat ? "1px solid #245BFF" : "1px solid rgba(255, 255, 255, 0.15)",
                   padding: "8px 20px",
                   borderRadius: "9999px",
                   fontSize: "12px",
@@ -214,10 +188,10 @@ export default function MayaGallerySection() {
                     position: "absolute",
                     top: "14px",
                     left: "14px",
-                    backgroundColor: "rgba(22, 6, 36, 0.85)",
+                    backgroundColor: "rgba(14, 54, 180, 0.85)",
                     backdropFilter: "blur(8px)",
-                    color: "#c084fc",
-                    border: "1px solid rgba(192, 132, 252, 0.3)",
+                    color: "#FF8A00",
+                    border: "1px solid rgba(255, 138, 0, 0.3)",
                     padding: "4px 12px",
                     borderRadius: "9999px",
                     fontSize: "11px",

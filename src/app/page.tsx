@@ -140,13 +140,13 @@ export default function Home() {
                 overflow: "hidden"
               }}
             >
-              {/* Left Purple Card: Left corners rounded, right corners squared off to join the map */}
+              {/* Left Blue Card: Left corners rounded, right corners squared off to join the map */}
               <div 
                 style={{
-                  backgroundColor: "#21093a",
+                  backgroundColor: "#245BFF",
                   color: "#ffffff",
                   padding: "44px 40px",
-                  border: "1px solid rgba(124, 58, 237, 0.25)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                   borderRight: "none",
                   display: "flex",
                   flexDirection: "column",
@@ -159,9 +159,9 @@ export default function Home() {
                   </h3>
                   
                   <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
-                    <i className="fa-solid fa-location-dot" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
+                    <i className="fa-solid fa-location-dot" style={{ color: "#FF8A00", fontSize: "20px", marginTop: "4px" }}></i>
                     <div>
-                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>Address:</strong>
+                      <strong style={{ display: "block", color: "#ffffff", marginBottom: "4px" }}>Address:</strong>
                       <span style={{ color: "rgba(255,255,255,0.88)", fontSize: "14px", lineHeight: "22px" }}>
                         {HOSPITAL_INFO.fullAddress}
                       </span>
@@ -169,17 +169,17 @@ export default function Home() {
                   </div>
 
                   <div style={{ marginBottom: "22px", display: "flex", gap: "15px", alignItems: "flex-start" }}>
-                    <i className="fa-solid fa-phone" style={{ color: "#c084fc", fontSize: "20px", marginTop: "4px" }}></i>
+                    <i className="fa-solid fa-phone" style={{ color: "#FF8A00", fontSize: "20px", marginTop: "4px" }}></i>
                     <div>
-                      <strong style={{ display: "block", color: "#ede9fe", marginBottom: "4px" }}>24x7 Emergency (अस्पताल हेल्पलाइन):</strong>
+                      <strong style={{ display: "block", color: "#ffffff", marginBottom: "4px" }}>24x7 Emergency (अस्पताल हेल्पलाइन):</strong>
                       <a href={`tel:${HOSPITAL_INFO.emergencyPhone.replace(/\s+/g, '')}`} style={{ color: "#ffffff", textDecoration: "none", fontWeight: 700, fontSize: "16px" }}>
                         {HOSPITAL_INFO.emergencyPhone}
                       </a>
                       <div style={{ marginTop: "4px", fontSize: "13px", color: "rgba(255,255,255,0.85)" }}>
                         <span>OPD / Reception: </span>
-                        <a href="tel:+919161103325" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 9161103325</a>
+                        <a href="tel:+919161103325" style={{ color: "#FFEDD5", textDecoration: "none", fontWeight: 600 }}>+91 9161103325</a>
                         <span style={{ margin: "0 6px" }}>•</span>
-                        <a href="tel:+917897576583" style={{ color: "#c084fc", textDecoration: "none", fontWeight: 600 }}>+91 7897576583</a>
+                        <a href="tel:+917897576583" style={{ color: "#FFEDD5", textDecoration: "none", fontWeight: 600 }}>+91 7897576583</a>
                       </div>
                     </div>
                   </div>
@@ -194,7 +194,7 @@ export default function Home() {
                       margin: 0,
                       textDecoration: "none",
                       backgroundColor: "#ffffff",
-                      color: "#21093a",
+                      color: "#245BFF",
                       border: "none",
                       fontWeight: 700,
                       fontSize: "12.5px",
@@ -209,7 +209,7 @@ export default function Home() {
                       transition: "all 0.25s ease"
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#ede9fe";
+                      e.currentTarget.style.backgroundColor = "#FFF7ED";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "#ffffff";
@@ -253,7 +253,7 @@ export default function Home() {
               {/* Right Map Embed: Right corners rounded, left corners squared off to join the card */}
               <div 
                 style={{ 
-                  border: "1px solid rgba(124, 58, 237, 0.25)",
+                  border: "1px solid rgba(36, 91, 255, 0.25)",
                   borderLeft: "none",
                   overflow: "hidden", 
                   minHeight: "420px" 

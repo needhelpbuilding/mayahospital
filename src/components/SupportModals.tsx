@@ -54,19 +54,19 @@ export default function SupportModals({
       {isQuestionOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden">
-            <div className="bg-[#240b3b] text-white p-6 relative border-b border-purple-500/20">
+            <div className="bg-[#245BFF] text-white p-6 relative border-b border-white/20">
               <button
                 onClick={onCloseQuestion}
                 className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="flex items-center gap-2 text-[#c084fc] text-xs font-bold uppercase tracking-wider mb-1">
+              <div className="flex items-center gap-2 text-[#FF8A00] text-xs font-bold uppercase tracking-wider mb-1">
                 <HelpCircle className="w-4 h-4" />
                 <span>Patient Health Assistance</span>
               </div>
               <h3 className="text-xl font-bold" style={{ fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif" }}>Ask A Doctor or Clinical Inquiry</h3>
-              <p className="text-xs text-purple-200/80 mt-1">Get fast guidance on treatments, doctor availability, and diagnostic tests.</p>
+              <p className="text-xs text-blue-100 mt-1">Get fast guidance on treatments, doctor availability, and diagnostic tests.</p>
             </div>
 
             <div className="p-6">
@@ -126,7 +126,7 @@ export default function SupportModals({
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#cda250] to-[#b38634] hover:from-[#b38634] hover:to-[#966d24] text-[#170c06] font-bold text-sm shadow flex items-center justify-center gap-2 uppercase tracking-wider transition-all"
+                    className="w-full py-3.5 rounded-full bg-[#FF8A00] hover:bg-[#EA580C] text-white font-bold text-sm shadow flex items-center justify-center gap-2 uppercase tracking-wider transition-all"
                   >
                     <Send className="w-4 h-4" />
                     <span>Send Inquiry to Hospital Team</span>
@@ -142,19 +142,19 @@ export default function SupportModals({
       {isReportOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-stone-100 overflow-hidden">
-            <div className="bg-[#240b3b] text-white p-6 relative border-b border-purple-500/20">
+            <div className="bg-[#245BFF] text-white p-6 relative border-b border-white/20">
               <button
                 onClick={onCloseReport}
                 className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="flex items-center gap-2 text-[#c084fc] text-xs font-bold uppercase tracking-wider mb-1">
+              <div className="flex items-center gap-2 text-[#FF8A00] text-xs font-bold uppercase tracking-wider mb-1">
                 <FileText className="w-4 h-4" />
                 <span>Diagnostic Pathology & Radiology Portal</span>
               </div>
               <h3 className="text-xl font-bold" style={{ fontFamily: "var(--heading-font), 'Plus Jakarta Sans', sans-serif" }}>Download Lab Test Reports</h3>
-              <p className="text-xs text-purple-200/80 mt-1">Access blood test, digital X-Ray, ultrasound, and pathology findings.</p>
+              <p className="text-xs text-blue-100 mt-1">Access blood test, digital X-Ray, ultrasound, and pathology findings.</p>
             </div>
 
             <div className="p-6 space-y-4">
@@ -167,7 +167,7 @@ export default function SupportModals({
                     placeholder="e.g. MH-2026-8942"
                     value={billNumber}
                     onChange={(e) => setBillNumber(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-full border border-stone-200 text-sm focus:outline-none focus:border-[#7c3aed]"
+                    className="w-full px-4 py-2.5 rounded-full border border-stone-200 text-sm focus:outline-none focus:border-[#245BFF]"
                   />
                 </div>
                 <div>
@@ -178,12 +178,12 @@ export default function SupportModals({
                     placeholder="Mobile number given during billing"
                     value={patientMobile}
                     onChange={(e) => setPatientMobile(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-full border border-stone-200 text-sm focus:outline-none focus:border-[#7c3aed]"
+                    className="w-full px-4 py-2.5 rounded-full border border-stone-200 text-sm focus:outline-none focus:border-[#245BFF]"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#6d28d9] hover:from-[#6d28d9] hover:to-[#5b21b6] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-500/25 uppercase tracking-wider transition-all"
+                  className="w-full py-3.5 rounded-full bg-[#245BFF] hover:bg-[#1b46cc] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 uppercase tracking-wider transition-all"
                 >
                   <Search className="w-4 h-4" />
                   <span>Fetch Diagnostic Report</span>
@@ -191,10 +191,10 @@ export default function SupportModals({
               </form>
 
               {reportStatus === "found" && (
-                <div className="p-4 rounded-2xl bg-[#faf6fd] border border-purple-500/20 space-y-3 mt-4 animate-in fade-in">
+                <div className="p-4 rounded-2xl bg-[#FFF7ED] border border-orange-200 space-y-3 mt-4 animate-in fade-in">
                   <div className="flex items-center justify-between text-xs text-stone-800 font-bold">
                     <span>Patient: Verified Patient Record</span>
-                    <span className="text-white bg-[#7c3aed] px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider">Ready</span>
+                    <span className="text-white bg-[#245BFF] px-2.5 py-0.5 rounded-full text-[10px] uppercase font-bold tracking-wider">Ready</span>
                   </div>
                   <p className="text-xs text-stone-600">
                     Your digital investigation reports are ready for download or direct dispatch.
@@ -202,9 +202,9 @@ export default function SupportModals({
                   <div className="flex gap-2">
                     <button
                       onClick={() => alert(`Report for ${billNumber || "record"} is dispatched to ${patientMobile} via SMS.`)}
-                      className="flex-1 py-2.5 rounded-full bg-[#240b3b] hover:bg-[#3b1261] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+                      className="flex-1 py-2.5 rounded-full bg-[#245BFF] hover:bg-[#1b46cc] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
                     >
-                      <Download className="w-3.5 h-3.5 text-[#c084fc]" />
+                      <Download className="w-3.5 h-3.5 text-[#FF8A00]" />
                       <span>Download PDF</span>
                     </button>
                   </div>

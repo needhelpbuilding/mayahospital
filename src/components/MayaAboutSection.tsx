@@ -15,7 +15,7 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
           <div style={{ flex: "1 1 540px" }}>
             <span className="subtitle">ABOUT MAYA HOSPITAL</span>
             <h2 className="heading" style={{ marginBottom: "20px" }}>
-              Welcome to <span style={{ color: "#7c3aed" }}>Maya Hospital</span> & Multi-speciality Centre
+              Welcome to <span style={{ color: "#FF8A00" }}>Maya Hospital</span> & Multi-speciality Centre
             </h2>
             <p style={{ fontSize: "15px", lineHeight: "26px", color: "#4b5563", marginBottom: "18px" }}>
               We, at <strong>Maya Multispeciality Hospital</strong>, offer excellence in in-patient and out-patient facilities, focusing on the comfort and safety of our patients and their loved ones. Our modern infrastructure and facilities that match rigorous quality standards make us one of the premier healthcare providers in Lakhimpur Kheri and Uttar Pradesh.
@@ -77,21 +77,21 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
           </div>
         </div>
 
-        {/* 4 Pillars (Mission, Vision, Motto, Quality Policy) styled with clean purple top borders and tints */}
+        {/* 4 Pillars (Mission, Vision, Motto, Quality Policy) styled with clean blue top borders and tints */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "25px", marginTop: "40px" }}>
           {/* Mission */}
           <div style={{
-            backgroundColor: "rgba(124, 58, 237, 0.04)",
+            backgroundColor: "#F8FAFC",
             padding: "32px 26px",
             borderRadius: "20px",
-            boxShadow: "0 10px 30px rgba(124, 58, 237, 0.06)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
-            borderTop: "4px solid #7c3aed",
+            boxShadow: "0 10px 30px rgba(36, 91, 255, 0.05)",
+            border: "1px solid #E2E8F0",
+            borderTop: "4px solid #245BFF",
             transition: "all 0.3s ease",
             position: "relative"
           }}>
             <div style={{
-              color: "#7c3aed",
+              color: "#FF8A00",
               marginBottom: "16px",
               fontSize: "28px"
             }}>
@@ -106,17 +106,17 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
           {/* Vision */}
           <div id="vision" style={{
             scrollMarginTop: "100px",
-            backgroundColor: "rgba(124, 58, 237, 0.04)",
+            backgroundColor: "#F8FAFC",
             padding: "32px 26px",
             borderRadius: "20px",
-            boxShadow: "0 10px 30px rgba(124, 58, 237, 0.06)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
-            borderTop: "4px solid #7c3aed",
+            boxShadow: "0 10px 30px rgba(36, 91, 255, 0.05)",
+            border: "1px solid #E2E8F0",
+            borderTop: "4px solid #245BFF",
             transition: "all 0.3s ease",
             position: "relative"
           }}>
             <div style={{
-              color: "#7c3aed",
+              color: "#FF8A00",
               marginBottom: "16px",
               fontSize: "28px"
             }}>
@@ -130,17 +130,17 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
 
           {/* Motto */}
           <div style={{
-            backgroundColor: "rgba(124, 58, 237, 0.04)",
+            backgroundColor: "#F8FAFC",
             padding: "32px 26px",
             borderRadius: "20px",
-            boxShadow: "0 10px 30px rgba(124, 58, 237, 0.06)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
-            borderTop: "4px solid #7c3aed",
+            boxShadow: "0 10px 30px rgba(36, 91, 255, 0.05)",
+            border: "1px solid #E2E8F0",
+            borderTop: "4px solid #245BFF",
             transition: "all 0.3s ease",
             position: "relative"
           }}>
             <div style={{
-              color: "#7c3aed",
+              color: "#FF8A00",
               marginBottom: "16px",
               fontSize: "28px"
             }}>
@@ -154,17 +154,17 @@ export default function MayaAboutSection({ onOpenAppointmentModal }: AboutProps)
 
           {/* Quality Policy */}
           <div style={{
-            backgroundColor: "rgba(124, 58, 237, 0.04)",
+            backgroundColor: "#F8FAFC",
             padding: "32px 26px",
             borderRadius: "20px",
-            boxShadow: "0 10px 30px rgba(124, 58, 237, 0.06)",
-            border: "1px solid rgba(124, 58, 237, 0.12)",
-            borderTop: "4px solid #7c3aed",
+            boxShadow: "0 10px 30px rgba(36, 91, 255, 0.05)",
+            border: "1px solid #E2E8F0",
+            borderTop: "4px solid #245BFF",
             transition: "all 0.3s ease",
             position: "relative"
           }}>
             <div style={{
-              color: "#7c3aed",
+              color: "#FF8A00",
               marginBottom: "16px",
               fontSize: "28px"
             }}>

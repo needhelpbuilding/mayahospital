@@ -116,7 +116,7 @@ export default function DepartmentsSection({ onOpenAppointmentModal }: Departmen
                 alt={selectedDept.name}
                 className="w-full h-full object-cover object-center transition-all duration-500 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#092c57]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-[#092c57]/70" />
               <div className="absolute bottom-4 left-6 right-6 text-white">
                 <span className="text-xs font-bold uppercase tracking-wider text-sky-300">
                   Specialized Unit

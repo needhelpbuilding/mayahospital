@@ -14,7 +14,7 @@ import { HOSPITAL_INFO } from "@/data/hospitalData";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-white via-sky-50/30 to-white">
+    <section id="about" className="py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Visuals & Experience Pill */}
@@ -25,7 +25,7 @@ export default function AboutSection() {
                 alt="Maya Hospital And Multi-speciality Centre Exterior & Facility"
                 className="w-full h-[460px] object-cover object-center"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#092c57]/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-[#092c57]/70" />
               
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/90 text-white text-xs font-bold uppercase tracking-wider backdrop-blur-sm">
@@ -99,7 +99,7 @@ export default function AboutSection() {
               </div>
 
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm">
-                <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0">
                   <HeartHandshake className="w-5 h-5" />
                 </div>
                 <div>
